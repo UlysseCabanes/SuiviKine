@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Nouvelle fiche</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Création : nouvelle fiche de suivi</h1>
+    <a href="accueil">Accueil</a>
+    <br><br>
+    <form>
+        <label for="nom">Nom*</label> 
+        <input type="text" id="nom" name="nom" placeholder="ex: Pages">
+        <label for="prenom">Prénom*</label> 
+        <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette">
+        <br><br>
+        <label for="dateNaissance">Date de naissance*</label> 
+        <input type="date" id="dateNaissance" name="dateNaissance" min="01-01-1900">
+        <label>Sexe*</label> 
+        <label for="F">F</label> 
+        <input type="radio" name="sexe" id="F" value="F"> 
+        <label for="M">M</label> 
+        <input type="radio" name="sexe" id="M" value="M">
+        <label for="medecin">Médecin traitant*</label> 
+        <select>
+            <option></option>
+        </select>
+        <br><br>
+        <input type="submit" value="CREATION">
+        <br><br>
+        <label>CHAMP OBLIGATOIRE*</label>
+    </form>
+</body>
+</html>

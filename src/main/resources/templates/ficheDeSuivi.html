@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Page d'accueil</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css">
+</head>
+<header>
+    <a href="accueil">Accueil</a>
+    <h1>FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</h1>
+</header>
+<body>
+    <table id="tabFicheSuivi">
+        <!-- Ligne 1-->
+        <thead>
+            <td>
+                <label>RENSEIGNEMENTS SOCIO-ADMINISTRATIFS</label>
+                <br>
+                <label>Patient : </label>
+                <label>Nom : </label>
+                <label>Prénom : </label>
+                <label>Sexe : </label>
+                <label>Date de naissance : </label>
+                <label>Age : </label>
+                <br>
+                <label>N° sécurité sociale : </label>
+                <input type="text" id="nSecuriteSociale" placeholder="ex: 000000000000000">
+                <label>Médecin prescripteur : </label>
+                <label>Equipe kiné : </label>
+            </td>
+        </thead>
+        <!-- Ligne 2-->
+        <tr>
+            <td>
+                <label>PRESCRIPTION</label> 
+                <label>Date de la prescription : </label> 
+                <input type="date" id="datePrescription">
+                <label>S'agit-il d'une prescription quantitative : </label> 
+                <label for="prescripQuantOui">Oui</label>
+                <input type="radio" name="prescripQuant" id="prescripQuantOui">
+                <label for="prescripQuantNon">Non</label>
+                <input type="radio" name="prescripQuant" id="prescripQuantNon">
+                <label>S'agit-il d'un renouvellement : </label> 
+                <label for="renouvellementOui">Oui</label>
+                <input type="radio" name="renouvellement" id="renouvellementOui">
+                <label for="renouvellementNon">Non</label>
+                <input type="radio" name="renouvellement" id="renouvellementNon">
+                <br>
+                <label>INDICATION MEDICALE : </label>
+                <input type="text" id="indicMedic">
+            </td>
+        </tr>
+        <!-- Ligne 3-->
+        <tr>
+            <td id="intitules">
+                <label>INTITULES</label>
+                <br>
+                <input type="text" id="intituleKine" placeholder="ex: Rééducation des 4 membres du tronc">
+            </td>
+            <td id="demarrage">
+                <input type="checkbox" id="checkDemarrage">
+                <label>DEMARRAGE - date : </label>
+                <input type="date" id="dateDemarrage">
+            </td>
+            <td id="intermediaire">
+                <input type="checkbox" id="checkIntermediaire">
+                <label>INTERMEDIAIRE - date : </label>
+                <input type="date" id="dateIntermediaire">
+            </td>
+            <td id="intermediaireFinale">
+                <input type="checkbox" id="checkIntermediaireFinale1">
+                <label>INTERMEDIAIRE</label>
+                <input type="checkbox" id="checkIntermediaireFinale2">
+                <label>FINALE - date : </label>
+                <input type="date" id="dateIntermediaireFinale">
+            </td>
+        </tr>
+        <!-- Ligne 4-->
+    </table>
+</body>
+</html>

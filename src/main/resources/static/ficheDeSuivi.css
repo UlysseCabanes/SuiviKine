@@ -1,0 +1,7 @@
+#tabFicheSuivi td{
+    border: solid black 1px;
+}
+
+#tabFicheSuivi tr{
+    width: 1000px;
+}
