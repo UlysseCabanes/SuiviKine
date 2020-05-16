@@ -3,15 +3,21 @@
 <head> 
     <title>Page de login</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="accueil">
-        <label>Identifiant</label> <input type="text" id="id" name="id" placeholder="ex: test">
-        <br><br>
-        <label>Mot de passe</label> <input type="text" id="mdp" name="mdp" placeholder="Mot de passe">
-        <br>
-        <input type="submit" value="OK">
-    </form>
+    <div id="divLogin">
+        <p id="titre1">Fiche de suivi</p>
+        <p id="titre2">KINESITHERAPIE</p>
+        <form id="formLogin" action="accueil">
+            <label>Identifiant</label> 
+            <input type="text" id="id" name="id" placeholder="ex: test">
+            <br><br>
+            <label>Mot de passe</label> 
+            <input type="text" id="mdp" name="mdp" placeholder="Mot de passe">
+            <br>
+            <input type="submit" value="OK">
+        </form>
+    </div>
 </body>
 </html>

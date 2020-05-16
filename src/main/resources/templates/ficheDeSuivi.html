@@ -6,12 +6,20 @@
     <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css">
 </head>
 <header>
+    <a href="login">Déconnexion</a>
+    <br><br>
     <a href="accueil">Accueil</a>
 </header>
 <body>
     <table id="tabFicheSuivi">
         <tbody>
             <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
+            <colgroup>
+                <col id="col1" style="width: 200px">
+                <col id="col2" style="width: 33%">
+                <col id="col3" style="width: 33%">
+                <col id="col4" style="width: 34%">
+            </colgroup>
             <!-- Ligne 1-->
             <tr id="L1">
                 <td id="L1C1" colspan="4">
@@ -25,7 +33,6 @@
                     <label>Age : </label>
                     <br>
                     <label>N° sécurité sociale : </label>
-                    <input type="text" id="nSecuriteSociale" placeholder="ex: 000000000000000">
                     <label>Médecin prescripteur : </label>
                     <label>Equipe kiné : </label>
                 </td>
@@ -53,26 +60,53 @@
             </tr>
             <!-- Ligne 3-->
             <tr id="L3">
+                <td id="L3C1" colspan="4">
+                    <label class="titre">Protocole thérapeutique</label>
+                    <br>
+                    <label>Nombre : </label>
+                    <input type="number">
+                    <label>Rythme des séances : </label>
+                    <input type="number">
+                    <label>/semaine</label>
+                    <label>Lieu des séances : </label>
+                    <input type="text">
+                    <label>Trvail en groupe : </label>
+                    <label for="travailEnGroupeOui">Oui</label>
+                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeOui">
+                    <label for="travailEnGroupeNon">Non</label>
+                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeNon">
+                    <br>
+                    <label>Date de la première séance : </label>
+                    <input type="date">
+                    <label>Techniques : </label>
+                    <input type="text">
+                </td>
+            </tr>
+            <!-- Ligne 4-->
+            <tr id="L4">
                 <!-- Colonne 1-->
-                <td id="L3C1">
+                <td id="L4C1">
                     <label class="titre">INTITULES</label>
                     <br>
                     <input type="text" id="intituleKine" placeholder="ex: Rééducation des 4 membres du tronc">
                 </td>
                 <!-- Colonne 2-->
-                <td id="L3C2">
+                <td id="L4C2">
+                    <input type="button" id="masquer2" value="-">
                     <input type="checkbox" id="checkDemarrage">
                     <label class="titre">DEMARRAGE - date : </label>
                     <input class="titre" type="date" id="dateDemarrage">
                 </td>
                 <!-- Colonne 3-->
-                <td id="L3C3">
+                <td id="L4C3">
+                    <input type="button" id="masquer3" value="-">
                     <input type="checkbox" id="checkIntermediaire">
                     <label class="titre">INTERMEDIAIRE - date : </label>
                     <input class="titre" type="date" id="dateIntermediaire">
                 </td>
                 <!-- Colonne 4-->
-                <td id="L3C4">
+                <td id="L4C4">
+                    <input type="button" id="masquer4" value="-">
                     <input type="checkbox" id="checkIntermediaireFinale1">
                     <label class="titre">INTERMEDIAIRE</label>
                     <input type="checkbox" id="checkIntermediaireFinale2">
@@ -80,47 +114,32 @@
                     <input class="titre" type="date" id="dateIntermediaireFinale">
                 </td>
             </tr>
-            <!-- Ligne 4-->
-            <tr id="L4"> 
+            <!-- Ligne 5-->
+            <tr id="L5"> 
                 <!-- Colonne 1-->
-                <td id="L4C1" style="border-bottom: none">
+                <td id="L5C1" style="border-bottom: none">
                     <label class="titre">Bilan des déficits structurels :</label>
                 </td>
                 <!-- Colonne 2-->
-                <td id="L4C2" style="border-bottom: none">
+                <td id="L5C2" style="border-bottom: none">
 
                 </td>
                 <!-- Colonne 3-->
-                <td id="L4C3" style="border-bottom: none">
+                <td id="L5C3" style="border-bottom: none">
 
                 </td>
                 <!-- Colonne 4-->
-                <td id="L4C4" style="border-bottom: none">
+                <td id="L5C4" style="border-bottom: none">
 
-                </td>
-            </tr>
-            <!-- Ligne 5-->
-            <tr id="L5">
-                <td id="L5C1" style="border-top: none; border-bottom: none">
-                    <label>- articulaires................</label>
-                </td>
-                <td id="L5C2" style="border-top: none; border-bottom: none">
-                    <textarea id="aD"></textarea>
-                </td>
-                <td id="L5C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L5C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
                 </td>
             </tr>
             <!-- Ligne 6-->
             <tr id="L6">
                 <td id="L6C1" style="border-top: none; border-bottom: none">
-                    <label>- force musculaire............</label>
+                    <label>- articulaires................</label>
                 </td>
                 <td id="L6C2" style="border-top: none; border-bottom: none">
-                    <textarea id="fmD"></textarea>
+                    <textarea id="aD"></textarea>
                 </td>
                 <td id="L6C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
@@ -132,10 +151,10 @@
             <!-- Ligne 7-->
             <tr id="L7">
                 <td id="L7C1" style="border-top: none; border-bottom: none">
-                    <label>- douleurs....................</label>
+                    <label>- force musculaire............</label>
                 </td>
                 <td id="L7C2" style="border-top: none; border-bottom: none">
-                    <textarea id="dD"></textarea>
+                    <textarea id="fmD"></textarea>
                 </td>
                 <td id="L7C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
@@ -147,10 +166,10 @@
             <!-- Ligne 8-->
             <tr id="L8">
                 <td id="L8C1" style="border-top: none; border-bottom: none">
-                    <label for="tD">- trophiques..................</label>
+                    <label>- douleurs....................</label>
                 </td>
                 <td id="L8C2" style="border-top: none; border-bottom: none">
-                    <textarea id="tD"></textarea>
+                    <textarea id="dD"></textarea>
                 </td>
                 <td id="L8C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
@@ -161,20 +180,16 @@
             </tr>
             <!-- Ligne 9-->
             <tr id="L9">
-                <!-- Colonne 1-->
-                <td id="L9C1">
-                    <label class="titre">Bilan des déficits fonctionnels</label>
+                <td id="L9C1" style="border-top: none; border-bottom: none">
+                    <label for="tD">- trophiques..................</label>
                 </td>
-                <!-- Colonne 2-->
-                <td id="L9C2">
+                <td id="L9C2" style="border-top: none; border-bottom: none">
+                    <textarea id="tD"></textarea>
+                </td>
+                <td id="L9C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
-                <!-- Colonne 3-->
-                <td id="L9C3">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L9C4">
+                <td id="L9C4" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
             </tr>
@@ -182,7 +197,7 @@
             <tr id="L10">
                 <!-- Colonne 1-->
                 <td id="L10C1">
-                    <label class="titre">Autres problèmes généraux identifiés par le Masseur kinésithérapeute</label>
+                    <label class="titre">Bilan des déficits fonctionnels</label>
                 </td>
                 <!-- Colonne 2-->
                 <td id="L10C2">
@@ -201,20 +216,14 @@
             <tr id="L11">
                 <!-- Colonne 1-->
                 <td id="L11C1">
-                    <label class="titre">Objectifs :</label>
-                    <br>
-                    <label>- à court terme :</label>
-                    <br>
-                    <label>- à moyen terme :</label>
-                    <br>
-                    <label>- à long terme :</label>
+                    <label class="titre">Autres problèmes généraux identifiés par le Masseur kinésithérapeute</label>
                 </td>
                 <!-- Colonne 2-->
                 <td id="L11C2">
                     <textarea></textarea>
                 </td>
-                <td id="L11C3">
                 <!-- Colonne 3-->
+                <td id="L11C3">
                     <textarea></textarea>
                 </td>
                 <!-- Colonne 4-->
@@ -226,7 +235,13 @@
             <tr id="L12">
                 <!-- Colonne 1-->
                 <td id="L12C1">
-                    <label class="titre">Diagnostic kinésithérapique</label>
+                    <label class="titre">Objectifs :</label>
+                    <br>
+                    <label>- à court terme :</label>
+                    <br>
+                    <label>- à moyen terme :</label>
+                    <br>
+                    <label>- à long terme :</label>
                 </td>
                 <!-- Colonne 2-->
                 <td id="L12C2">
@@ -243,26 +258,21 @@
             </tr>
             <!-- Ligne 13-->
             <tr id="L13">
-                <td id="L13C1" colspan="4">
-                    <label class="titre">Protocole thérapeutique</label>
-                    <br>
-                    <label>Nombre : </label>
-                    <input type="number">
-                    <label>Rythme des séances : </label>
-                    <input type="number">
-                    <label>/semaine</label>
-                    <label>Lieu des séances : </label>
-                    <input type="text">
-                    <label>Trvail en groupe : </label>
-                    <label for="travailEnGroupeOui">Oui</label>
-                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeOui">
-                    <label for="travailEnGroupeNon">Non</label>
-                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeNon">
-                    <label>Date de la première séance : </label>
-                    <input type="date">
-                    <br>
-                    <label>Techniques : </label>
-                    <input type="text">
+                <!-- Colonne 1-->
+                <td id="L13C1">
+                    <label class="titre">Diagnostic kinésithérapique</label>
+                </td>
+                <!-- Colonne 2-->
+                <td id="L13C2">
+                    <textarea></textarea>
+                </td>
+                <td id="L13C3">
+                <!-- Colonne 3-->
+                    <textarea></textarea>
+                </td>
+                <!-- Colonne 4-->
+                <td id="L13C4">
+                    <textarea></textarea>
                 </td>
             </tr>
             <!-- Ligne 14-->
@@ -329,7 +339,7 @@
                 <td style="border: none">
                     <label class="titre">Date :</label>
                 </td>
-                <td colspan="2" style="border: none">
+                <td colspan="2" style="border: none;">
                     <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
                 </td>
                 <td style="border: none">

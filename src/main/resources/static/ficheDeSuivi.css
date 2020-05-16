@@ -1,8 +1,10 @@
 /* tableau */
 #tabFicheSuivi{
     border-collapse:collapse;
-    max-height: 1654px;
-    max-width: 2339px;
+    height: 827px;
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Cellules du tableau */
