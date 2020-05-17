@@ -1,17 +1,23 @@
 #divLogin {
     border: solid black 1px;
     border-radius: 10px;
-    padding: 10px 20px 40px 20px;
+    padding: 20px 20px 30px 40px;
     width: 300px;
+    height: 250px;
     background-image:linear-gradient(#E5755F, #C34D34);
+    font-family: "Open", sans-serif;
+    margin: 250px auto auto 650px;
+    box-shadow: 2px 2px 5px;
 }
 
 #formLogin {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 input[type=text] {
-    border: solid black 3px;
+    border: solid black 2px;
+    height: 25px;
+    width: 140px;
 }
 
 #titre1 {
@@ -22,4 +28,23 @@ input[type=text] {
 #titre2 {
     margin: 0px auto 0px auto;
     width: 120px;
+}
+
+#divLabel, #divInput {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#labelId {
+    margin-left: 10px;
+}
+
+#submitLogin {
+    margin-top: 30px;
+    margin-left: 111px;
+    margin-right: auto;
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    border: solid black 2px;
 }
