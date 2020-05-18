@@ -1,0 +1,15 @@
+input[type=submit] {
+    border: solid black 1px;
+    border-radius: 10px;
+    padding: 20px 20px 30px 40px;
+    width: 300px;
+    height: 250px;
+    margin: 300px auto auto 450px;
+    background-image:linear-gradient(#E5755F, #C34D34);
+    font-family: "Open", sans-serif;
+    box-shadow: 2px 2px 5px;
+}
+
+form {
+    display: inline-block;
+}

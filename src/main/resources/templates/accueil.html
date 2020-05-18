@@ -3,14 +3,16 @@
 <head> 
     <title>Page d'accueil</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="accueil.css">
 </head>
 <body>
-    <h1>Accueil</h1>
-    <br>
     <a href="login">Déconnexion</a>
     <br><br>
-    <a href="nouvelleFiche">Nouvelle fiche</a>
-    <br><br>
-    <a href="listeFiches">Fiches de suivi</a>
+    <form action="nouvelleFiche">
+        <input type="submit" value="Nouvelle fiche">
+    </form>
+    <form action="listeFiches">
+        <input type="submit" value="Fiches de suivi">
+    </form>
 </body>
 </html>
