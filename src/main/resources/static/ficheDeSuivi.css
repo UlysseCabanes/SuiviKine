@@ -1,3 +1,29 @@
+.bouton {
+    border: solid black 1px;
+    border-radius: 10px;
+    background-image:linear-gradient(#E5755F, #C34D34);
+    font-family: "Open", sans-serif;
+    box-shadow: 2px 2px 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+}
+
+#boutonAccueil {
+    margin: 20px auto auto 20px;
+}
+
+#boutonDeconnexion {
+    margin: 20px auto auto 1664px;
+}
+
+header {
+    display: flex;
+}
+
 /* tableau */
 #tabFicheSuivi{
     border-collapse:collapse;
@@ -28,6 +54,7 @@ input {
 input[type=text] {
     border: none;
     background-color: #F0F0F0;
+    margin-top: 5px;
 }
 
 /* input type="date" */

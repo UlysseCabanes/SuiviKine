@@ -6,8 +6,12 @@
     <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css">
 </head>
 <header>
-    <a href="accueil">Accueil</a>
-    <a href="login">Déconnexion</a>
+    <form action="accueil">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <form action="login">
+        <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
+    </form>
 </header>
 <body>
     <table id="tabFicheSuivi">
@@ -135,7 +139,7 @@
             <!-- Ligne 6-->
             <tr id="L6">
                 <td id="L6C1" style="border-top: none; border-bottom: none">
-                    <label>- articulaires................</label>
+                    <label>- articulaires</label>
                 </td>
                 <td id="L6C2" style="border-top: none; border-bottom: none">
                     <textarea id="aD"></textarea>
@@ -150,7 +154,7 @@
             <!-- Ligne 7-->
             <tr id="L7">
                 <td id="L7C1" style="border-top: none; border-bottom: none">
-                    <label>- force musculaire............</label>
+                    <label>- force musculaire</label>
                 </td>
                 <td id="L7C2" style="border-top: none; border-bottom: none">
                     <textarea id="fmD"></textarea>
@@ -165,7 +169,7 @@
             <!-- Ligne 8-->
             <tr id="L8">
                 <td id="L8C1" style="border-top: none; border-bottom: none">
-                    <label>- douleurs....................</label>
+                    <label>- douleurs</label>
                 </td>
                 <td id="L8C2" style="border-top: none; border-bottom: none">
                     <textarea id="dD"></textarea>
@@ -180,7 +184,7 @@
             <!-- Ligne 9-->
             <tr id="L9">
                 <td id="L9C1" style="border-top: none; border-bottom: none">
-                    <label for="tD">- trophiques..................</label>
+                    <label for="tD">- trophiques</label>
                 </td>
                 <td id="L9C2" style="border-top: none; border-bottom: none">
                     <textarea id="tD"></textarea>
@@ -231,84 +235,66 @@
                 </td>
             </tr>
             <!-- Ligne 12-->
-            <tr id="L12">
+            <tr id="L12"> 
                 <!-- Colonne 1-->
-                <td id="L12C1">
+                <td id="L12C1" style="border-bottom: none">
                     <label class="titre">Objectifs :</label>
-                    <br>
-                    <label>- à court terme :</label>
-                    <br>
-                    <label>- à moyen terme :</label>
-                    <br>
-                    <label>- à long terme :</label>
                 </td>
                 <!-- Colonne 2-->
-                <td id="L12C2">
-                    <textarea></textarea>
+                <td id="L12C2" style="border-bottom: none">
+
                 </td>
-                <td id="L12C3">
                 <!-- Colonne 3-->
-                    <textarea></textarea>
+                <td id="L12C3" style="border-bottom: none">
+
                 </td>
                 <!-- Colonne 4-->
-                <td id="L12C4">
-                    <textarea></textarea>
+                <td id="L12C4" style="border-bottom: none">
+
                 </td>
             </tr>
             <!-- Ligne 13-->
             <tr id="L13">
-                <!-- Colonne 1-->
-                <td id="L13C1">
-                    <label class="titre">Diagnostic kinésithérapique</label>
+                <td id="L13C1" style="border-top: none; border-bottom: none">
+                    <label>- à court terme :</label>
                 </td>
-                <!-- Colonne 2-->
-                <td id="L13C2">
+                <td id="L13C2" style="border-top: none; border-bottom: none">
+                    <textarea id="aD"></textarea>
+                </td>
+                <td id="L13C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
-                <td id="L13C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L13C4">
+                <td id="L13C4" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
             </tr>
             <!-- Ligne 14-->
             <tr id="L14">
-                <!-- Colonne 1-->
-                <td id="L14C1">
-                    <label class="titre">Conseils</label>
+                <td id="L14C1" style="border-top: none; border-bottom: none">
+                    <label>- à moyen terme :</label>
                 </td>
-                <!-- Colonne 2-->
-                <td id="L14C2">
+                <td id="L14C2" style="border-top: none; border-bottom: none">
+                    <textarea id="fmD"></textarea>
+                </td>
+                <td id="L14C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
-                <td id="L14C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L14C4">
+                <td id="L14C4" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
             </tr>
             <!-- Ligne 15-->
             <tr id="L15">
-                <!-- Colonne 1-->
-                <td id="L15C1">
-                    <label class="titre">Propositions consécutives</label>
+                <td id="L15C1" style="border-top: none; border-bottom: none">
+                    <label>- à long terme :</label>
                 </td>
-                <!-- Colonne 2-->
-                <td id="L15C2">
+                <td id="L15C2" style="border-top: none; border-bottom: none">
+                    <textarea id="dD"></textarea>
+                </td>
+                <td id="L15C3" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
-                <td id="L15C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L15C4">
+                <td id="L15C4" style="border-top: none; border-bottom: none">
                     <textarea></textarea>
                 </td>
             </tr>
@@ -316,18 +302,75 @@
             <tr id="L16">
                 <!-- Colonne 1-->
                 <td id="L16C1">
-                    <label class="titre">Commentaires</label>
+                    <label class="titre">Diagnostic kinésithérapique</label>
                 </td>
                 <!-- Colonne 2-->
                 <td id="L16C2">
                     <textarea></textarea>
                 </td>
-                <!-- Colonne 3-->
                 <td id="L16C3">
+                <!-- Colonne 3-->
                     <textarea></textarea>
                 </td>
                 <!-- Colonne 4-->
                 <td id="L16C4">
+                    <textarea></textarea>
+                </td>
+            </tr>
+            <!-- Ligne 17-->
+            <tr id="L17">
+                <!-- Colonne 1-->
+                <td id="L17C1">
+                    <label class="titre">Conseils</label>
+                </td>
+                <!-- Colonne 2-->
+                <td id="L17C2">
+                    <textarea></textarea>
+                </td>
+                <td id="L17C3">
+                <!-- Colonne 3-->
+                    <textarea></textarea>
+                </td>
+                <!-- Colonne 4-->
+                <td id="L17C4">
+                    <textarea></textarea>
+                </td>
+            </tr>
+            <!-- Ligne 18-->
+            <tr id="L18">
+                <!-- Colonne 1-->
+                <td id="L18C1">
+                    <label class="titre">Propositions consécutives</label>
+                </td>
+                <!-- Colonne 2-->
+                <td id="L18C2">
+                    <textarea></textarea>
+                </td>
+                <td id="L18C3">
+                <!-- Colonne 3-->
+                    <textarea></textarea>
+                </td>
+                <!-- Colonne 4-->
+                <td id="L18C4">
+                    <textarea></textarea>
+                </td>
+            </tr>
+            <!-- Ligne 19-->
+            <tr id="L19">
+                <!-- Colonne 1-->
+                <td id="L19C1">
+                    <label class="titre">Commentaires</label>
+                </td>
+                <!-- Colonne 2-->
+                <td id="L19C2">
+                    <textarea></textarea>
+                </td>
+                <!-- Colonne 3-->
+                <td id="L19C3">
+                    <textarea></textarea>
+                </td>
+                <!-- Colonne 4-->
+                <td id="L19C4">
                     <label class="titre">COTATION : </label>
                     <input type="text">
                 </td>
