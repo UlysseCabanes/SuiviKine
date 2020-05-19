@@ -3,18 +3,20 @@
 <head> 
     <title>Fiche de suivi</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css">
+    <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="ficheDeSuivi_Impression.css" media="print">
 </head>
 <header>
     <form action="accueil">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
-    <button class="bouton" id="boutonImpression">Aperçu avant impression</button>
+    <button class="bouton" id="boutonImpression" onclick="window.print()">Imprimer la fiche</button>
     <form action="login">
         <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
     </form>
 </header>
 <body>
+    <div id="print">
     <table id="tabFicheSuivi">
         <tbody>
             <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
@@ -96,21 +98,21 @@
                 </td>
                 <!-- Colonne 2-->
                 <td id="L4C2">
-                    <input type="button" id="masquer2" value="-">
+                    <input type="button" id="masquer2" class="masquer" value="-">
                     <input type="checkbox" id="checkDemarrage">
                     <label class="titre">DEMARRAGE - date : </label>
                     <input class="titre" type="date" id="dateDemarrage">
                 </td>
                 <!-- Colonne 3-->
                 <td id="L4C3">
-                    <input type="button" id="masquer3" value="-">
+                    <input type="button" id="masquer3" class="masquer" value="-">
                     <input type="checkbox" id="checkIntermediaire">
                     <label class="titre">INTERMEDIAIRE - date : </label>
                     <input class="titre" type="date" id="dateIntermediaire">
                 </td>
                 <!-- Colonne 4-->
                 <td id="L4C4">
-                    <input type="button" id="masquer4" value="-">
+                    <input type="button" id="masquer4" class="masquer" value="-">
                     <input type="checkbox" id="checkIntermediaireFinale1">
                     <label class="titre">INTERMEDIAIRE</label>
                     <input type="checkbox" id="checkIntermediaireFinale2">
@@ -391,6 +393,7 @@
             </tr>
         </tfoot>
     </table>
+    </div>
     <script type="text/javascript" src="ficheDeSuivi.js"></script>
 </body>
 </html>

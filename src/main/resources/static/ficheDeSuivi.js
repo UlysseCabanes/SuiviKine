@@ -72,16 +72,3 @@ function masquer(event) {
         bouton4.value="-";
     }
 }
-
-document.getElementById('boutonImpression').addEventListener("click", imprimer);
-
-function imprimer() { 
-    document.getElementById("tabFicheSuivi").height = "1654px";
-    document.getElementById("tabFicheSuivi").width = "2339px";
-    window.open(window.location,"ficheDeSuivi",'menubar=false,toolbar=false');
-    window.print(); 
-    /*
-    document.getElementById("tabFicheSuivi").height = "827px";
-    document.getElementById("tabFicheSuivi").width = "1170px";
-     */
-}
