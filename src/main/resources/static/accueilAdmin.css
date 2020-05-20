@@ -1,10 +1,10 @@
-.fiche {
+.bouton {
     border: solid black 1px;
     border-radius: 10px;
     padding: 30px;
     width: 300px;
     height: 250px;
-    margin: 230px auto auto 425px;
+    margin: 230px auto auto 250px;
     background-image:linear-gradient(#E5755F, #C34D34);
     font-family: "Open", sans-serif;
     font-size: 18px;
@@ -13,7 +13,7 @@
     transition: background-color 1s;
 }
 
-.fiche:hover {
+.bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 

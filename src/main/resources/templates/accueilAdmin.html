@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Page d'accueil administrateur</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="accueilAdmin.css">
+</head>
+<header>
+    <form action="login">
+        <input type="submit" value="Déconnexion" id="boutonDeconnexion">
+    </form>
+</header>
+<body>
+    <form action="nouvelleFiche">
+        <input type="submit" value="Nouvelle fiche" class="bouton">
+    </form>
+    <form action="listeFiches">
+        <input type="submit" value="Fiches de suivi" class="bouton">
+    </form>
+    <form action="equipesKine">
+        <input type="submit" value="Modifier les équipes kiné" class="bouton">
+    </form>
+</body>
+</html>

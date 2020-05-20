@@ -8,14 +8,24 @@
     height: 50px;
     width: 100px;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+.bouton:hover {
+    background-image:linear-gradient(#C34D34, #9B250C);
 }
 
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
 
+#boutonListeFiches {
+    margin: 20px auto auto 20px;
+}
+
 #boutonImpression {
-    margin: 20px auto auto 1544px;
+    margin: 20px auto auto 1424px;
 }
 
 #boutonDeconnexion {
