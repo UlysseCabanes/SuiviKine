@@ -48,6 +48,10 @@ input {
     border: solid black 2px;
 }
 
+select {
+    border: solid black 2px;
+}
+
 header {
     display: flex;
 }

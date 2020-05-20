@@ -72,3 +72,13 @@ function masquer(event) {
         bouton4.value="-";
     }
 }
+document.getElementById("boutonImpression").addEventListener("click", imprimer);
+
+function imprimer() {
+    //Donner aux trois colonnes une largeur standard
+    document.getElementById("col" + 2).style.width = "33%";
+    document.getElementById("col" + 3).style.width = "33%";
+    document.getElementById("col" + 4).style.width = "34%";
+    //Imprimer la fiche
+    window.print();
+}
