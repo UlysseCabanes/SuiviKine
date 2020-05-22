@@ -41,7 +41,7 @@ header {
 #tabFicheSuivi{
     border-collapse: collapse;
     height: 827px;
-    width: 1170px;
+    width: 1500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -90,4 +90,12 @@ textarea {
     background-color: #F0F0F0;
     width: 100%;
     height: 100%;
+}
+
+#techniques {
+    width: 1080px;
+}
+
+#intituleKine {
+    width: 250px;
 }

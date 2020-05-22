@@ -32,8 +32,8 @@ function masquer(event) {
         if(id === "masquer2") {
             //Rétrécir la colonne choisie et agrandir les deux autres 
             document.getElementById("col" + 2).style.width = "10%";
-            document.getElementById("col" + 3).style.width = "45%";
-            document.getElementById("col" + 4).style.width = "45%";
+            document.getElementById("col" + 3).style.width = "37%";
+            document.getElementById("col" + 4).style.width = "38%";
             //Attribuer la valeur "-" aux boutons des colonnes agrandies et "+" au bouton de la colonne rétrécie
             bouton2.value="+";
             bouton3.value="-";
@@ -41,9 +41,9 @@ function masquer(event) {
         }
         if(id === "masquer3") {
             //Rétrécir la colonne choisie et agrandir les deux autres 
-            document.getElementById("col" + 2).style.width = "45%";
+            document.getElementById("col" + 2).style.width = "37%";
             document.getElementById("col" + 3).style.width = "10%";
-            document.getElementById("col" + 4).style.width = "45%";
+            document.getElementById("col" + 4).style.width = "38%";
             //Attribuer la valeur "-" aux boutons des colonnes agrandies et "+" au bouton de la colonne rétrécie
             bouton2.value="-";
             bouton3.value="+";
@@ -51,8 +51,8 @@ function masquer(event) {
         }
         if(id === "masquer4") {
             //Rétrécir la colonne choisie et agrandir les deux autres 
-            document.getElementById("col" + 2).style.width = "45%";
-            document.getElementById("col" + 3).style.width = "45%";
+            document.getElementById("col" + 2).style.width = "37%";
+            document.getElementById("col" + 3).style.width = "38%";
             document.getElementById("col" + 4).style.width = "10%";
             //Attribuer la valeur "-" aux boutons des colonnes agrandies et "+" au bouton de la colonne rétrécie
             bouton2.value="-";
@@ -63,9 +63,9 @@ function masquer(event) {
     //Sinon, c'est un bouton "+" (la colonne est rétrécie donc il faut l'agrandir et rétrécir les autres)
     else{
         //Donner aux trois colonnes une largeur standard
-        document.getElementById("col" + 2).style.width = "33%";
-        document.getElementById("col" + 3).style.width = "33%";
-        document.getElementById("col" + 4).style.width = "34%";
+        document.getElementById("col" + 2).style.width = "28%";
+        document.getElementById("col" + 3).style.width = "28%";
+        document.getElementById("col" + 4).style.width = "29%";
         //Attribuer la valeur "-" aux boutons (car toutes les colonnes ont une largeur standard)
         bouton2.value="-";
         bouton3.value="-";

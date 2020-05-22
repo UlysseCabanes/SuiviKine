@@ -26,10 +26,10 @@
         <tbody>
             <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
             <colgroup>
-                <col id="col1" style="width: 200px">
-                <col id="col2" style="width: 33%">
-                <col id="col3" style="width: 33%">
-                <col id="col4" style="width: 34%">
+                <col id="col1" style="width: 15%">
+                <col id="col2" style="width: 28%">
+                <col id="col3" style="width: 28%">
+                <col id="col4" style="width: 29%">
             </colgroup>
             <!-- Ligne 1-->
             <tr id="L1">
@@ -53,7 +53,7 @@
                 <td id="L2C1" colspan="4">
                     <label class="titre">PRESCRIPTION</label> 
                     <label>Date de la prescription : </label> 
-                    <input type="date" id="datePrescription">
+                    <input type="date" id="datePrescription" required>
                     <label>S'agit-il d'une prescription quantitative : </label> 
                     <label for="prescripQuantOui">Oui</label>
                     <input type="radio" name="prescripQuant" id="prescripQuantOui">
@@ -88,9 +88,9 @@
                     <input type="radio" name="travailEnGroupe" id="travailEnGroupeNon">
                     <br>
                     <label>Date de la première séance : </label>
-                    <input type="date">
+                    <input type="date" required>
                     <label>Techniques : </label>
-                    <input type="text">
+                    <input type="text" id="techniques">
                 </td>
             </tr>
             <!-- Ligne 4-->
@@ -106,14 +106,14 @@
                     <input type="button" id="masquer2" class="masquer" value="-">
                     <input type="checkbox" id="checkDemarrage">
                     <label class="titre">DEMARRAGE - date : </label>
-                    <input class="titre" type="date" id="dateDemarrage">
+                    <input class="titre" type="date" id="dateDemarrage" required>
                 </td>
                 <!-- Colonne 3-->
                 <td id="L4C3">
                     <input type="button" id="masquer3" class="masquer" value="-">
                     <input type="checkbox" id="checkIntermediaire">
                     <label class="titre">INTERMEDIAIRE - date : </label>
-                    <input class="titre" type="date" id="dateIntermediaire">
+                    <input class="titre" type="date" id="dateIntermediaire" required>
                 </td>
                 <!-- Colonne 4-->
                 <td id="L4C4">
@@ -122,7 +122,7 @@
                     <label class="titre">INTERMEDIAIRE</label>
                     <input type="checkbox" id="checkIntermediaireFinale2">
                     <label class="titre">FINALE - date : </label>
-                    <input class="titre" type="date" id="dateIntermediaireFinale">
+                    <input class="titre" type="date" id="dateIntermediaireFinale" required>
                 </td>
             </tr>
             <!-- Ligne 5-->
