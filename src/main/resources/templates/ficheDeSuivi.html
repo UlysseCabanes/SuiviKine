@@ -81,7 +81,7 @@
                     <label>/semaine</label>
                     <label>Lieu des séances : </label>
                     <input type="text">
-                    <label>Trvail en groupe : </label>
+                    <label>Travail en groupe : </label>
                     <label for="travailEnGroupeOui">Oui</label>
                     <input type="radio" name="travailEnGroupe" id="travailEnGroupeOui">
                     <label for="travailEnGroupeNon">Non</label>
@@ -99,28 +99,23 @@
                 <td id="L4C1">
                     <label class="titre">INTITULES</label>
                     <br>
-                    <input type="text" id="intituleKine" placeholder="ex: Rééducation des 4 membres du tronc">
+                    <input type="text" id="intituleKine">
                 </td>
                 <!-- Colonne 2-->
                 <td id="L4C2">
                     <input type="button" id="masquer2" class="masquer" value="-">
-                    <input type="checkbox" id="checkDemarrage">
                     <label class="titre">DEMARRAGE - date : </label>
                     <input class="titre" type="date" id="dateDemarrage" required>
                 </td>
                 <!-- Colonne 3-->
                 <td id="L4C3">
                     <input type="button" id="masquer3" class="masquer" value="-">
-                    <input type="checkbox" id="checkIntermediaire">
                     <label class="titre">INTERMEDIAIRE - date : </label>
                     <input class="titre" type="date" id="dateIntermediaire" required>
                 </td>
                 <!-- Colonne 4-->
                 <td id="L4C4">
                     <input type="button" id="masquer4" class="masquer" value="-">
-                    <input type="checkbox" id="checkIntermediaireFinale1">
-                    <label class="titre">INTERMEDIAIRE</label>
-                    <input type="checkbox" id="checkIntermediaireFinale2">
                     <label class="titre">FINALE - date : </label>
                     <input class="titre" type="date" id="dateIntermediaireFinale" required>
                 </td>
@@ -379,7 +374,7 @@
                 </td>
                 <!-- Colonne 4-->
                 <td id="L19C4">
-                    <label class="titre">COTATION : </label>
+                    <label class="titre" id="cotation">COTATION : </label>
                     <input type="text">
                 </td>
             </tr>
