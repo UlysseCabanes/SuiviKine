@@ -1,14 +1,14 @@
-package jardinsdeflore.suivikine;
+package jardinsdeflore.suivikine.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ListeFichesController {
+public class NouvelleFicheController {
 
-	@GetMapping("/listeFiches")
+	@GetMapping("/nouvelleFiche")
 	public String accueil() {
-		return "listeFiches";
+		return "nouvelleFiche";
 	}
 
 }

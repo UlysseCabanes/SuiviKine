@@ -1,4 +1,4 @@
-package jardinsdeflore.suivikine;
+package jardinsdeflore.suivikine.controller;
 
 
 
