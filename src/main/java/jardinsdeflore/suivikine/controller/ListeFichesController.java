@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ListeFichesController {
 
 	@GetMapping("/listeFiches")
-	public String accueil() {
+	public String listeFiches() {
 		return "listeFiches";
 	}
 

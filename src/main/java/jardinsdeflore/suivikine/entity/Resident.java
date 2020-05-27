@@ -3,30 +3,36 @@ package jardinsdeflore.suivikine.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-@Entity 
-public class Resident implements Serializable {
-    
+@Entity
+public class Resident extends AbstractEntity implements Serializable {
+
     //Attributs
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;  
-
+    @NotNull
+    @NotEmpty
     private String nom;
 
+    @NotNull
+    @NotEmpty
     private String prenom;
 
+    @NotNull
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateNaissance;
 
+    @NotNull
+    @NotEmpty
     private String sexe;
 
+    @NotNull
+    @NotEmpty
     private String nSecuSociale;
 
+    @NotNull
+    @NotEmpty
     private String medecinPrescripteur;
 
     private int equipekine;
@@ -146,20 +152,16 @@ public class Resident implements Serializable {
     public Resident() {
     }
 
-    public Resident(String nom, String prenom, Date dateNaissance, String sexe, String nSecuSociale, String medecinPrescripteur) {
+    public Resident(String nom, String prenom, Date dateNaissance, String sexe, String medecinPrescripteur, String nSecuSociale) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.sexe = sexe;
-        this.nSecuSociale = nSecuSociale;
         this.medecinPrescripteur = medecinPrescripteur;
+        this.nSecuSociale = nSecuSociale;
     }
 
     //Getter
-    public Integer getId() {
-        return id;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -401,10 +403,6 @@ public class Resident implements Serializable {
     }
 
     //Setter
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -644,6 +642,8 @@ public class Resident implements Serializable {
     public void setCotation(String cotation) {
         this.cotation = cotation;
     }
-  
-  
+
+
+
+
 }

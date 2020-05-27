@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NouvelleFicheController {
 
 	@GetMapping("/nouvelleFiche")
-	public String accueil() {
+	public String nouvelleFiche() {
 		return "nouvelleFiche";
 	}
 
