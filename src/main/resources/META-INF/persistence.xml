@@ -3,7 +3,7 @@
   <persistence-unit name="SuiviKinePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>jardinsdeflore.suivikine.entity.Resident</class>
-    <class>jardinsdeflore.suivikine.entity.EquipeKine</class>
+    <class>jardinsdeflore.suivikine.entity.Equipe_kine</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SuiviKine?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="SuiviKineAdmin"/>

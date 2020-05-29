@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @IdClass(ResidentId.class)
-public class Resident extends AbstractEntity implements Serializable {
+public class Resident implements Serializable {
 
     //Attributs
     @Id
