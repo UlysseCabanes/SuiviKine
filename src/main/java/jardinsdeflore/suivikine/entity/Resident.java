@@ -1,25 +1,32 @@
 package jardinsdeflore.suivikine.entity;
 
+import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@IdClass(ResidentId.class)
 public class Resident extends AbstractEntity implements Serializable {
 
     //Attributs
+    @Id
     @NotNull
     @NotEmpty
     private String nom;
 
+    @Id
     @NotNull
     @NotEmpty
     private String prenom;
 
+    @Id
     @NotNull
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_naissance = new Date();

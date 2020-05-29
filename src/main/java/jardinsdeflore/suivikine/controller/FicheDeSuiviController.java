@@ -1,5 +1,6 @@
 package jardinsdeflore.suivikine.controller;
 
+import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import jardinsdeflore.suivikine.entity.Resident;
 import jardinsdeflore.suivikine.repository.ResidentRepository;
 import java.text.ParseException;
@@ -34,15 +35,12 @@ public class FicheDeSuiviController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(dateNaissance);
         Resident resident = new Resident(nom, prenom, date, sexe, nSecu, medecinPrescripteur, equipeKine);
-        /*
-        if (residentRepository.existsByNomPrenomDate_naissance(nom, prenom, date)){
-            String redirect= "redirect:/login";
-            return redirect;
-        }
+        if(residentRepository.existsById(new ResidentId(nom, prenom, date))) {
+            return "nouvelleFiche";
+        } 
         else {
-        */
             residentRepository.save(resident);
             return "ficheDeSuivi";
-        //}
+        }
     }
 }
