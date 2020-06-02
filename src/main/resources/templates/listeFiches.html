@@ -17,10 +17,13 @@
 <body>
     <div>
         <form th:each="resident: ${residentsEquipe}" class="fiche" onclick="submit()" action="voirFicheDeSuivi">
-            <label th:text="${resident.nom}" name="nom"></label>
-            <label th:text="${resident.prenom}" name="prenom"></label>
+            <label th:text="${resident.nom}"></label>
+            <input type="hidden" name="nom" th:value="${resident.nom}">
+            <label th:text="${resident.prenom}"></label>
+            <input type="hidden" name="prenom" th:value="${resident.prenom}">
             <br><br>
-            <label th:text="${resident.dateNaissance}" name="dateNaissance"></label>
+            <label th:text="${resident.dateNaissance}"></label>
+            <input type="hidden" name="dateNaissance" th:value="${resident.dateNaissance}">
         </form>
         <a href="ficheDeSuivi">Fiche de suivi</a>
     </div>

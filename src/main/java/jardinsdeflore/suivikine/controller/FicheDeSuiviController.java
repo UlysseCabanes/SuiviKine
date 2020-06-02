@@ -28,8 +28,9 @@ public class FicheDeSuiviController {
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(dateNaissanceParam);
-        Resident resident = residentRepository.findByResidentId(new ResidentId(nomParam, prenomParam, date));
+        Resident resident = residentRepository.findResidentByNomAndPrenomAndDateNaissance(nomParam, prenomParam, date);
         String nom = resident.getNom();
+        model.addAttribute("nom", nom);
         return "ficheDeSuivi";
     }
 }

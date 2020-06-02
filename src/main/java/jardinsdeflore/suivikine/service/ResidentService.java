@@ -3,6 +3,7 @@ package jardinsdeflore.suivikine.service;
 
 import jardinsdeflore.suivikine.entity.Resident;
 import jardinsdeflore.suivikine.repository.ResidentRepository;
+import java.util.Date;
 import org.springframework.stereotype.Service;
 import java.util.logging.Level;
 import java.util.logging.Logger;
