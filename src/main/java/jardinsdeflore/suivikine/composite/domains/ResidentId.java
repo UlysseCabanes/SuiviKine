@@ -17,15 +17,15 @@ public class ResidentId implements Serializable{
     
     private String nom;
     private String prenom;
-    private Date date_naissance;
+    private Date dateNaissance;
     
     public ResidentId() {
     }
 
-    public ResidentId(String nom, String prenom, Date date_naissance) {
+    public ResidentId(String nom, String prenom, Date dateNaissance) {
         this.nom = nom;
         this.prenom = prenom;
-        this.date_naissance = date_naissance;
+        this.dateNaissance = dateNaissance;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ResidentId implements Serializable{
         int hash = 7;
         hash = 79 * hash + Objects.hashCode(this.nom);
         hash = 79 * hash + Objects.hashCode(this.prenom);
-        hash = 79 * hash + Objects.hashCode(this.date_naissance);
+        hash = 79 * hash + Objects.hashCode(this.dateNaissance);
         return hash;
     }
 
@@ -55,7 +55,7 @@ public class ResidentId implements Serializable{
         if (!Objects.equals(this.prenom, other.prenom)) {
             return false;
         }
-        if (!Objects.equals(this.date_naissance, other.date_naissance)) {
+        if (!Objects.equals(this.dateNaissance, other.dateNaissance)) {
             return false;
         }
         return true;

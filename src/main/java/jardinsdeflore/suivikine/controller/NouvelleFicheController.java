@@ -6,6 +6,7 @@ import jardinsdeflore.suivikine.repository.ResidentRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,12 +30,13 @@ public class NouvelleFicheController {
         @RequestParam("dateNaissance") String dateNaissance,
         @RequestParam("sexe") String sexe,
         @RequestParam("medecinPrescripteur") String medecinPrescripteur,
-        @RequestParam("nSecu") String nSecu) throws ParseException {
+        @RequestParam("nSecu") String nSecu,
+        HttpSession session) throws ParseException {
 
-        int equipeKine = 0;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(dateNaissance);
-        Resident resident = new Resident(nom, prenom, date, sexe, nSecu, medecinPrescripteur, equipeKine);
+        int idEquipe = (int) session.getAttribute("idEquipe");
+        Resident resident = new Resident(nom, prenom, date, sexe, nSecu, medecinPrescripteur, idEquipe);
         if(residentRepository.existsById(new ResidentId(nom, prenom, date))) {
             return "nouvelleFiche";
         } 

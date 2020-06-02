@@ -30,4 +30,28 @@ h1 {
 
 header {
     display: flex;
+    margin-bottom: 100px;
+}
+
+.fiche {
+    margin-left: 20px;
+    border: solid black 1px;
+    border-radius: 10px;
+    background-image:linear-gradient(#E5755F, #C34D34);
+    font-family: "Open", sans-serif;
+    box-shadow: 2px 2px 5px;
+    padding: 5px;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+.fiche:hover {
+    background-image:linear-gradient(#C34D34, #9B250C);
+}
+
+div {
+    display: flex;
 }

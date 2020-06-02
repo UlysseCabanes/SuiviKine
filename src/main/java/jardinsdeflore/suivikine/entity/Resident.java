@@ -29,7 +29,8 @@ public class Resident implements Serializable {
     @Id
     @NotNull
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date_naissance = new Date();
+    @Column(name="date_naissance")
+    private Date dateNaissance = new Date();
 
     @NotNull
     @NotEmpty
@@ -44,7 +45,8 @@ public class Resident implements Serializable {
     private String medecin_prescripteur;
 
     @NotNull
-    private int equipe_kine;
+    @Column(name="equipe_kine")
+    private int equipeKine;
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_prescription;
@@ -202,11 +204,11 @@ public class Resident implements Serializable {
     public Resident(String nom, String prenom, Date dateNaissance, String sexe, String nSecuSociale, String medecinPrescripteur, int equipeKine) {
         this.nom = nom;
         this.prenom = prenom;
-        this.date_naissance = dateNaissance;
+        this.dateNaissance = dateNaissance;
         this.sexe = sexe;
         this.n_secu_sociale = nSecuSociale;
         this.medecin_prescripteur = medecinPrescripteur;
-        this.equipe_kine = equipeKine;
+        this.equipeKine = equipeKine;
     }
 
     //Getter
@@ -219,7 +221,7 @@ public class Resident implements Serializable {
     }
 
     public Date getDateNaissance() {
-        return date_naissance;
+        return dateNaissance;
     }
 
     public String getSexe() {
@@ -235,7 +237,7 @@ public class Resident implements Serializable {
     }
 
     public int getEquipekine() {
-        return equipe_kine;
+        return equipeKine;
     }
 
     public Date getDatePrescription() {
@@ -460,7 +462,7 @@ public class Resident implements Serializable {
     }
 
     public void setDateNaissance(Date dateNaissance) {
-        this.date_naissance = dateNaissance;
+        this.dateNaissance = dateNaissance;
     }
 
     public void setSexe(String sexe) {
@@ -476,7 +478,7 @@ public class Resident implements Serializable {
     }
 
     public void setEquipekine(int equipekine) {
-        this.equipe_kine = equipekine;
+        this.equipeKine = equipekine;
     }
 
     public void setDatePrescription(Date datePrescription) {

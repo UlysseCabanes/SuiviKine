@@ -15,7 +15,14 @@
     </form>
 </header>
 <body>
-    <br><br><br><br>
-    <a href="ficheDeSuivi">Fiche de suivi</a>
+    <div>
+        <form th:each="resident: ${residentsEquipe}" class="fiche" onclick="submit()" action="voirFicheDeSuivi">
+            <label th:text="${resident.nom}" name="nom"></label>
+            <label th:text="${resident.prenom}" name="prenom"></label>
+            <br><br>
+            <label th:text="${resident.dateNaissance}" name="dateNaissance"></label>
+        </form>
+        <a href="ficheDeSuivi">Fiche de suivi</a>
+    </div>
 </body>
 </html>
