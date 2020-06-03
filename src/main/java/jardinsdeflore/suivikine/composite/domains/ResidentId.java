@@ -6,7 +6,7 @@
 package jardinsdeflore.suivikine.composite.domains;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -17,12 +17,12 @@ public class ResidentId implements Serializable{
     
     private String nom;
     private String prenom;
-    private Date dateNaissance;
+    private String dateNaissance;
     
     public ResidentId() {
     }
 
-    public ResidentId(String nom, String prenom, Date dateNaissance) {
+    public ResidentId(String nom, String prenom, String dateNaissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;

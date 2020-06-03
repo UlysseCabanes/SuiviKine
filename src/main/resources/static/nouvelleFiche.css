@@ -70,3 +70,14 @@ header {
 #submitCreation:hover {
     background-color: #20A420;
 }
+
+#jour, #mois {
+    width: 20px;
+    text-align: center;
+    
+}
+
+#annee {
+    width: 30px;
+    text-align: center;
+}

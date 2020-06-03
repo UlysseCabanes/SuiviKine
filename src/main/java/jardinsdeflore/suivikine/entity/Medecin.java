@@ -1,14 +1,20 @@
 package jardinsdeflore.suivikine.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Medecin")
 public class Medecin implements Serializable{
     
     @Id
-    private int id_medecin;
+    @GeneratedValue
+    @Column(name = "id_medecin")
+    private int idMedecin;
     
     private String nom;
 
@@ -21,8 +27,8 @@ public class Medecin implements Serializable{
     }
 
     //Getter
-    public int getId_medecin() {
-        return id_medecin;
+    public int getIdMedecin() {
+        return idMedecin;
     }
 
     public String getNom() {
@@ -30,8 +36,8 @@ public class Medecin implements Serializable{
     }
 
     //Setter
-    public void setId_medecin(int id_medecin) {
-        this.id_medecin = id_medecin;
+    public void setIdMedecin(int idMedecin) {
+        this.idMedecin = idMedecin;
     }
 
     public void setNom(String nom) {

@@ -20,8 +20,12 @@
         <input type="text" id="nom" name="nom" placeholder="ex: Pages">
         <label>Prénom*</label> 
         <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette">
-        <label>Date de naissance*</label> 
-        <input type="date" id="dateNaissance" name="dateNaissance" min="01-01-1900">
+        <label>Date de naissance*</label>
+        <input type="text" name="jour" id="jour" placeholder="jj">
+        <label style="margin: 0px">/</label>
+        <input type="text" name="mois" id="mois" placeholder="MM">
+        <label style="margin: 0px">/</label>
+        <input type="text" name="annee" id="annee" placeholder="aaaa">
         <br><br>
         <label>Sexe*</label> 
         <label>F</label> 
@@ -30,8 +34,7 @@
         <input type="radio" name="sexe" id="M" value="M">
         <label>Médecin traitant*</label> 
         <select name="medecinPrescripteur">
-            <option>Pierre Paillet</option>
-            <option>Emmanuel Lagarrigue</option>
+            <option th:each="medecin: ${medecins}" th:value="${medecin.nom}" th:text="${medecin.nom}"></option>
         </select>
         <br><br>
         <label>N° sécurité sociale*</label> 

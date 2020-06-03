@@ -37,15 +37,22 @@
                     <label class="titre">RENSEIGNEMENTS SOCIO-ADMINISTRATIFS</label>
                     <br>
                     <label>Patient : </label>
-                    <label th:text="${nom}">Nom : </label>
-                    <label>Prénom : </label>
-                    <label>Sexe : </label>
-                    <label>Date de naissance : </label>
-                    <label>Age : </label>
-                    <br>
-                    <label>N° sécurité sociale : </label>
-                    <label>Médecin prescripteur : </label>
-                    <label>Equipe kiné : </label>
+                    <label class="labelSocioAdministratifs">Nom : </label>
+                    <label th:text="${nom}"></label>
+                    <label class="labelSocioAdministratifs">Prénom : </label>
+                    <label th:text="${prenom}"></label>
+                    <label class="labelSocioAdministratifs">Sexe : </label>
+                    <label th:text="${sexe}"></label>
+                    <label class="labelSocioAdministratifs">Date de naissance : </label>
+                    <label th:text="${dateNaissance}"></label>
+                    <label class="labelSocioAdministratifs">Age : </label>
+                    <label th:text="${age}"></label>
+                    <label class="labelSocioAdministratifs">N° sécurité sociale : </label>
+                    <label th:text="${nSecuSociale}"></label>
+                    <label class="labelSocioAdministratifs">Médecin prescripteur : </label>
+                    <label th:text="${medecin}"></label>
+                    <label class="labelSocioAdministratifs">Equipe kiné : </label>
+                    <label th:text="${equipeKine}"></label>
                 </td>
             </tr>
             <!-- Ligne 2-->

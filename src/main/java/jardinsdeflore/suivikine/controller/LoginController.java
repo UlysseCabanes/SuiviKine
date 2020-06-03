@@ -1,11 +1,11 @@
 package jardinsdeflore.suivikine.controller;
 
-import jardinsdeflore.suivikine.entity.Equipe_kine;
+import jardinsdeflore.suivikine.entity.EquipeKine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import jardinsdeflore.suivikine.repository.Equipe_kineRepository;
+import jardinsdeflore.suivikine.repository.EquipeKineRepository;
 import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class LoginController {
 
     @Autowired
-    Equipe_kineRepository equipeKineRepository;
+    EquipeKineRepository equipeKineRepository;
 
     @GetMapping("/login")
     public String deconnexion() {
@@ -29,7 +29,7 @@ public class LoginController {
     HttpSession session,
     Model model) {
 
-        Equipe_kine equipe;
+        EquipeKine equipe;
         if(!login.isEmpty() && !mdp.isEmpty()) {
             equipe = equipeKineRepository.findByLogin(login);
         }
@@ -40,7 +40,7 @@ public class LoginController {
             if(equipe.getLogin().equals("admin")) {
                 return "accueilAdmin";
             }
-            session.setAttribute("idEquipe", equipe.getId_equipe_kine());
+            session.setAttribute("idEquipe", equipe.getIdEquipeKine());
             return "accueil";
         }
         return "login";

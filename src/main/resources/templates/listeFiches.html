@@ -16,7 +16,7 @@
 </header>
 <body>
     <div>
-        <form th:each="resident: ${residentsEquipe}" class="fiche" onclick="submit()" action="voirFicheDeSuivi">
+        <form th:each="resident: ${residentsEquipe}" class="fiche" onclick="submit()" th:action="voirFicheDeSuivi">
             <label th:text="${resident.nom}"></label>
             <input type="hidden" name="nom" th:value="${resident.nom}">
             <label th:text="${resident.prenom}"></label>
@@ -25,7 +25,6 @@
             <label th:text="${resident.dateNaissance}"></label>
             <input type="hidden" name="dateNaissance" th:value="${resident.dateNaissance}">
         </form>
-        <a href="ficheDeSuivi">Fiche de suivi</a>
     </div>
 </body>
 </html>

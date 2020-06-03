@@ -2,16 +2,16 @@ package jardinsdeflore.suivikine.entity;
 
 import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.Temporal;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "Resident")
 @IdClass(ResidentId.class)
 public class Resident implements Serializable {
 
@@ -28,9 +28,8 @@ public class Resident implements Serializable {
 
     @Id
     @NotNull
-    @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name="date_naissance")
-    private Date dateNaissance = new Date();
+    private String dateNaissance;
 
     @NotNull
     @NotEmpty
@@ -38,48 +37,56 @@ public class Resident implements Serializable {
 
     @NotNull
     @NotEmpty
-    private String n_secu_sociale = "000000000000000";
+    @Column(name="n_secu_sociale")
+    private String nSecuSociale = "000000000000000";
 
     @NotNull
     @NotEmpty
-    private String medecin_prescripteur;
+    @Column(name="medecin_prescripteur")
+    private String medecinPrescripteur;
 
     @NotNull
     @Column(name="equipe_kine")
     private int equipeKine;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date_prescription;
+    @Column(name="date_prescription")
+    private String datePrescription;
 
-    private String prescription_quantitative;
+    @Column(name="prescription_quantitative")
+    private String prescriptionQuantitative;
 
     private String renouvellement;
 
-    private String indication_medicale;
+    @Column(name="indication_medicale")
+    private String indicationMedicale;
 
-    private int nb_protocole_therapeutique;
+    @Column(name="nb_protocole_therapeutique")
+    private int nbProtocoleTherapeutique;
 
-    private int rythme_seances;
+    @Column(name="rythme_seances")
+    private int rythmeSeances;
 
-    private String lieu_seances;
+    @Column(name="lieu_seances")
+    private String lieuSeances;
 
+    @Column(name="travail_groupe")
     private String travail_groupe;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date_premiere_seance;
+    @Column(name="date_premiere_seance")
+    private String datePremiereSeance;
 
     private String techniques;
 
     private String intitules;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date demarrage_date;
+    @Column(name="demarrage_date")
+    private String demarrageDate;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date intermediaire_date;
+    @Column(name="intermediaire_date")
+    private String intermediaireDate;
 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date finale_date;
+    @Column(name="finale_date")
+    private String finaleDate;
 
     @Column(columnDefinition="TEXT")
     private String articulairesD;
@@ -90,14 +97,14 @@ public class Resident implements Serializable {
     @Column(columnDefinition="TEXT")
     private String articulairesF;
 
-    @Column(columnDefinition="TEXT")
-    private String force_musculaireD;
+    @Column(columnDefinition="TEXT", name="force_musculaireD")
+    private String forceMusculaireD;
 
-    @Column(columnDefinition="TEXT")
-    private String force_musculaireI;
+    @Column(columnDefinition="TEXT", name="force_musculaireI")
+    private String forceMusculaireI;
 
-    @Column(columnDefinition="TEXT")
-    private String force_musculaireF;
+    @Column(columnDefinition="TEXT", name="force_musculaireF")
+    private String forceMusculaireF;
 
     @Column(columnDefinition="TEXT")
     private String douleursD;
@@ -117,50 +124,50 @@ public class Resident implements Serializable {
     @Column(columnDefinition="TEXT")
     private String trophiquesF;
 
-    @Column(columnDefinition="TEXT")
-    private String bilan_deficits_fonctionnelsD;
+    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsD")
+    private String bilanDeficitsFonctionnelsD;
 
-    @Column(columnDefinition="TEXT")
-    private String bilan_deficits_fonctionnelsI;
+    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsI")
+    private String bilanDeficitsFonctionnelsI;
 
-    @Column(columnDefinition="TEXT")
-    private String bilan_deficits_fonctionnelsF;
+    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsF")
+    private String bilanDeficitsFonctionnelsF;
 
-    @Column(columnDefinition="TEXT")
-    private String autres_problemesD;
+    @Column(columnDefinition="TEXT", name="autres_problemesD")
+    private String autresProblemesD;
 
-    @Column(columnDefinition="TEXT")
-    private String autres_problemesI;
+    @Column(columnDefinition="TEXT", name="autres_problemesI")
+    private String autresProblemesI;
 
-    @Column(columnDefinition="TEXT")
-    private String autres_problemesF;
+    @Column(columnDefinition="TEXT", name="autres_problemesF")
+    private String autresProblemesF;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_court_termeD;
+    @Column(columnDefinition="TEXT", name="objectifs_court_termeD")
+    private String objectifsCourtTermeD;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_court_termeI;
+    @Column(columnDefinition="TEXT", name="objectifs_court_termeI")
+    private String objectifsCourtTermeI;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_court_termeF;
+    @Column(columnDefinition="TEXT", name="objectifs_court_termeF")
+    private String objectifsCourtTermeF;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_moyen_termeD;
+    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeD")
+    private String objectifsMoyenTermeD;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_moyen_termeI;
+    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeI")
+    private String objectifsMoyenTermeI;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_moyen_termeF;
+    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeF")
+    private String objectifsMoyenTermeF;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_long_termeD;
+    @Column(columnDefinition="TEXT", name="objectifs_long_termeD")
+    private String objectifsLongTermeD;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_long_termeI;
+    @Column(columnDefinition="TEXT", name="objectifs_long_termeI")
+    private String objectifsLongTermeI;
 
-    @Column(columnDefinition="TEXT")
-    private String objectifs_long_termeF;
+    @Column(columnDefinition="TEXT", name="objectifs_long_termeF")
+    private String objectifsLongTermeF;
 
     @Column(columnDefinition="TEXT")
     private String diagnosticD;
@@ -201,13 +208,13 @@ public class Resident implements Serializable {
     public Resident() {
     }
 
-    public Resident(String nom, String prenom, Date dateNaissance, String sexe, String nSecuSociale, String medecinPrescripteur, int equipeKine) {
+    public Resident(String nom, String prenom, String dateNaissance, String sexe, String nSecuSociale, String medecinPrescripteur, int equipeKine) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.sexe = sexe;
-        this.n_secu_sociale = nSecuSociale;
-        this.medecin_prescripteur = medecinPrescripteur;
+        this.nSecuSociale = nSecuSociale;
+        this.medecinPrescripteur = medecinPrescripteur;
         this.equipeKine = equipeKine;
     }
 
@@ -220,7 +227,7 @@ public class Resident implements Serializable {
         return prenom;
     }
 
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
@@ -229,23 +236,23 @@ public class Resident implements Serializable {
     }
 
     public String getnSecuSociale() {
-        return n_secu_sociale;
+        return nSecuSociale;
     }
 
     public String getMedecinPrescripteur() {
-        return medecin_prescripteur;
+        return medecinPrescripteur;
     }
 
-    public int getEquipekine() {
+    public int getEquipeKine() {
         return equipeKine;
     }
 
-    public Date getDatePrescription() {
-        return date_prescription;
+    public String getDatePrescription() {
+        return datePrescription;
     }
 
     public String getPrescriptionQuantitative() {
-        return prescription_quantitative;
+        return prescriptionQuantitative;
     }
 
     public String getRenouvellement() {
@@ -253,27 +260,27 @@ public class Resident implements Serializable {
     }
 
     public String getIndicationMedicale() {
-        return indication_medicale;
+        return indicationMedicale;
     }
 
-    public int getNbprotocoleTherapeutique() {
-        return nb_protocole_therapeutique;
+    public int getNbProtocoleTherapeutique() {
+        return nbProtocoleTherapeutique;
     }
 
-    public int getRythmeSences() {
-        return rythme_seances;
+    public int getRythmeSeances() {
+        return rythmeSeances;
     }
 
-    public String getLieuseances() {
-        return lieu_seances;
+    public String getLieuSeances() {
+        return lieuSeances;
     }
 
     public String getTravailGroupe() {
         return travail_groupe;
     }
 
-    public Date getDatePremiereSeance() {
-        return date_premiere_seance;
+    public String getDatePremiereSeance() {
+        return datePremiereSeance;
     }
 
     public String getTechniques() {
@@ -284,16 +291,16 @@ public class Resident implements Serializable {
         return intitules;
     }
 
-    public Date getDemarrageDate() {
-        return demarrage_date;
+    public String getDemarrageDate() {
+        return demarrageDate;
     }
 
-    public Date getIntermediaireDate() {
-        return intermediaire_date;
+    public String getIntermediaireDate() {
+        return intermediaireDate;
     }
 
-    public Date getFinaleDate() {
-        return finale_date;
+    public String getFinaleDate() {
+        return finaleDate;
     }
 
     public String getArticulairesD() {
@@ -309,15 +316,15 @@ public class Resident implements Serializable {
     }
 
     public String getForceMusculaireD() {
-        return force_musculaireD;
+        return forceMusculaireD;
     }
 
     public String getForceMusculaireI() {
-        return force_musculaireI;
+        return forceMusculaireI;
     }
 
     public String getForceMusculaireF() {
-        return force_musculaireF;
+        return forceMusculaireF;
     }
 
     public String getDouleursD() {
@@ -345,63 +352,63 @@ public class Resident implements Serializable {
     }
 
     public String getBilanDeficitsFonctionnelsD() {
-        return bilan_deficits_fonctionnelsD;
+        return bilanDeficitsFonctionnelsD;
     }
 
     public String getBilanDeficitsFonctionnelsI() {
-        return bilan_deficits_fonctionnelsI;
+        return bilanDeficitsFonctionnelsI;
     }
 
     public String getBilanDeficitsFonctionnelsF() {
-        return bilan_deficits_fonctionnelsF;
+        return bilanDeficitsFonctionnelsF;
     }
 
     public String getAutresProblemesD() {
-        return autres_problemesD;
+        return autresProblemesD;
     }
 
     public String getAutresProblemesI() {
-        return autres_problemesI;
+        return autresProblemesI;
     }
 
     public String getAutresProblemesF() {
-        return autres_problemesF;
+        return autresProblemesF;
     }
 
     public String getObjectifsCourtTermeD() {
-        return objectifs_court_termeD;
+        return objectifsCourtTermeD;
     }
 
     public String getObjectifsCourtTermeI() {
-        return objectifs_court_termeI;
+        return objectifsCourtTermeI;
     }
 
     public String getObjectifsCourtTermeF() {
-        return objectifs_court_termeF;
+        return objectifsCourtTermeF;
     }
 
     public String getObjectifsMoyenTermeD() {
-        return objectifs_moyen_termeD;
+        return objectifsMoyenTermeD;
     }
 
     public String getObjectifsMoyenTermeI() {
-        return objectifs_moyen_termeI;
+        return objectifsMoyenTermeI;
     }
 
     public String getObjectifsMoyenTermeF() {
-        return objectifs_moyen_termeF;
+        return objectifsMoyenTermeF;
     }
 
     public String getObjectifsLongTermeD() {
-        return objectifs_long_termeD;
+        return objectifsLongTermeD;
     }
 
     public String getObjectifsLongTermeI() {
-        return objectifs_long_termeI;
+        return objectifsLongTermeI;
     }
 
     public String getObjectifsLongTermeF() {
-        return objectifs_long_termeF;
+        return objectifsLongTermeF;
     }
 
     public String getDiagnosticD() {
@@ -461,7 +468,7 @@ public class Resident implements Serializable {
         this.prenom = prenom;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -469,24 +476,24 @@ public class Resident implements Serializable {
         this.sexe = sexe;
     }
 
-    public void setnSecuSociale(String nSecuSociale) {
-        this.n_secu_sociale = nSecuSociale;
+    public void setNSecuSociale(String nSecuSociale) {
+        this.nSecuSociale = nSecuSociale;
     }
 
     public void setMedecinPrescripteur(String medecinPrescripteur) {
-        this.medecin_prescripteur = medecinPrescripteur;
+        this.medecinPrescripteur = medecinPrescripteur;
     }
 
-    public void setEquipekine(int equipekine) {
-        this.equipeKine = equipekine;
+    public void setEquipeKine(int equipeKine) {
+        this.equipeKine = equipeKine;
     }
 
-    public void setDatePrescription(Date datePrescription) {
-        this.date_prescription = datePrescription;
+    public void setDatePrescription(String datePrescription) {
+        this.datePrescription = datePrescription;
     }
 
     public void setPrescriptionQuantitative(String prescriptionQuantitative) {
-        this.prescription_quantitative = prescriptionQuantitative;
+        this.prescriptionQuantitative = prescriptionQuantitative;
     }
 
     public void setRenouvellement(String renouvellement) {
@@ -494,27 +501,27 @@ public class Resident implements Serializable {
     }
 
     public void setIndicationMedicale(String indicationMedicale) {
-        this.indication_medicale = indicationMedicale;
+        this.indicationMedicale = indicationMedicale;
     }
 
-    public void setNbprotocoleTherapeutique(int nbprotocoleTherapeutique) {
-        this.nb_protocole_therapeutique = nbprotocoleTherapeutique;
+    public void setNbProtocoleTherapeutique(int nbprotocoleTherapeutique) {
+        this.nbProtocoleTherapeutique = nbprotocoleTherapeutique;
     }
 
-    public void setRythmeSences(int rythmeSences) {
-        this.rythme_seances = rythmeSences;
+    public void setRythmeSeances(int rythmeSences) {
+        this.rythmeSeances = rythmeSences;
     }
 
-    public void setLieuseances(String lieuseances) {
-        this.lieu_seances = lieuseances;
+    public void setLieuSeances(String lieuseances) {
+        this.lieuSeances = lieuseances;
     }
 
     public void setTravailGroupe(String travailGroupe) {
         this.travail_groupe = travailGroupe;
     }
 
-    public void setDatePremiereSeance(Date datePremiereSeance) {
-        this.date_premiere_seance = datePremiereSeance;
+    public void setDatePremiereSeance(String datePremiereSeance) {
+        this.datePremiereSeance = datePremiereSeance;
     }
 
     public void setTechniques(String techniques) {
@@ -525,16 +532,16 @@ public class Resident implements Serializable {
         this.intitules = intitules;
     }
 
-    public void setDemarrageDate(Date demarrageDate) {
-        this.demarrage_date = demarrageDate;
+    public void setDemarrageDate(String demarrageDate) {
+        this.demarrageDate = demarrageDate;
     }
 
-    public void setIntermediaireDate(Date intermediaireDate) {
-        this.intermediaire_date = intermediaireDate;
+    public void setIntermediaireDate(String intermediaireDate) {
+        this.intermediaireDate = intermediaireDate;
     }
 
-    public void setFinaleDate(Date finaleDate) {
-        this.finale_date = finaleDate;
+    public void setFinaleDate(String finaleDate) {
+        this.finaleDate = finaleDate;
     }
 
     public void setArticulairesD(String articulairesD) {
@@ -550,15 +557,15 @@ public class Resident implements Serializable {
     }
 
     public void setForceMusculaireD(String forceMusculaireD) {
-        this.force_musculaireD = forceMusculaireD;
+        this.forceMusculaireD = forceMusculaireD;
     }
 
     public void setForceMusculaireI(String forceMusculaireI) {
-        this.force_musculaireI = forceMusculaireI;
+        this.forceMusculaireI = forceMusculaireI;
     }
 
     public void setForceMusculaireF(String forceMusculaireF) {
-        this.force_musculaireF = forceMusculaireF;
+        this.forceMusculaireF = forceMusculaireF;
     }
 
     public void setDouleursD(String douleursD) {
@@ -586,63 +593,63 @@ public class Resident implements Serializable {
     }
 
     public void setBilanDeficitsFonctionnelsD(String bilanDeficitsFonctionnelsD) {
-        this.bilan_deficits_fonctionnelsD = bilanDeficitsFonctionnelsD;
+        this.bilanDeficitsFonctionnelsD = bilanDeficitsFonctionnelsD;
     }
 
     public void setBilanDeficitsFonctionnelsI(String bilanDeficitsFonctionnelsI) {
-        this.bilan_deficits_fonctionnelsI = bilanDeficitsFonctionnelsI;
+        this.bilanDeficitsFonctionnelsI = bilanDeficitsFonctionnelsI;
     }
 
     public void setBilanDeficitsFonctionnelsF(String bilanDeficitsFonctionnelsF) {
-        this.bilan_deficits_fonctionnelsF = bilanDeficitsFonctionnelsF;
+        this.bilanDeficitsFonctionnelsF = bilanDeficitsFonctionnelsF;
     }
 
     public void setAutresProblemesD(String autresProblemesD) {
-        this.autres_problemesD = autresProblemesD;
+        this.autresProblemesD = autresProblemesD;
     }
 
     public void setAutresProblemesI(String autresProblemesI) {
-        this.autres_problemesI = autresProblemesI;
+        this.autresProblemesI = autresProblemesI;
     }
 
     public void setAutresProblemesF(String autresProblemesF) {
-        this.autres_problemesF = autresProblemesF;
+        this.autresProblemesF = autresProblemesF;
     }
 
     public void setObjectifsCourtTermeD(String ObjectifsCourtTermeD) {
-        this.objectifs_court_termeD = ObjectifsCourtTermeD;
+        this.objectifsCourtTermeD = ObjectifsCourtTermeD;
     }
 
     public void setObjectifsCourtTermeI(String ObjectifsCourtTermeI) {
-        this.objectifs_court_termeI = ObjectifsCourtTermeI;
+        this.objectifsCourtTermeI = ObjectifsCourtTermeI;
     }
 
     public void setObjectifsCourtTermeF(String ObjectifsCourtTermeF) {
-        this.objectifs_court_termeF = ObjectifsCourtTermeF;
+        this.objectifsCourtTermeF = ObjectifsCourtTermeF;
     }
 
     public void setObjectifsMoyenTermeD(String ObjectifsMoyenTermeD) {
-        this.objectifs_moyen_termeD = ObjectifsMoyenTermeD;
+        this.objectifsMoyenTermeD = ObjectifsMoyenTermeD;
     }
 
     public void setObjectifsMoyenTermeI(String ObjectifsMoyenTermeI) {
-        this.objectifs_moyen_termeI = ObjectifsMoyenTermeI;
+        this.objectifsMoyenTermeI = ObjectifsMoyenTermeI;
     }
 
     public void setObjectifsMoyenTermeF(String ObjectifsMoyenTermeF) {
-        this.objectifs_moyen_termeF = ObjectifsMoyenTermeF;
+        this.objectifsMoyenTermeF = ObjectifsMoyenTermeF;
     }
 
     public void setObjectifsLongTermeD(String ObjectifsLongTermeD) {
-        this.objectifs_long_termeD = ObjectifsLongTermeD;
+        this.objectifsLongTermeD = ObjectifsLongTermeD;
     }
 
     public void setObjectifsLongTermeI(String ObjectifsLongTermeI) {
-        this.objectifs_long_termeI = ObjectifsLongTermeI;
+        this.objectifsLongTermeI = ObjectifsLongTermeI;
     }
 
     public void setObjectifsLongTermeF(String ObjectifsLongTermeF) {
-        this.objectifs_long_termeF = ObjectifsLongTermeF;
+        this.objectifsLongTermeF = ObjectifsLongTermeF;
     }
 
     public void setDiagnosticD(String diagnosticD) {

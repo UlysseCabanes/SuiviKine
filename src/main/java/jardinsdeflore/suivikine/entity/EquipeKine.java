@@ -1,32 +1,36 @@
 package jardinsdeflore.suivikine.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Equipe_kine implements Serializable{
+@Table(name = "Equipe_kine")
+public class EquipeKine implements Serializable{
     
     @Id
-    private int id_equipe_kine;
+    @Column(name = "id_equipe_kine")
+    private int idEquipeKine;
     
     private String login;
     
     private String mdp;
 
     //Constructeurs
-    public Equipe_kine() {
+    public EquipeKine() {
     }
 
-    public Equipe_kine(int id_equipe_kine, String login, String mdp) {
-        this.id_equipe_kine = id_equipe_kine;
+    public EquipeKine(int idEquipeKine, String login, String mdp) {
+        this.idEquipeKine = idEquipeKine;
         this.login = login;
         this.mdp = mdp;
     }
 
     //Getter
-    public int getId_equipe_kine() {
-        return id_equipe_kine;
+    public int getIdEquipeKine() {
+        return idEquipeKine;
     }
 
     public String getLogin() {
@@ -38,8 +42,8 @@ public class Equipe_kine implements Serializable{
     }
 
     //Setter
-    public void setId_equipe_kine(int id_equipe_kine) {
-        this.id_equipe_kine = id_equipe_kine;
+    public void setIdEquipeKine(int idEquipeKine) {
+        this.idEquipeKine = idEquipeKine;
     }
 
     public void setLogin(String login) {
