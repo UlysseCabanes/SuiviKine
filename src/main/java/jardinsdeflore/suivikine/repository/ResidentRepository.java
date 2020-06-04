@@ -2,7 +2,6 @@ package jardinsdeflore.suivikine.repository;
 
 import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import jardinsdeflore.suivikine.entity.Resident;
-import java.time.LocalDate;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ResidentRepository extends CrudRepository<Resident, ResidentId> {

@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,34 @@ public class FicheDeSuiviController {
     
     @Autowired
     EntityManager em;
+    
+    @GetMapping("/creerFicheDeSuivi")
+    public String creerFicheDeSuivi(
+        @RequestParam("nom") String nom,
+        @RequestParam("prenom") String prenom,
+        @RequestParam("dateNaissance") String dateNaissanceParam,
+        @RequestParam("sexe") String sexe,
+        @RequestParam("medecinPrescripteur") String medecinPrescripteur,
+        @RequestParam("nSecu") String nSecu,
+        HttpSession session,
+        Model model) throws ParseException {
+
+        String dateNaissance = UtilDate.getDateFormatddMMyyyy(dateNaissanceParam);
+        //Récupérer l'id de l'équipe kiné connectée et le mettre en attribut de session
+        int idEquipe = (int) session.getAttribute("idEquipe");
+        //Créer un résident avec les paramètres de la requête
+        Resident resident = new Resident(nom, prenom, dateNaissance, sexe, nSecu, medecinPrescripteur, idEquipe);
+        //Vérifier si le résident existe déja
+        if(residentRepository.existsById(new ResidentId(nom, prenom, dateNaissance))) {
+            //Si il existe, on renvoit à la même page et on ne sauvegarde pas le résident dans la BDD
+            return "nouvelleFiche";
+        } 
+        else {
+            //Sinon, on renvoit à la page "ficheDeSuivi" et on sauvegarde le résident dans la BDD
+            residentRepository.save(resident);
+            return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissance;
+        }
+    }
     
     @GetMapping("/voirFicheDeSuivi")
     public String voirFicheDeSuivi(
@@ -46,7 +75,11 @@ public class FicheDeSuiviController {
         model.addAttribute("nSecuSociale", resident.getnSecuSociale());
         model.addAttribute("medecin", resident.getMedecinPrescripteur());
         model.addAttribute("equipeKine", resident.getEquipeKine());
-        model.addAttribute("datePrescription", resident.getDatePrescription());
+        
+        String datePrescription = resident.getDatePrescription();
+        if (datePrescription != null && !datePrescription.isEmpty()) {
+            model.addAttribute("datePrescription", UtilDate.getDateFormatyyyyMMdd(datePrescription));
+        }
         model.addAttribute("prescriptionQuantitative", resident.getPrescriptionQuantitative());
         model.addAttribute("renouvellement", resident.getRenouvellement());
         model.addAttribute("indicationMedicale", resident.getIndicationMedicale());
@@ -103,33 +136,21 @@ public class FicheDeSuiviController {
         return "ficheDeSuivi";
     }
     
-    @GetMapping("/creerFicheDeSuivi")
-    public String creerFicheDeSuivi(
+    @Transactional
+    @GetMapping("/modifierFicheDeSuivi")
+    public String modifierFicheDeSuivi(
         @RequestParam("nom") String nom,
         @RequestParam("prenom") String prenom,
-        @RequestParam("jour") String jour,
-        @RequestParam("mois") String mois,
-        @RequestParam("annee") String annee,
-        @RequestParam("sexe") String sexe,
-        @RequestParam("medecinPrescripteur") String medecinPrescripteur,
-        @RequestParam("nSecu") String nSecu,
-        HttpSession session,
-        Model model) throws ParseException {
+        @RequestParam("dateNaissance") String dateNaissanceParam,
+        @RequestParam("datePrescription") String datePrescriptionParam
+        ) throws ParseException {
 
-        String dateNaissance = jour + "/" + mois + "/" + annee;
-        //Récupérer l'id de l'équipe kiné connectée et le mettre en attribut de session
-        int idEquipe = (int) session.getAttribute("idEquipe");
-        //Créer un résident avec les paramètres de la requête
-        Resident resident = new Resident(nom, prenom, dateNaissance, sexe, nSecu, medecinPrescripteur, idEquipe);
-        //Vérifier si le résident existe déja
-        if(residentRepository.existsById(new ResidentId(nom, prenom, dateNaissance))) {
-            //Si il existe, on renvoit à la même page et on ne sauvegarde pas le résident dans la BDD
-            return "nouvelleFiche";
-        } 
-        else {
-            //Sinon, on renvoit à la page "ficheDeSuivi" et on sauvegarde le résident dans la BDD
-            residentRepository.save(resident);
-            return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissance;
-        }
+        //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
+        Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
+        
+        String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam);
+        resident.setDatePrescription(datePrescription);
+        
+        return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
     }
 }

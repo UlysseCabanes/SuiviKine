@@ -21,386 +21,391 @@
     </form>
 </header>
 <body>
-    <div id="print">
-    <table id="tabFicheSuivi">
-        <tbody>
-            <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
-            <colgroup>
-                <col id="col1" style="width: 15%">
-                <col id="col2" style="width: 28%">
-                <col id="col3" style="width: 28%">
-                <col id="col4" style="width: 29%">
-            </colgroup>
-            <!-- Ligne 1-->
-            <tr id="L1">
-                <td id="L1C1" colspan="4">
-                    <label class="titre">RENSEIGNEMENTS SOCIO-ADMINISTRATIFS</label>
-                    <br>
-                    <label>Patient : </label>
-                    <label class="labelSocioAdministratifs">Nom : </label>
-                    <label th:text="${nom}"></label>
-                    <label class="labelSocioAdministratifs">Prénom : </label>
-                    <label th:text="${prenom}"></label>
-                    <label class="labelSocioAdministratifs">Sexe : </label>
-                    <label th:text="${sexe}"></label>
-                    <label class="labelSocioAdministratifs">Date de naissance : </label>
-                    <label th:text="${dateNaissance}"></label>
-                    <label class="labelSocioAdministratifs">Age : </label>
-                    <label th:text="${age}"></label>
-                    <label class="labelSocioAdministratifs">N° sécurité sociale : </label>
-                    <label th:text="${nSecuSociale}"></label>
-                    <label class="labelSocioAdministratifs">Médecin prescripteur : </label>
-                    <label th:text="${medecin}"></label>
-                    <label class="labelSocioAdministratifs">Equipe kiné : </label>
-                    <label th:text="${equipeKine}"></label>
-                </td>
-            </tr>
-            <!-- Ligne 2-->
-            <tr id="L2">
-                <td id="L2C1" colspan="4">
-                    <label class="titre">PRESCRIPTION</label> 
-                    <label>Date de la prescription : </label> 
-                    <input type="date" id="datePrescription" required>
-                    <label>S'agit-il d'une prescription quantitative : </label> 
-                    <label for="prescripQuantOui">Oui</label>
-                    <input type="radio" name="prescripQuant" id="prescripQuantOui">
-                    <label for="prescripQuantNon">Non</label>
-                    <input type="radio" name="prescripQuant" id="prescripQuantNon">
-                    <label>S'agit-il d'un renouvellement : </label> 
-                    <label for="renouvellementOui">Oui</label>
-                    <input type="radio" name="renouvellement" id="renouvellementOui">
-                    <label for="renouvellementNon">Non</label>
-                    <input type="radio" name="renouvellement" id="renouvellementNon">
-                    <br>
-                    <label class="titre">INDICATION MEDICALE : </label>
-                    <input type="text" id="indicMedic">
-                </td>
-            </tr>
-            <!-- Ligne 3-->
-            <tr id="L3">
-                <td id="L3C1" colspan="4">
-                    <label class="titre">Protocole thérapeutique</label>
-                    <br>
-                    <label>Nombre : </label>
-                    <input type="number">
-                    <label>Rythme des séances : </label>
-                    <input type="number">
-                    <label>/semaine</label>
-                    <label>Lieu des séances : </label>
-                    <input type="text">
-                    <label>Travail en groupe : </label>
-                    <label for="travailEnGroupeOui">Oui</label>
-                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeOui">
-                    <label for="travailEnGroupeNon">Non</label>
-                    <input type="radio" name="travailEnGroupe" id="travailEnGroupeNon">
-                    <br>
-                    <label>Date de la première séance : </label>
-                    <input type="date" required>
-                    <label>Techniques : </label>
-                    <input type="text" id="techniques">
-                </td>
-            </tr>
-            <!-- Ligne 4-->
-            <tr id="L4">
-                <!-- Colonne 1-->
-                <td id="L4C1">
-                    <label class="titre">INTITULES</label>
-                    <br>
-                    <input type="text" id="intituleKine">
-                </td>
-                <!-- Colonne 2-->
-                <td id="L4C2">
-                    <input type="button" id="masquer2" class="masquer" value="-">
-                    <label class="titre">DEMARRAGE - date : </label>
-                    <input class="titre" type="date" id="dateDemarrage" required>
-                </td>
-                <!-- Colonne 3-->
-                <td id="L4C3">
-                    <input type="button" id="masquer3" class="masquer" value="-">
-                    <label class="titre">INTERMEDIAIRE - date : </label>
-                    <input class="titre" type="date" id="dateIntermediaire" required>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L4C4">
-                    <input type="button" id="masquer4" class="masquer" value="-">
-                    <label class="titre">FINALE - date : </label>
-                    <input class="titre" type="date" id="dateIntermediaireFinale" required>
-                </td>
-            </tr>
-            <!-- Ligne 5-->
-            <tr id="L5"> 
-                <!-- Colonne 1-->
-                <td id="L5C1" style="border-bottom: none">
-                    <label class="titre">Bilan des déficits structurels :</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L5C2" style="border-bottom: none">
+    <form action="modifierFicheDeSuivi" id="formFicheDeSuivi">
+        <table id="tabFicheSuivi">
+            <tbody>
+                <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
+                <colgroup>
+                    <col id="col1" style="width: 15%">
+                    <col id="col2" style="width: 28%">
+                    <col id="col3" style="width: 28%">
+                    <col id="col4" style="width: 29%">
+                </colgroup>
+                <!-- Ligne 1-->
+                <tr id="L1">
+                    <td id="L1C1" colspan="4">
+                        <label class="titre">RENSEIGNEMENTS SOCIO-ADMINISTRATIFS</label>
+                        <br>
+                        <label>Patient : </label>
+                        <label class="labelSocioAdministratifs">Nom : </label>
+                        <label th:text="${nom}"></label>
+                        <input type="hidden" th:value="${nom}" name="nom">
+                        <label class="labelSocioAdministratifs">Prénom : </label>
+                        <label th:text="${prenom}"></label>
+                        <input type="hidden" th:value="${prenom}" name="prenom">
+                        <label class="labelSocioAdministratifs">Sexe : </label>
+                        <label th:text="${sexe}"></label>
+                        <label class="labelSocioAdministratifs">Date de naissance : </label>
+                        <label th:text="${dateNaissance}"></label>
+                        <input type="hidden" th:value="${dateNaissance}" name="dateNaissance">
+                        <label class="labelSocioAdministratifs">Age : </label>
+                        <label th:text="${age}"></label>
+                        <label class="labelSocioAdministratifs">N° sécurité sociale : </label>
+                        <label th:text="${nSecuSociale}"></label>
+                        <label class="labelSocioAdministratifs">Médecin prescripteur : </label>
+                        <label th:text="${medecin}"></label>
+                        <label class="labelSocioAdministratifs">Equipe kiné : </label>
+                        <label th:text="${equipeKine}"></label>
+                    </td>
+                </tr>
+                <!-- Ligne 2-->
+                <tr id="L2">
+                    <td id="L2C1" colspan="4">
+                        <label class="titre">PRESCRIPTION</label> 
+                        <label>Date de la prescription : </label> 
+                        <input type="date" name="datePrescription" id="datePrescription" th:value="${datePrescription}">
+                        <label>S'agit-il d'une prescription quantitative : </label> 
+                        <label>Oui</label>
+                        <input th:if="${prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescripQuant" id="prescripQuantOui" checked>
+                        <input th:unless="${prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescripQuant" id="prescripQuantOui">
+                        <label>Non</label>
+                        <input th:if="${prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescripQuant" id="prescripQuantNon" checked>
+                        <input th:unless="${prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescripQuant" id="prescripQuantNon">
+                        <label>S'agit-il d'un renouvellement : </label> 
+                        <label for="renouvellementOui">Oui</label>
+                        <input type="radio" name="renouvellement" id="renouvellementOui">
+                        <label for="renouvellementNon">Non</label>
+                        <input type="radio" name="renouvellement" id="renouvellementNon">
+                        <br>
+                        <label class="titre">INDICATION MEDICALE : </label>
+                        <input type="text" id="indicMedic">
+                    </td>
+                </tr>
+                <!-- Ligne 3-->
+                <tr id="L3">
+                    <td id="L3C1" colspan="4">
+                        <label class="titre">Protocole thérapeutique</label>
+                        <br>
+                        <label>Nombre : </label>
+                        <input type="number">
+                        <label>Rythme des séances : </label>
+                        <input type="number">
+                        <label>/semaine</label>
+                        <label>Lieu des séances : </label>
+                        <input type="text">
+                        <label>Travail en groupe : </label>
+                        <label for="travailEnGroupeOui">Oui</label>
+                        <input type="radio" name="travailEnGroupe" id="travailEnGroupeOui">
+                        <label for="travailEnGroupeNon">Non</label>
+                        <input type="radio" name="travailEnGroupe" id="travailEnGroupeNon">
+                        <br>
+                        <label>Date de la première séance : </label>
+                        <input type="date" required>
+                        <label>Techniques : </label>
+                        <input type="text" id="techniques">
+                    </td>
+                </tr>
+                <!-- Ligne 4-->
+                <tr id="L4">
+                    <!-- Colonne 1-->
+                    <td id="L4C1">
+                        <label class="titre">INTITULES</label>
+                        <br>
+                        <input type="text" id="intituleKine">
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L4C2">
+                        <input type="button" id="masquer2" class="masquer" value="-">
+                        <label class="titre">DEMARRAGE - date : </label>
+                        <input class="titre" type="date" id="dateDemarrage" required>
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L4C3">
+                        <input type="button" id="masquer3" class="masquer" value="-">
+                        <label class="titre">INTERMEDIAIRE - date : </label>
+                        <input class="titre" type="date" id="dateIntermediaire" required>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L4C4">
+                        <input type="button" id="masquer4" class="masquer" value="-">
+                        <label class="titre">FINALE - date : </label>
+                        <input class="titre" type="date" id="dateIntermediaireFinale" required>
+                    </td>
+                </tr>
+                <!-- Ligne 5-->
+                <tr id="L5"> 
+                    <!-- Colonne 1-->
+                    <td id="L5C1" style="border-bottom: none">
+                        <label class="titre">Bilan des déficits structurels :</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L5C2" style="border-bottom: none">
 
-                </td>
-                <!-- Colonne 3-->
-                <td id="L5C3" style="border-bottom: none">
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L5C3" style="border-bottom: none">
 
-                </td>
-                <!-- Colonne 4-->
-                <td id="L5C4" style="border-bottom: none">
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L5C4" style="border-bottom: none">
 
-                </td>
-            </tr>
-            <!-- Ligne 6-->
-            <tr id="L6">
-                <td id="L6C1" style="border-top: none; border-bottom: none">
-                    <label>- articulaires</label>
-                </td>
-                <td id="L6C2" style="border-top: none; border-bottom: none">
-                    <textarea id="aD"></textarea>
-                </td>
-                <td id="L6C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L6C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 7-->
-            <tr id="L7">
-                <td id="L7C1" style="border-top: none; border-bottom: none">
-                    <label>- force musculaire</label>
-                </td>
-                <td id="L7C2" style="border-top: none; border-bottom: none">
-                    <textarea id="fmD"></textarea>
-                </td>
-                <td id="L7C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L7C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 8-->
-            <tr id="L8">
-                <td id="L8C1" style="border-top: none; border-bottom: none">
-                    <label>- douleurs</label>
-                </td>
-                <td id="L8C2" style="border-top: none; border-bottom: none">
-                    <textarea id="dD"></textarea>
-                </td>
-                <td id="L8C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L8C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 9-->
-            <tr id="L9">
-                <td id="L9C1" style="border-top: none; border-bottom: none">
-                    <label for="tD">- trophiques</label>
-                </td>
-                <td id="L9C2" style="border-top: none; border-bottom: none">
-                    <textarea id="tD"></textarea>
-                </td>
-                <td id="L9C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L9C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 10-->
-            <tr id="L10">
-                <!-- Colonne 1-->
-                <td id="L10C1">
-                    <label class="titre">Bilan des déficits fonctionnels</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L10C2">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 3-->
-                <td id="L10C3">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L10C4">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 11-->
-            <tr id="L11">
-                <!-- Colonne 1-->
-                <td id="L11C1">
-                    <label class="titre">Autres problèmes généraux identifiés par le Masseur kinésithérapeute</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L11C2">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 3-->
-                <td id="L11C3">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L11C4">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 12-->
-            <tr id="L12"> 
-                <!-- Colonne 1-->
-                <td id="L12C1" style="border-bottom: none">
-                    <label class="titre">Objectifs :</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L12C2" style="border-bottom: none">
+                    </td>
+                </tr>
+                <!-- Ligne 6-->
+                <tr id="L6">
+                    <td id="L6C1" style="border-top: none; border-bottom: none">
+                        <label>- articulaires</label>
+                    </td>
+                    <td id="L6C2" style="border-top: none; border-bottom: none">
+                        <textarea id="aD"></textarea>
+                    </td>
+                    <td id="L6C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L6C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 7-->
+                <tr id="L7">
+                    <td id="L7C1" style="border-top: none; border-bottom: none">
+                        <label>- force musculaire</label>
+                    </td>
+                    <td id="L7C2" style="border-top: none; border-bottom: none">
+                        <textarea id="fmD"></textarea>
+                    </td>
+                    <td id="L7C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L7C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 8-->
+                <tr id="L8">
+                    <td id="L8C1" style="border-top: none; border-bottom: none">
+                        <label>- douleurs</label>
+                    </td>
+                    <td id="L8C2" style="border-top: none; border-bottom: none">
+                        <textarea id="dD"></textarea>
+                    </td>
+                    <td id="L8C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L8C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 9-->
+                <tr id="L9">
+                    <td id="L9C1" style="border-top: none; border-bottom: none">
+                        <label for="tD">- trophiques</label>
+                    </td>
+                    <td id="L9C2" style="border-top: none; border-bottom: none">
+                        <textarea id="tD"></textarea>
+                    </td>
+                    <td id="L9C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L9C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 10-->
+                <tr id="L10">
+                    <!-- Colonne 1-->
+                    <td id="L10C1">
+                        <label class="titre">Bilan des déficits fonctionnels</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L10C2">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L10C3">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L10C4">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 11-->
+                <tr id="L11">
+                    <!-- Colonne 1-->
+                    <td id="L11C1">
+                        <label class="titre">Autres problèmes généraux identifiés par le Masseur kinésithérapeute</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L11C2">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L11C3">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L11C4">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 12-->
+                <tr id="L12"> 
+                    <!-- Colonne 1-->
+                    <td id="L12C1" style="border-bottom: none">
+                        <label class="titre">Objectifs :</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L12C2" style="border-bottom: none">
 
-                </td>
-                <!-- Colonne 3-->
-                <td id="L12C3" style="border-bottom: none">
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L12C3" style="border-bottom: none">
 
-                </td>
-                <!-- Colonne 4-->
-                <td id="L12C4" style="border-bottom: none">
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L12C4" style="border-bottom: none">
 
-                </td>
-            </tr>
-            <!-- Ligne 13-->
-            <tr id="L13">
-                <td id="L13C1" style="border-top: none; border-bottom: none">
-                    <label>- à court terme :</label>
-                </td>
-                <td id="L13C2" style="border-top: none; border-bottom: none">
-                    <textarea id="aD"></textarea>
-                </td>
-                <td id="L13C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L13C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 14-->
-            <tr id="L14">
-                <td id="L14C1" style="border-top: none; border-bottom: none">
-                    <label>- à moyen terme :</label>
-                </td>
-                <td id="L14C2" style="border-top: none; border-bottom: none">
-                    <textarea id="fmD"></textarea>
-                </td>
-                <td id="L14C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L14C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 15-->
-            <tr id="L15">
-                <td id="L15C1" style="border-top: none; border-bottom: none">
-                    <label>- à long terme :</label>
-                </td>
-                <td id="L15C2" style="border-top: none; border-bottom: none">
-                    <textarea id="dD"></textarea>
-                </td>
-                <td id="L15C3" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-                <td id="L15C4" style="border-top: none; border-bottom: none">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 16-->
-            <tr id="L16">
-                <!-- Colonne 1-->
-                <td id="L16C1">
-                    <label class="titre">Diagnostic kinésithérapique</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L16C2">
-                    <textarea></textarea>
-                </td>
-                <td id="L16C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L16C4">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 17-->
-            <tr id="L17">
-                <!-- Colonne 1-->
-                <td id="L17C1">
-                    <label class="titre">Conseils</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L17C2">
-                    <textarea></textarea>
-                </td>
-                <td id="L17C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L17C4">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 18-->
-            <tr id="L18">
-                <!-- Colonne 1-->
-                <td id="L18C1">
-                    <label class="titre">Propositions consécutives</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L18C2">
-                    <textarea></textarea>
-                </td>
-                <td id="L18C3">
-                <!-- Colonne 3-->
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L18C4">
-                    <textarea></textarea>
-                </td>
-            </tr>
-            <!-- Ligne 19-->
-            <tr id="L19">
-                <!-- Colonne 1-->
-                <td id="L19C1">
-                    <label class="titre">Commentaires</label>
-                </td>
-                <!-- Colonne 2-->
-                <td id="L19C2">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 3-->
-                <td id="L19C3">
-                    <textarea></textarea>
-                </td>
-                <!-- Colonne 4-->
-                <td id="L19C4">
-                    <label class="titre" id="cotation">COTATION : </label>
-                    <input type="text">
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td style="border: none">
-                    <label class="titre">Date :</label>
-                </td>
-                <td colspan="2" style="border: none;">
-                    <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
-                </td>
-                <td style="border: none">
-                    <label class="titre">Signature :</label>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-    </div>
+                    </td>
+                </tr>
+                <!-- Ligne 13-->
+                <tr id="L13">
+                    <td id="L13C1" style="border-top: none; border-bottom: none">
+                        <label>- à court terme :</label>
+                    </td>
+                    <td id="L13C2" style="border-top: none; border-bottom: none">
+                        <textarea id="aD"></textarea>
+                    </td>
+                    <td id="L13C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L13C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 14-->
+                <tr id="L14">
+                    <td id="L14C1" style="border-top: none; border-bottom: none">
+                        <label>- à moyen terme :</label>
+                    </td>
+                    <td id="L14C2" style="border-top: none; border-bottom: none">
+                        <textarea id="fmD"></textarea>
+                    </td>
+                    <td id="L14C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L14C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 15-->
+                <tr id="L15">
+                    <td id="L15C1" style="border-top: none; border-bottom: none">
+                        <label>- à long terme :</label>
+                    </td>
+                    <td id="L15C2" style="border-top: none; border-bottom: none">
+                        <textarea id="dD"></textarea>
+                    </td>
+                    <td id="L15C3" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L15C4" style="border-top: none; border-bottom: none">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 16-->
+                <tr id="L16">
+                    <!-- Colonne 1-->
+                    <td id="L16C1">
+                        <label class="titre">Diagnostic kinésithérapique</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L16C2">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L16C3">
+                    <!-- Colonne 3-->
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L16C4">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 17-->
+                <tr id="L17">
+                    <!-- Colonne 1-->
+                    <td id="L17C1">
+                        <label class="titre">Conseils</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L17C2">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L17C3">
+                    <!-- Colonne 3-->
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L17C4">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 18-->
+                <tr id="L18">
+                    <!-- Colonne 1-->
+                    <td id="L18C1">
+                        <label class="titre">Propositions consécutives</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L18C2">
+                        <textarea></textarea>
+                    </td>
+                    <td id="L18C3">
+                    <!-- Colonne 3-->
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L18C4">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <!-- Ligne 19-->
+                <tr id="L19">
+                    <!-- Colonne 1-->
+                    <td id="L19C1">
+                        <label class="titre">Commentaires</label>
+                    </td>
+                    <!-- Colonne 2-->
+                    <td id="L19C2">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 3-->
+                    <td id="L19C3">
+                        <textarea></textarea>
+                    </td>
+                    <!-- Colonne 4-->
+                    <td id="L19C4">
+                        <label class="titre" id="cotation">COTATION : </label>
+                        <input type="text">
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td style="border: none">
+                        <label class="titre">Date :</label>
+                    </td>
+                    <td colspan="2" style="border: none;">
+                        <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
+                    </td>
+                    <td style="border: none">
+                        <label class="titre">Signature :</label>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
     <script type="text/javascript" src="ficheDeSuivi.js"></script>
 </body>
 </html>

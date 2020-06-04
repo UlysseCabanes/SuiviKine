@@ -82,3 +82,29 @@ function imprimer() {
     //Imprimer la fiche
     window.print();
 }
+/*
+let date = document.querySelectorAll('input[type=date]');
+for (let d of date) {
+    d.addEventListener('change', enregistrerModifications);
+}
+*/
+let number = document.querySelectorAll('input[type=number]');
+for (let n of number) {
+    n.addEventListener('change', enregistrerModifications);
+    n.addEventListener('keydown', enregistrerModifications);
+}
+let text = document.querySelectorAll('input[type=text]');
+for (let t of text) {
+    t.addEventListener('keydown', enregistrerModifications);
+}
+let radio = document.querySelectorAll('input[type=radio]');
+for (let r of radio) {
+    r.addEventListener('change', enregistrerModifications);
+}
+for (let ta of textarea) {
+    ta.addEventListener('keydown', enregistrerModifications);
+}
+
+function enregistrerModifications() {
+    document.getElementById("formFicheDeSuivi").submit();
+}
