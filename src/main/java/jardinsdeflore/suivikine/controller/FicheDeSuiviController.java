@@ -6,6 +6,7 @@ import jardinsdeflore.suivikine.repository.ResidentRepository;
 import jardinsdeflore.suivikine.service.ResidentService;
 import jardinsdeflore.suivikine.util.UtilDate;
 import java.text.ParseException;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -292,122 +293,224 @@ public class FicheDeSuiviController {
         @RequestParam("nom") String nom,
         @RequestParam("prenom") String prenom,
         @RequestParam("dateNaissance") String dateNaissanceParam,
-        @RequestParam("datePrescription") String datePrescriptionParam,
-        @RequestParam("prescriptionQuantitative") String prescriptionQuantitative,
-        @RequestParam("renouvellement") String renouvellement,
-        @RequestParam("indicationMedicale") String indicationMedicale,
+        @RequestParam("datePrescription") Optional<String> datePrescriptionParam,
+        @RequestParam("prescriptionQuantitative") Optional<String> prescriptionQuantitative,
+        @RequestParam("renouvellement") Optional<String> renouvellement,
+        @RequestParam("indicationMedicale") Optional<String> indicationMedicale,
         @RequestParam("nbProtocoleTherapeutique") int nbProtocoleTherapeutique,
         @RequestParam("rythmeSeances") int rythmeSeances,
-        @RequestParam("lieuSeances") String lieuSeances,
-        @RequestParam("travailGroupe") String travailGroupe,
-        @RequestParam("datePremiereSeance") String datePremiereSeanceParam,
-        @RequestParam("techniques") String techniques,
-        @RequestParam("intitules") String intitules,
-        @RequestParam("demarrageDate") String demarrageDateParam,
-        @RequestParam("intermediaireDate") String intermediaireDateParam,
-        @RequestParam("finaleDate") String finaleDateParam,
-        @RequestParam("articulairesD") String articulairesD,
-        @RequestParam("articulairesI") String articulairesI,
-        @RequestParam("articulairesF") String articulairesF,
-        @RequestParam("forceMusculaireD") String forceMusculaireD,
-        @RequestParam("forceMusculaireI") String forceMusculaireI,
-        @RequestParam("forceMusculaireF") String forceMusculaireF,
-        @RequestParam("douleursD") String douleursD,
-        @RequestParam("douleursI") String douleursI,
-        @RequestParam("douleursF") String douleursF,
-        @RequestParam("trophiquesD") String trophiquesD,
-        @RequestParam("trophiquesI") String trophiquesI,
-        @RequestParam("trophiquesF") String trophiquesF,
-        @RequestParam("bilanDeficitsFonctionnelsD") String bilanDeficitsFonctionnelsD,
-        @RequestParam("bilanDeficitsFonctionnelsI") String bilanDeficitsFonctionnelsI,
-        @RequestParam("bilanDeficitsFonctionnelsF") String bilanDeficitsFonctionnelsF,
-        @RequestParam("autresProblemesD") String autresProblemesD,
-        @RequestParam("autresProblemesI") String autresProblemesI,
-        @RequestParam("autresProblemesF") String autresProblemesF,
-        @RequestParam("objectifsCourtTermeD") String objectifsCourtTermeD,
-        @RequestParam("objectifsCourtTermeI") String objectifsCourtTermeI,
-        @RequestParam("objectifsCourtTermeF") String objectifsCourtTermeF,
-        @RequestParam("objectifsMoyenTermeD") String objectifsMoyenTermeD,
-        @RequestParam("objectifsMoyenTermeI") String objectifsMoyenTermeI,
-        @RequestParam("objectifsMoyenTermeF") String objectifsMoyenTermeF,
-        @RequestParam("objectifsLongTermeD") String objectifsLongTermeD,
-        @RequestParam("objectifsLongTermeI") String objectifsLongTermeI,
-        @RequestParam("objectifsLongTermeF") String objectifsLongTermeF,
-        @RequestParam("diagnosticD") String diagnosticD,
-        @RequestParam("diagnosticI") String diagnosticI,
-        @RequestParam("diagnosticF") String diagnosticF,
-        @RequestParam("conseilsD") String conseilsD,
-        @RequestParam("conseilsI") String conseilsI,
-        @RequestParam("conseilsF") String conseilsF,
-        @RequestParam("propositionsD") String propositionsD,
-        @RequestParam("propositionsI") String propositionsI,
-        @RequestParam("propositionsF") String propositionsF,
-        @RequestParam("commentairesD") String commentairesD,
-        @RequestParam("commentairesI") String commentairesI,
-        @RequestParam("cotation") String cotation
+        @RequestParam("lieuSeances") Optional<String> lieuSeances,
+        @RequestParam("travailGroupe") Optional<String> travailGroupe,
+        @RequestParam("datePremiereSeance") Optional<String> datePremiereSeanceParam,
+        @RequestParam("techniques") Optional<String> techniques,
+        @RequestParam("intitules") Optional<String> intitules,
+        @RequestParam("demarrageDate") Optional<String> demarrageDateParam,
+        @RequestParam("intermediaireDate") Optional<String> intermediaireDateParam,
+        @RequestParam("finaleDate") Optional<String> finaleDateParam,
+        @RequestParam("articulairesD") Optional<String> articulairesD,
+        @RequestParam("articulairesI") Optional<String> articulairesI,
+        @RequestParam("articulairesF") Optional<String> articulairesF,
+        @RequestParam("forceMusculaireD") Optional<String> forceMusculaireD,
+        @RequestParam("forceMusculaireI") Optional<String> forceMusculaireI,
+        @RequestParam("forceMusculaireF") Optional<String> forceMusculaireF,
+        @RequestParam("douleursD") Optional<String> douleursD,
+        @RequestParam("douleursI") Optional<String> douleursI,
+        @RequestParam("douleursF") Optional<String> douleursF,
+        @RequestParam("trophiquesD") Optional<String> trophiquesD,
+        @RequestParam("trophiquesI") Optional<String> trophiquesI,
+        @RequestParam("trophiquesF") Optional<String> trophiquesF,
+        @RequestParam("bilanDeficitsFonctionnelsD") Optional<String> bilanDeficitsFonctionnelsD,
+        @RequestParam("bilanDeficitsFonctionnelsI") Optional<String> bilanDeficitsFonctionnelsI,
+        @RequestParam("bilanDeficitsFonctionnelsF") Optional<String> bilanDeficitsFonctionnelsF,
+        @RequestParam("autresProblemesD") Optional<String> autresProblemesD,
+        @RequestParam("autresProblemesI") Optional<String> autresProblemesI,
+        @RequestParam("autresProblemesF") Optional<String> autresProblemesF,
+        @RequestParam("objectifsCourtTermeD") Optional<String> objectifsCourtTermeD,
+        @RequestParam("objectifsCourtTermeI") Optional<String> objectifsCourtTermeI,
+        @RequestParam("objectifsCourtTermeF") Optional<String> objectifsCourtTermeF,
+        @RequestParam("objectifsMoyenTermeD") Optional<String> objectifsMoyenTermeD,
+        @RequestParam("objectifsMoyenTermeI") Optional<String> objectifsMoyenTermeI,
+        @RequestParam("objectifsMoyenTermeF") Optional<String> objectifsMoyenTermeF,
+        @RequestParam("objectifsLongTermeD") Optional<String> objectifsLongTermeD,
+        @RequestParam("objectifsLongTermeI") Optional<String> objectifsLongTermeI,
+        @RequestParam("objectifsLongTermeF") Optional<String> objectifsLongTermeF,
+        @RequestParam("diagnosticD") Optional<String> diagnosticD,
+        @RequestParam("diagnosticI") Optional<String> diagnosticI,
+        @RequestParam("diagnosticF") Optional<String> diagnosticF,
+        @RequestParam("conseilsD") Optional<String> conseilsD,
+        @RequestParam("conseilsI") Optional<String> conseilsI,
+        @RequestParam("conseilsF") Optional<String> conseilsF,
+        @RequestParam("propositionsD") Optional<String> propositionsD,
+        @RequestParam("propositionsI") Optional<String> propositionsI,
+        @RequestParam("propositionsF") Optional<String> propositionsF,
+        @RequestParam("commentairesD") Optional<String> commentairesD,
+        @RequestParam("commentairesI") Optional<String> commentairesI,
+        @RequestParam("cotation") Optional<String> cotation
         ) throws ParseException {
 
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
         
-        String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam);
-        resident.setDatePrescription(datePrescription);
-        resident.setPrescriptionQuantitative(prescriptionQuantitative);
-        resident.setRenouvellement(renouvellement);
-        resident.setIndicationMedicale(indicationMedicale);
+        if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
+            String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
+            resident.setDatePrescription(datePrescription);
+        }
+        if (prescriptionQuantitative.isPresent() && !prescriptionQuantitative.get().isEmpty()) {
+            resident.setPrescriptionQuantitative(prescriptionQuantitative.get());
+        }
+        if (renouvellement.isPresent() && !renouvellement.get().isEmpty()) {
+            resident.setRenouvellement(renouvellement.get());
+        }
+        if (indicationMedicale.isPresent() && !indicationMedicale.get().isEmpty()) {
+            resident.setIndicationMedicale(indicationMedicale.get());
+        }
         resident.setNbProtocoleTherapeutique(nbProtocoleTherapeutique);
         resident.setRythmeSeances(rythmeSeances);
-        resident.setLieuSeances(lieuSeances);
-        resident.setTravailGroupe(travailGroupe);
-        String datePremiereSeance = UtilDate.getDateFormatddMMyyyy(datePremiereSeanceParam);
-        resident.setDatePremiereSeance(datePremiereSeance);
-        resident.setTechniques(techniques);
-        resident.setIntitules(intitules);
-        String demarrageDate = UtilDate.getDateFormatddMMyyyy(demarrageDateParam);
-        resident.setDemarrageDate(demarrageDate);
-        String intermediaireDate = UtilDate.getDateFormatddMMyyyy(intermediaireDateParam);
-        resident.setIntermediaireDate(intermediaireDate);
-        String finaleDate = UtilDate.getDateFormatddMMyyyy(finaleDateParam);
-        resident.setFinaleDate(finaleDate);
-        resident.setArticulairesD(articulairesD);
-        resident.setArticulairesI(articulairesI);
-        resident.setArticulairesF(articulairesF);
-        resident.setForceMusculaireD(forceMusculaireD);
-        resident.setForceMusculaireI(forceMusculaireI);
-        resident.setForceMusculaireF(forceMusculaireF);
-        resident.setDouleursD(douleursD);
-        resident.setDouleursI(douleursI);
-        resident.setDouleursF(douleursF);
-        resident.setTrophiquesD(trophiquesD);
-        resident.setTrophiquesI(trophiquesI);
-        resident.setTrophiquesF(trophiquesF);
-        resident.setBilanDeficitsFonctionnelsD(bilanDeficitsFonctionnelsD);
-        resident.setBilanDeficitsFonctionnelsI(bilanDeficitsFonctionnelsI);
-        resident.setBilanDeficitsFonctionnelsF(bilanDeficitsFonctionnelsF);
-        resident.setAutresProblemesD(autresProblemesD);
-        resident.setAutresProblemesI(autresProblemesI);
-        resident.setAutresProblemesF(autresProblemesF);
-        resident.setObjectifsCourtTermeD(objectifsCourtTermeD);
-        resident.setObjectifsCourtTermeI(objectifsCourtTermeI);
-        resident.setObjectifsCourtTermeF(objectifsCourtTermeF);
-        resident.setObjectifsMoyenTermeD(objectifsMoyenTermeD);
-        resident.setObjectifsMoyenTermeI(objectifsMoyenTermeI);
-        resident.setObjectifsMoyenTermeF(objectifsMoyenTermeF);
-        resident.setObjectifsLongTermeD(objectifsLongTermeD);
-        resident.setObjectifsLongTermeI(objectifsLongTermeI);
-        resident.setObjectifsLongTermeF(objectifsLongTermeF);
-        resident.setDiagnosticD(diagnosticD);
-        resident.setDiagnosticI(diagnosticI);
-        resident.setDiagnosticF(diagnosticF);
-        resident.setConseilsD(conseilsD);
-        resident.setConseilsI(conseilsI);
-        resident.setConseilsF(conseilsF);
-        resident.setPropositionsD(propositionsD);
-        resident.setPropositionsI(propositionsI);
-        resident.setPropositionsF(propositionsF);
-        resident.setCommentairesD(commentairesD);
-        resident.setCommentairesI(commentairesI);
-        resident.setCotation(cotation);
+        if (lieuSeances.isPresent() && !lieuSeances.get().isEmpty()) {
+            resident.setLieuSeances(lieuSeances.get());
+        }
+        if (travailGroupe.isPresent() && !travailGroupe.get().isEmpty()) {
+            resident.setTravailGroupe(travailGroupe.get());
+        }
+        if (datePremiereSeanceParam.isPresent() && !datePremiereSeanceParam.get().isEmpty()) {
+            String datePremiereSeance = UtilDate.getDateFormatddMMyyyy(datePremiereSeanceParam.get());
+            resident.setDatePremiereSeance(datePremiereSeance);
+        }
+        if (techniques.isPresent() && !techniques.get().isEmpty()) {
+            resident.setTravailGroupe(techniques.get());
+        }
+        if (intitules.isPresent() && !intitules.get().isEmpty()) {
+            resident.setTravailGroupe(intitules.get());
+        }
+        if (demarrageDateParam.isPresent() && !demarrageDateParam.get().isEmpty()) {
+            String demarrageDate = UtilDate.getDateFormatddMMyyyy(demarrageDateParam.get());
+            resident.setDemarrageDate(demarrageDate);
+        }
+        if (intermediaireDateParam.isPresent() && !intermediaireDateParam.get().isEmpty()) {
+            String intermediaireDate = UtilDate.getDateFormatddMMyyyy(intermediaireDateParam.get());
+            resident.setIntermediaireDate(intermediaireDate);
+        }
+        if (finaleDateParam.isPresent() && !finaleDateParam.get().isEmpty()) {
+            String finaleDate = UtilDate.getDateFormatddMMyyyy(finaleDateParam.get());
+            resident.setFinaleDate(finaleDate);
+        }
+        if (articulairesD.isPresent()) {
+            resident.setTravailGroupe(articulairesD.get());
+        }
+        if (articulairesI.isPresent()) {
+            resident.setTravailGroupe(articulairesI.get());
+        }
+        if (articulairesF.isPresent()) {
+            resident.setTravailGroupe(articulairesF.get());
+        }
+        if (forceMusculaireD.isPresent()) {
+            resident.setTravailGroupe(forceMusculaireD.get());
+        }
+        if (forceMusculaireI.isPresent()) {
+            resident.setTravailGroupe(forceMusculaireI.get());
+        }
+        if (forceMusculaireF.isPresent()) {
+            resident.setTravailGroupe(forceMusculaireF.get());
+        }
+        if (douleursD.isPresent()) {
+            resident.setTravailGroupe(douleursD.get());
+        }
+        if (douleursI.isPresent()) {
+            resident.setTravailGroupe(douleursI.get());
+        }
+        if (douleursF.isPresent()) {
+            resident.setTravailGroupe(douleursF.get());
+        }
+        if (trophiquesD.isPresent()) {
+            resident.setTravailGroupe(trophiquesD.get());
+        }
+        if (trophiquesI.isPresent()) {
+            resident.setTravailGroupe(trophiquesI.get());
+        }
+        if (trophiquesF.isPresent()) {
+            resident.setTravailGroupe(trophiquesF.get());
+        }
+        if (bilanDeficitsFonctionnelsD.isPresent()) {
+            resident.setTravailGroupe(bilanDeficitsFonctionnelsD.get());
+        }
+        if (bilanDeficitsFonctionnelsI.isPresent()) {
+            resident.setTravailGroupe(bilanDeficitsFonctionnelsI.get());
+        }
+        if (bilanDeficitsFonctionnelsF.isPresent()) {
+            resident.setTravailGroupe(bilanDeficitsFonctionnelsF.get());
+        }
+        if (autresProblemesD.isPresent()) {
+            resident.setTravailGroupe(autresProblemesD.get());
+        }
+        if (autresProblemesI.isPresent()) {
+            resident.setTravailGroupe(autresProblemesI.get());
+        }
+        if (autresProblemesF.isPresent()) {
+            resident.setTravailGroupe(autresProblemesF.get());
+        }
+        if (objectifsCourtTermeD.isPresent()) {
+            resident.setTravailGroupe(objectifsCourtTermeD.get());
+        }
+        if (objectifsCourtTermeI.isPresent()) {
+            resident.setTravailGroupe(objectifsCourtTermeI.get());
+        }
+        if (objectifsCourtTermeF.isPresent()) {
+            resident.setTravailGroupe(objectifsCourtTermeF.get());
+        }
+        if (objectifsMoyenTermeD.isPresent()) {
+            resident.setTravailGroupe(objectifsMoyenTermeD.get());
+        }
+        if (objectifsMoyenTermeI.isPresent()) {
+            resident.setTravailGroupe(objectifsMoyenTermeI.get());
+        }
+        if (objectifsMoyenTermeF.isPresent()) {
+            resident.setTravailGroupe(objectifsMoyenTermeF.get());
+        }
+        if (objectifsLongTermeD.isPresent()) {
+            resident.setTravailGroupe(objectifsLongTermeD.get());
+        }
+        if (objectifsLongTermeI.isPresent()) {
+            resident.setTravailGroupe(objectifsLongTermeI.get());
+        }
+        if (objectifsLongTermeF.isPresent()) {
+            resident.setTravailGroupe(objectifsLongTermeF.get());
+        }
+        if (diagnosticD.isPresent()) {
+            resident.setTravailGroupe(diagnosticD.get());
+        }
+        if (diagnosticI.isPresent()) {
+            resident.setTravailGroupe(diagnosticI.get());
+        }
+        if (diagnosticF.isPresent()) {
+            resident.setTravailGroupe(diagnosticF.get());
+        }
+        if (conseilsD.isPresent()) {
+            resident.setTravailGroupe(conseilsD.get());
+        }
+        if (conseilsI.isPresent()) {
+            resident.setTravailGroupe(conseilsI.get());
+        }
+        if (conseilsF.isPresent()) {
+            resident.setTravailGroupe(conseilsF.get());
+        }
+        if (propositionsD.isPresent()) {
+            resident.setTravailGroupe(propositionsD.get());
+        }
+        if (propositionsI.isPresent()) {
+            resident.setTravailGroupe(propositionsI.get());
+        }
+        if (propositionsF.isPresent()) {
+            resident.setTravailGroupe(propositionsF.get());
+        }
+        if (commentairesD.isPresent()) {
+            resident.setTravailGroupe(commentairesD.get());
+        }
+        if (commentairesI.isPresent()) {
+            resident.setTravailGroupe(commentairesI.get());
+        }
+        if (cotation.isPresent()) {
+            resident.setTravailGroupe(cotation.get());
+        }
         return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
     }
 }

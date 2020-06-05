@@ -66,11 +66,11 @@
                         <input type="date" name="datePrescription" id="datePrescription" th:value="${datePrescription}">
                         <label>S'agit-il d'une prescription quantitative : </label> 
                         <label>Oui</label>
-                        <input th:if="${prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui" checked>
-                        <input th:unless="${prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui">
+                        <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui" checked>
+                        <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui">
                         <label>Non</label>
-                        <input th:if="${prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon" checked>
-                        <input th:unless="${prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
+                        <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon" checked>
+                        <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
                         <label>S'agit-il d'un renouvellement : </label> 
                         <label>Oui</label>
                         <input th:if="${renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
@@ -97,11 +97,11 @@
                         <input type="text" th:value="${lieuSeances}" name="lieuSeances">
                         <label>Travail en groupe : </label>
                         <label>Oui</label>
-                        <input th:if="${travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailEnGroupe" id="travailEnGroupeOui" checked>
-                        <input th:unless="${travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailEnGroupe" id="travailEnGroupeOui">
+                        <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
+                        <input th:unless="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui">
                         <label>Non</label>
-                        <input th:if="${travailGroupe == 'Non'}" type="radio" value="Non" name="travailEnGroupe" id="travailEnGroupeNon" checked>
-                        <input th:unless="${travailGroupe == 'Non'}" type="radio" value="Non" name="travailEnGroupe" id="travailEnGroupeNon">
+                        <input th:if="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon" checked>
+                        <input th:unless="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon">
                         <br>
                         <label>Date de la première séance : </label>
                         <input type="date" th:value="${datePremiereSeance}" name="datePremiereSeance">

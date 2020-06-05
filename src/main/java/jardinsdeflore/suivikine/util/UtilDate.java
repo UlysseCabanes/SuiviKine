@@ -14,14 +14,14 @@ public class UtilDate {
     public static String getDateFormatyyyyMMdd(String dateNaissanceParam) throws ParseException {
         String jour = dateNaissanceParam.substring(0,2);
         String mois = dateNaissanceParam.substring(3,5);
-        String annee = dateNaissanceParam.substring(6,10);
+        String annee = dateNaissanceParam.substring(6);
         String dateNaissance = annee + "-" + mois + "-" + jour;
         return dateNaissance;
     }
     
     //Transforme une date de type String du format yyyyMMdd au format ddMMyyyy
     public static String getDateFormatddMMyyyy(String dateNaissanceParam) throws ParseException {
-        String jour = dateNaissanceParam.substring(8,10);
+        String jour = dateNaissanceParam.substring(8);
         String mois = dateNaissanceParam.substring(5,7);
         String annee = dateNaissanceParam.substring(0,4);
         String dateNaissance = jour + "/" + mois + "/" + annee;
