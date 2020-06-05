@@ -91,20 +91,27 @@ for (let d of date) {
 let number = document.querySelectorAll('input[type=number]');
 for (let n of number) {
     n.addEventListener('change', enregistrerModifications);
-    n.addEventListener('keydown', enregistrerModifications);
+    n.addEventListener('keyup', enregistrerModifications);
 }
 let text = document.querySelectorAll('input[type=text]');
 for (let t of text) {
-    t.addEventListener('keydown', enregistrerModifications);
+    t.addEventListener('keyup', enregistrerModifications);
 }
 let radio = document.querySelectorAll('input[type=radio]');
 for (let r of radio) {
     r.addEventListener('change', enregistrerModifications);
 }
 for (let ta of textarea) {
-    ta.addEventListener('keydown', enregistrerModifications);
+    ta.addEventListener('keyup', enregistrerModifications);
 }
 
 function enregistrerModifications() {
-    document.getElementById("formFicheDeSuivi").submit();
+    $.ajax({
+        url: "modifierFicheDeSuivi",
+        type: "POST",
+        data:  $('#formFicheDeSuivi').serialize(),
+        success: function() {
+            alert("modifications enregistrées");
+        }
+    });
 }

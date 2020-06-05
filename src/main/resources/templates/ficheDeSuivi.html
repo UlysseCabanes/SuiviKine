@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="ficheDeSuivi.css" media="screen">
     <link rel="stylesheet" type="text/css" href="ficheDeSuivi_Impression.css" media="print">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
 </head>
 <header>
     <form action="accueil">
@@ -21,7 +23,7 @@
     </form>
 </header>
 <body>
-    <form action="modifierFicheDeSuivi" id="formFicheDeSuivi">
+    <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
         <table id="tabFicheSuivi">
             <tbody>
                 <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
@@ -73,14 +75,15 @@
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
                         <label>S'agit-il d'un renouvellement : </label> 
                         <label>Oui</label>
-                        <input th:if="${renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
-                        <input th:unless="${renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui">
+                        <input th:if="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
+                        <input th:unless="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui">
                         <label>Non</label>
-                        <input th:if="${renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon" checked>
-                        <input th:unless="${renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
+                        <input th:if="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon" checked>
+                        <input th:unless="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
                         <br>
                         <label class="titre">INDICATION MEDICALE : </label>
-                        <input type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic">
+                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic">
+                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic">
                     </td>
                 </tr>
                 <!-- Ligne 3-->

@@ -70,7 +70,7 @@ public class Resident implements Serializable {
     private String lieuSeances;
 
     @Column(name="travail_groupe")
-    private String travail_groupe;
+    private String travailGroupe;
 
     @Column(name="date_premiere_seance")
     private String datePremiereSeance;
@@ -276,7 +276,7 @@ public class Resident implements Serializable {
     }
 
     public String getTravailGroupe() {
-        return travail_groupe;
+        return travailGroupe;
     }
 
     public String getDatePremiereSeance() {
@@ -517,7 +517,7 @@ public class Resident implements Serializable {
     }
 
     public void setTravailGroupe(String travailGroupe) {
-        this.travail_groupe = travailGroupe;
+        this.travailGroupe = travailGroupe;
     }
 
     public void setDatePremiereSeance(String datePremiereSeance) {

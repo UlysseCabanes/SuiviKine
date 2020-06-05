@@ -10,11 +10,15 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 public class FicheDeSuiviController {
@@ -288,8 +292,8 @@ public class FicheDeSuiviController {
     }
     
     @Transactional
-    @GetMapping("/modifierFicheDeSuivi")
-    public String modifierFicheDeSuivi(
+    @RequestMapping(value = "/modifierFicheDeSuivi", method = RequestMethod.POST)
+    public void modifierFicheDeSuivi(
         @RequestParam("nom") String nom,
         @RequestParam("prenom") String prenom,
         @RequestParam("dateNaissance") String dateNaissanceParam,
@@ -351,7 +355,7 @@ public class FicheDeSuiviController {
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
         
-        if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
+        if (datePrescriptionParam.isPresent()) {
             String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
             resident.setDatePrescription(datePrescription);
         }
@@ -361,7 +365,7 @@ public class FicheDeSuiviController {
         if (renouvellement.isPresent() && !renouvellement.get().isEmpty()) {
             resident.setRenouvellement(renouvellement.get());
         }
-        if (indicationMedicale.isPresent() && !indicationMedicale.get().isEmpty()) {
+        if (indicationMedicale.isPresent()) {
             resident.setIndicationMedicale(indicationMedicale.get());
         }
         resident.setNbProtocoleTherapeutique(nbProtocoleTherapeutique);
@@ -377,10 +381,10 @@ public class FicheDeSuiviController {
             resident.setDatePremiereSeance(datePremiereSeance);
         }
         if (techniques.isPresent() && !techniques.get().isEmpty()) {
-            resident.setTravailGroupe(techniques.get());
+            resident.setTechniques(techniques.get());
         }
         if (intitules.isPresent() && !intitules.get().isEmpty()) {
-            resident.setTravailGroupe(intitules.get());
+            resident.setIntitules(intitules.get());
         }
         if (demarrageDateParam.isPresent() && !demarrageDateParam.get().isEmpty()) {
             String demarrageDate = UtilDate.getDateFormatddMMyyyy(demarrageDateParam.get());
@@ -395,122 +399,123 @@ public class FicheDeSuiviController {
             resident.setFinaleDate(finaleDate);
         }
         if (articulairesD.isPresent()) {
-            resident.setTravailGroupe(articulairesD.get());
+            resident.setArticulairesD(articulairesD.get());
         }
         if (articulairesI.isPresent()) {
-            resident.setTravailGroupe(articulairesI.get());
+            resident.setArticulairesI(articulairesI.get());
         }
         if (articulairesF.isPresent()) {
-            resident.setTravailGroupe(articulairesF.get());
+            resident.setArticulairesF(articulairesF.get());
         }
         if (forceMusculaireD.isPresent()) {
-            resident.setTravailGroupe(forceMusculaireD.get());
+            resident.setForceMusculaireD(forceMusculaireD.get());
         }
         if (forceMusculaireI.isPresent()) {
-            resident.setTravailGroupe(forceMusculaireI.get());
+            resident.setForceMusculaireI(forceMusculaireI.get());
         }
         if (forceMusculaireF.isPresent()) {
-            resident.setTravailGroupe(forceMusculaireF.get());
+            resident.setForceMusculaireF(forceMusculaireF.get());
         }
         if (douleursD.isPresent()) {
-            resident.setTravailGroupe(douleursD.get());
+            resident.setDouleursD(douleursD.get());
         }
         if (douleursI.isPresent()) {
-            resident.setTravailGroupe(douleursI.get());
+            resident.setDouleursI(douleursI.get());
         }
         if (douleursF.isPresent()) {
-            resident.setTravailGroupe(douleursF.get());
+            resident.setDouleursF(douleursF.get());
         }
         if (trophiquesD.isPresent()) {
-            resident.setTravailGroupe(trophiquesD.get());
+            resident.setTrophiquesD(trophiquesD.get());
         }
         if (trophiquesI.isPresent()) {
-            resident.setTravailGroupe(trophiquesI.get());
+            resident.setTrophiquesI(trophiquesI.get());
         }
         if (trophiquesF.isPresent()) {
-            resident.setTravailGroupe(trophiquesF.get());
+            resident.setTrophiquesF(trophiquesF.get());
         }
         if (bilanDeficitsFonctionnelsD.isPresent()) {
-            resident.setTravailGroupe(bilanDeficitsFonctionnelsD.get());
+            resident.setBilanDeficitsFonctionnelsD(bilanDeficitsFonctionnelsD.get());
         }
         if (bilanDeficitsFonctionnelsI.isPresent()) {
-            resident.setTravailGroupe(bilanDeficitsFonctionnelsI.get());
+            resident.setBilanDeficitsFonctionnelsI(bilanDeficitsFonctionnelsI.get());
         }
         if (bilanDeficitsFonctionnelsF.isPresent()) {
-            resident.setTravailGroupe(bilanDeficitsFonctionnelsF.get());
+            resident.setBilanDeficitsFonctionnelsF(bilanDeficitsFonctionnelsF.get());
         }
         if (autresProblemesD.isPresent()) {
-            resident.setTravailGroupe(autresProblemesD.get());
+            resident.setAutresProblemesD(autresProblemesD.get());
         }
         if (autresProblemesI.isPresent()) {
-            resident.setTravailGroupe(autresProblemesI.get());
+            resident.setAutresProblemesI(autresProblemesI.get());
         }
         if (autresProblemesF.isPresent()) {
-            resident.setTravailGroupe(autresProblemesF.get());
+            resident.setAutresProblemesF(autresProblemesF.get());
         }
         if (objectifsCourtTermeD.isPresent()) {
-            resident.setTravailGroupe(objectifsCourtTermeD.get());
+            resident.setObjectifsCourtTermeD(objectifsCourtTermeD.get());
         }
         if (objectifsCourtTermeI.isPresent()) {
-            resident.setTravailGroupe(objectifsCourtTermeI.get());
+            resident.setObjectifsCourtTermeI(objectifsCourtTermeI.get());
         }
         if (objectifsCourtTermeF.isPresent()) {
-            resident.setTravailGroupe(objectifsCourtTermeF.get());
+            resident.setObjectifsCourtTermeF(objectifsCourtTermeF.get());
         }
         if (objectifsMoyenTermeD.isPresent()) {
-            resident.setTravailGroupe(objectifsMoyenTermeD.get());
+            resident.setObjectifsMoyenTermeD(objectifsMoyenTermeD.get());
         }
         if (objectifsMoyenTermeI.isPresent()) {
-            resident.setTravailGroupe(objectifsMoyenTermeI.get());
+            resident.setObjectifsMoyenTermeI(objectifsMoyenTermeI.get());
         }
         if (objectifsMoyenTermeF.isPresent()) {
-            resident.setTravailGroupe(objectifsMoyenTermeF.get());
+            resident.setObjectifsMoyenTermeF(objectifsMoyenTermeF.get());
         }
         if (objectifsLongTermeD.isPresent()) {
-            resident.setTravailGroupe(objectifsLongTermeD.get());
+            resident.setObjectifsLongTermeD(objectifsLongTermeD.get());
         }
         if (objectifsLongTermeI.isPresent()) {
-            resident.setTravailGroupe(objectifsLongTermeI.get());
+            resident.setObjectifsLongTermeI(objectifsLongTermeI.get());
         }
         if (objectifsLongTermeF.isPresent()) {
-            resident.setTravailGroupe(objectifsLongTermeF.get());
+            resident.setObjectifsLongTermeF(objectifsLongTermeF.get());
         }
         if (diagnosticD.isPresent()) {
-            resident.setTravailGroupe(diagnosticD.get());
+            resident.setDiagnosticD(diagnosticD.get());
         }
         if (diagnosticI.isPresent()) {
-            resident.setTravailGroupe(diagnosticI.get());
+            resident.setDiagnosticI(diagnosticI.get());
         }
         if (diagnosticF.isPresent()) {
-            resident.setTravailGroupe(diagnosticF.get());
+            resident.setDiagnosticF(diagnosticF.get());
         }
         if (conseilsD.isPresent()) {
-            resident.setTravailGroupe(conseilsD.get());
+            resident.setConseilsD(conseilsD.get());
         }
         if (conseilsI.isPresent()) {
-            resident.setTravailGroupe(conseilsI.get());
+            resident.setConseilsI(conseilsI.get());
         }
         if (conseilsF.isPresent()) {
-            resident.setTravailGroupe(conseilsF.get());
+            resident.setConseilsF(conseilsF.get());
         }
         if (propositionsD.isPresent()) {
-            resident.setTravailGroupe(propositionsD.get());
+            resident.setPropositionsD(propositionsD.get());
         }
         if (propositionsI.isPresent()) {
-            resident.setTravailGroupe(propositionsI.get());
+            resident.setPropositionsI(propositionsI.get());
         }
         if (propositionsF.isPresent()) {
-            resident.setTravailGroupe(propositionsF.get());
+            resident.setPropositionsF(propositionsF.get());
         }
         if (commentairesD.isPresent()) {
-            resident.setTravailGroupe(commentairesD.get());
+            resident.setCommentairesD(commentairesD.get());
         }
         if (commentairesI.isPresent()) {
-            resident.setTravailGroupe(commentairesI.get());
+            resident.setCommentairesI(commentairesI.get());
         }
         if (cotation.isPresent()) {
-            resident.setTravailGroupe(cotation.get());
+            resident.setCotation(cotation.get());
         }
-        return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
+        System.out.println("Modifications enregistrees!");
+        //return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
     }
 }
