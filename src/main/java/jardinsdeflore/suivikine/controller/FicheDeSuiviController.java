@@ -355,14 +355,14 @@ public class FicheDeSuiviController {
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
         
-        if (datePrescriptionParam.isPresent()) {
+        if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
             String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
             resident.setDatePrescription(datePrescription);
         }
-        if (prescriptionQuantitative.isPresent() && !prescriptionQuantitative.get().isEmpty()) {
+        if (prescriptionQuantitative.isPresent()) {
             resident.setPrescriptionQuantitative(prescriptionQuantitative.get());
         }
-        if (renouvellement.isPresent() && !renouvellement.get().isEmpty()) {
+        if (renouvellement.isPresent()) {
             resident.setRenouvellement(renouvellement.get());
         }
         if (indicationMedicale.isPresent()) {
@@ -370,20 +370,20 @@ public class FicheDeSuiviController {
         }
         resident.setNbProtocoleTherapeutique(nbProtocoleTherapeutique);
         resident.setRythmeSeances(rythmeSeances);
-        if (lieuSeances.isPresent() && !lieuSeances.get().isEmpty()) {
+        if (lieuSeances.isPresent()) {
             resident.setLieuSeances(lieuSeances.get());
         }
-        if (travailGroupe.isPresent() && !travailGroupe.get().isEmpty()) {
+        if (travailGroupe.isPresent()) {
             resident.setTravailGroupe(travailGroupe.get());
         }
         if (datePremiereSeanceParam.isPresent() && !datePremiereSeanceParam.get().isEmpty()) {
             String datePremiereSeance = UtilDate.getDateFormatddMMyyyy(datePremiereSeanceParam.get());
             resident.setDatePremiereSeance(datePremiereSeance);
         }
-        if (techniques.isPresent() && !techniques.get().isEmpty()) {
+        if (techniques.isPresent()) {
             resident.setTechniques(techniques.get());
         }
-        if (intitules.isPresent() && !intitules.get().isEmpty()) {
+        if (intitules.isPresent()) {
             resident.setIntitules(intitules.get());
         }
         if (demarrageDateParam.isPresent() && !demarrageDateParam.get().isEmpty()) {

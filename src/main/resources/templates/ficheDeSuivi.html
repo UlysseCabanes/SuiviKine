@@ -64,16 +64,16 @@
                 <tr id="L2">
                     <td id="L2C1" colspan="4">
                         <label class="titre">PRESCRIPTION</label> 
-                        <label>Date de la prescription : </label> 
+                        <label class="labelPrescription">Date de la prescription : </label> 
                         <input type="date" name="datePrescription" id="datePrescription" th:value="${datePrescription}">
-                        <label>S'agit-il d'une prescription quantitative : </label> 
+                        <label class="labelPrescription">S'agit-il d'une prescription quantitative : </label> 
                         <label>Oui</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui">
                         <label>Non</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
-                        <label>S'agit-il d'un renouvellement : </label> 
+                        <label class="labelPrescription">S'agit-il d'un renouvellement : </label> 
                         <label>Oui</label>
                         <input th:if="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
                         <input th:unless="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui">
@@ -164,13 +164,13 @@
                         <label>- articulaires</label>
                     </td>
                     <td id="L6C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${articulairesD}" name="articulairesD"></textarea>
+                        <textarea th:value="${articulairesD}" th:text="${articulairesD}" name="articulairesD"></textarea>
                     </td>
                     <td id="L6C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${articulairesI}" name="articulairesI"></textarea>
+                        <textarea th:value="${articulairesI}" th:text="${articulairesI}"name="articulairesI"></textarea>
                     </td>
                     <td id="L6C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${articulairesF}" name="articulairesF"></textarea>
+                        <textarea th:value="${articulairesF}" th:text="${articulairesF}" name="articulairesF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 7-->
@@ -179,13 +179,13 @@
                         <label>- force musculaire</label>
                     </td>
                     <td id="L7C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${forceMusculaireD}" name="forceMusculaireD"></textarea>
+                        <textarea th:value="${forceMusculaireD}" th:text="${forceMusculaireD}" name="forceMusculaireD"></textarea>
                     </td>
                     <td id="L7C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${forceMusculaireI}" name="forceMusculaireI"></textarea>
+                        <textarea th:value="${forceMusculaireI}" th:text="${forceMusculaireI}" name="forceMusculaireI"></textarea>
                     </td>
                     <td id="L7C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${forceMusculaireF}" name="forceMusculaireF"></textarea>
+                        <textarea th:value="${forceMusculaireF}" th:text="${forceMusculaireF}" name="forceMusculaireF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 8-->
@@ -194,13 +194,13 @@
                         <label>- douleurs</label>
                     </td>
                     <td id="L8C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${douleursD}" name="douleursD"></textarea>
+                        <textarea th:value="${douleursD}" th:text="${douleursD}" name="douleursD"></textarea>
                     </td>
                     <td id="L8C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${douleursI}" name="douleursI"></textarea>
+                        <textarea th:value="${douleursI}" th:text="${douleursI}" name="douleursI"></textarea>
                     </td>
                     <td id="L8C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${douleursF}" name="douleursF"></textarea>
+                        <textarea th:value="${douleursF}" th:text="${douleursF}" name="douleursF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 9-->
@@ -209,13 +209,13 @@
                         <label for="tD">- trophiques</label>
                     </td>
                     <td id="L9C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${trophiquesD}" name="trophiquesD"></textarea>
+                        <textarea th:value="${trophiquesD}" th:text="${trophiquesD}" name="trophiquesD"></textarea>
                     </td>
                     <td id="L9C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${trophiquesI}" name="trophiquesI"></textarea>
+                        <textarea th:value="${trophiquesI}" th:text="${trophiquesI}" name="trophiquesI"></textarea>
                     </td>
                     <td id="L9C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${trophiquesF}" name="trophiquesF"></textarea>
+                        <textarea th:value="${trophiquesF}" th:text="${trophiquesF}" name="trophiquesF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 10-->
@@ -226,15 +226,15 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L10C2">
-                        <textarea th:value="${bilanDeficitsFonctionnelsD}" name="bilanDeficitsFonctionnelsD"></textarea>
+                        <textarea th:value="${bilanDeficitsFonctionnelsD}" th:text="${bilanDeficitsFonctionnelsD}" name="bilanDeficitsFonctionnelsD"></textarea>
                     </td>
                     <!-- Colonne 3-->
                     <td id="L10C3">
-                        <textarea th:value="${bilanDeficitsFonctionnelsI}" name="bilanDeficitsFonctionnelsI"></textarea>
+                        <textarea th:value="${bilanDeficitsFonctionnelsI}" th:text="${bilanDeficitsFonctionnelsI}" name="bilanDeficitsFonctionnelsI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L10C4">
-                        <textarea th:value="${bilanDeficitsFonctionnelsF}" name="bilanDeficitsFonctionnelsF"></textarea>
+                        <textarea th:value="${bilanDeficitsFonctionnelsF}" th:text="${bilanDeficitsFonctionnelsF}" name="bilanDeficitsFonctionnelsF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 11-->
@@ -245,15 +245,15 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L11C2">
-                        <textarea th:value="${autresProblemesD}" name="autresProblemesD"></textarea>
+                        <textarea th:value="${autresProblemesD}" th:text="${autresProblemesD}" name="autresProblemesD"></textarea>
                     </td>
                     <!-- Colonne 3-->
                     <td id="L11C3">
-                        <textarea th:value="${autresProblemesI}" name="autresProblemesI"></textarea>
+                        <textarea th:value="${autresProblemesI}" th:text="${autresProblemesI}" name="autresProblemesI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L11C4">
-                        <textarea th:value="${autresProblemesF}" name="autresProblemesF"></textarea>
+                        <textarea th:value="${autresProblemesF}" th:text="${autresProblemesF}" name="autresProblemesF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 12-->
@@ -264,15 +264,12 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L12C2" style="border-bottom: none">
-
                     </td>
                     <!-- Colonne 3-->
                     <td id="L12C3" style="border-bottom: none">
-
                     </td>
                     <!-- Colonne 4-->
                     <td id="L12C4" style="border-bottom: none">
-
                     </td>
                 </tr>
                 <!-- Ligne 13-->
@@ -281,13 +278,13 @@
                         <label>- à court terme :</label>
                     </td>
                     <td id="L13C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsCourtTermeD}" name="objectifsCourtTermeD"></textarea>
+                        <textarea th:value="${objectifsCourtTermeD}" th:text="${objectifsCourtTermeD}" name="objectifsCourtTermeD"></textarea>
                     </td>
                     <td id="L13C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsCourtTermeI}" name="objectifsCourtTermeI"></textarea>
+                        <textarea th:value="${objectifsCourtTermeI}" th:text="${objectifsCourtTermeI}" name="objectifsCourtTermeI"></textarea>
                     </td>
                     <td id="L13C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsCourtTermeF}" name="objectifsCourtTermeF"></textarea>
+                        <textarea th:value="${objectifsCourtTermeF}" th:text="${objectifsCourtTermeF}" name="objectifsCourtTermeF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 14-->
@@ -296,13 +293,13 @@
                         <label>- à moyen terme :</label>
                     </td>
                     <td id="L14C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsMoyenTermeD}" name="objectifsMoyenTermeD"></textarea>
+                        <textarea th:value="${objectifsMoyenTermeD}" th:text="${objectifsMoyenTermeD}" name="objectifsMoyenTermeD"></textarea>
                     </td>
                     <td id="L14C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsMoyenTermeI}" name="objectifsMoyenTermeI"></textarea>
+                        <textarea th:value="${objectifsMoyenTermeI}" th:text="${objectifsMoyenTermeI}" name="objectifsMoyenTermeI"></textarea>
                     </td>
                     <td id="L14C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsMoyenTermeF}" name="objectifsMoyenTermeF"></textarea>
+                        <textarea th:value="${objectifsMoyenTermeF}" th:text="${objectifsMoyenTermeF}" name="objectifsMoyenTermeF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 15-->
@@ -311,13 +308,13 @@
                         <label>- à long terme :</label>
                     </td>
                     <td id="L15C2" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsLongTermeD}" name="objectifsLongTermeD"></textarea>
+                        <textarea th:value="${objectifsLongTermeD}" th:text="${objectifsLongTermeD}" name="objectifsLongTermeD"></textarea>
                     </td>
                     <td id="L15C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsLongTermeI}" name="objectifsLongTermeI"></textarea>
+                        <textarea th:value="${objectifsLongTermeI}" th:text="${objectifsLongTermeI}" name="objectifsLongTermeI"></textarea>
                     </td>
                     <td id="L15C4" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${objectifsLongTermeF}" name="objectifsLongTermeF"></textarea>
+                        <textarea th:value="${objectifsLongTermeF}" th:text="${objectifsLongTermeF}" name="objectifsLongTermeF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 16-->
@@ -328,15 +325,15 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L16C2">
-                        <textarea th:value="${diagnosticD}" name="diagnosticD"></textarea>
+                        <textarea th:value="${diagnosticD}" th:text="${diagnosticD}" name="diagnosticD"></textarea>
                     </td>
                     <td id="L16C3">
                     <!-- Colonne 3-->
-                        <textarea th:value="${diagnosticI}" name="diagnosticI"></textarea>
+                        <textarea th:value="${diagnosticI}" th:text="${diagnosticI}" name="diagnosticI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L16C4">
-                        <textarea th:value="${diagnosticF}" name="diagnosticF"></textarea>
+                        <textarea th:value="${diagnosticF}" th:text="${diagnosticF}" name="diagnosticF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 17-->
@@ -347,15 +344,15 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L17C2">
-                        <textarea th:value="${conseilsD}" name="conseilsD"></textarea>
+                        <textarea th:value="${conseilsD}" th:text="${conseilsD}" name="conseilsD"></textarea>
                     </td>
                     <td id="L17C3">
                     <!-- Colonne 3-->
-                        <textarea th:value="${conseilsI}" name="conseilsI"></textarea>
+                        <textarea th:value="${conseilsI}" th:text="${conseilsI}" name="conseilsI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L17C4">
-                        <textarea th:value="${conseilsF}" name="conseilsF"></textarea>
+                        <textarea th:value="${conseilsF}" th:text="${conseilsF}" name="conseilsF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 18-->
@@ -366,15 +363,15 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L18C2">
-                        <textarea th:value="${propositionsD}" name="propositionsD"></textarea>
+                        <textarea th:value="${propositionsD}" th:text="${propositionsD}" name="propositionsD"></textarea>
                     </td>
                     <td id="L18C3">
                     <!-- Colonne 3-->
-                        <textarea th:value="${propositionsI}" name="propositionsI"></textarea>
+                        <textarea th:value="${propositionsI}" th:text="${propositionsI}" name="propositionsI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L18C4">
-                        <textarea th:value="${propositionsF}" name="propositionsF"></textarea>
+                        <textarea th:value="${propositionsF}" th:text="${propositionsF}" name="propositionsF"></textarea>
                     </td>
                 </tr>
                 <!-- Ligne 19-->
@@ -385,11 +382,11 @@
                     </td>
                     <!-- Colonne 2-->
                     <td id="L19C2">
-                        <textarea th:value="${commentairesD}" name="commentairesD"></textarea>
+                        <textarea th:value="${commentairesD}" th:text="${commentairesD}" name="commentairesD"></textarea>
                     </td>
                     <!-- Colonne 3-->
                     <td id="L19C3">
-                        <textarea th:value="${commentairesI}" name="commentairesI"></textarea>
+                        <textarea th:value="${commentairesI}" th:text="${commentairesI}" name="commentairesI"></textarea>
                     </td>
                     <!-- Colonne 4-->
                     <td id="L19C4">

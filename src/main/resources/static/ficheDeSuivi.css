@@ -58,11 +58,6 @@ header {
     font-weight: bold;
 }
 
-/* input */
-input {
-    margin-right: 10px;
-}
-
 /* input type="text" */
 input[type=text] {
     border: none;
@@ -111,4 +106,8 @@ textarea {
 
 .labelSocioAdministratifs {
     margin-left: 20px;
+}
+
+.labelPrescription {
+    margin-left: 40px;
 }
