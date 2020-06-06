@@ -88,7 +88,7 @@ textarea {
 }
 
 #techniques {
-    width: 1080px;
+    width: 1400px;
 }
 
 #intituleKine {
@@ -101,7 +101,7 @@ textarea {
 }
 
 #indicMedic {
-    width: 1275px;
+    width: 1280px;
 }
 
 .labelSocioAdministratifs {
@@ -110,4 +110,8 @@ textarea {
 
 .labelPrescription {
     margin-left: 40px;
+}
+
+.labelProtocoleTherapeutique {
+    margin-left: 30px;
 }

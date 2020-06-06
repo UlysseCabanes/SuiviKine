@@ -86,6 +86,10 @@ function imprimer() {
     document.getElementById("col" + 2).style.width = "33%";
     document.getElementById("col" + 3).style.width = "33%";
     document.getElementById("col" + 4).style.width = "34%";
+    
+    for(let t of textarea) {
+        t.style.width = "100%";
+    }
     //Imprimer la fiche
     window.print();
 }
@@ -95,6 +99,8 @@ let date = document.querySelectorAll('input[type=date]');
 for (let d of date) {
     //Appeler la fonction enregisterModifications() lorsque l'on change la valeur de l'input
     d.addEventListener('change', enregistrerModifications);
+    //Appeler la fonction enregisterModifications() lorsque l'on quitte l'input
+    d.addEventListener('blur', enregistrerModifications);
 }
 //Récupérer tous les input de type number
 let number = document.querySelectorAll('input[type=number]');

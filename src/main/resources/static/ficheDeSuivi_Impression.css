@@ -35,11 +35,6 @@ header {
     font-weight: bold;
 }
 
-/* input */
-input {
-    margin-right: 10px;
-}
-
 /* input type="text" */
 input[type=text] {
     border: none;
@@ -67,13 +62,30 @@ textarea {
 }
 
 #techniques {
-    width: 1080px;
+    width: 1400px;
 }
 
 #intituleKine {
     width: 250px;
 }
 
+#cotation {
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
 #indicMedic {
-    width: 1275px;
+    width: 1280px;
+}
+
+.labelSocioAdministratifs {
+    margin-left: 20px;
+}
+
+.labelPrescription {
+    margin-left: 40px;
+}
+
+.labelProtocoleTherapeutique {
+    margin-left: 30px;
 }

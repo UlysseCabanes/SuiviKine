@@ -90,24 +90,23 @@
                 <tr id="L3">
                     <td id="L3C1" colspan="4">
                         <label class="titre">Protocole thérapeutique</label>
-                        <br>
-                        <label>Nombre : </label>
+                        <label class="labelProtocoleTherapeutique">Nombre : </label>
                         <input type="number" th:value="${nbProtocoleTherapeutique}" name="nbProtocoleTherapeutique">
-                        <label>Rythme des séances : </label>
+                        <label class="labelProtocoleTherapeutique">Rythme des séances : </label>
                         <input type="number" th:value="${rythmeSeances}" name="rythmeSeances">
                         <label>/semaine</label>
-                        <label>Lieu des séances : </label>
+                        <label class="labelProtocoleTherapeutique">Lieu des séances : </label>
                         <input type="text" th:value="${lieuSeances}" name="lieuSeances">
-                        <label>Travail en groupe : </label>
+                        <label class="labelProtocoleTherapeutique">Travail en groupe : </label>
                         <label>Oui</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui">
                         <label>Non</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon">
-                        <br>
-                        <label>Date de la première séance : </label>
+                        <label class="labelProtocoleTherapeutique">Date de la première séance : </label>
                         <input type="date" th:value="${datePremiereSeance}" name="datePremiereSeance">
+                        <br>
                         <label>Techniques : </label>
                         <input type="text" th:value="${techniques}" name="techniques" id="techniques">
                     </td>

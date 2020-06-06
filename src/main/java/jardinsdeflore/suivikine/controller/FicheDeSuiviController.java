@@ -10,15 +10,15 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 public class FicheDeSuiviController {
@@ -109,7 +109,7 @@ public class FicheDeSuiviController {
         }
         String datePremiereSeance = resident.getDatePremiereSeance();
         if (datePremiereSeance != null && !datePremiereSeance.isEmpty()) {
-            model.addAttribute("datePremiereSeance", datePremiereSeance);
+            model.addAttribute("datePremiereSeance", UtilDate.getDateFormatyyyyMMdd(datePremiereSeance));
         }
         String techniques = resident.getTechniques();
         if (techniques != null && !techniques.isEmpty()) {
@@ -117,19 +117,19 @@ public class FicheDeSuiviController {
         }
         String intitules = resident.getIntitules();
         if (intitules != null && !intitules.isEmpty()) {
-            model.addAttribute("intitules", techniques);
+            model.addAttribute("intitules", intitules);
         }
         String demarrageDate = resident.getDemarrageDate();
         if (demarrageDate != null && !demarrageDate.isEmpty()) {
-            model.addAttribute("demarrageDate", demarrageDate);
+            model.addAttribute("demarrageDate", UtilDate.getDateFormatyyyyMMdd(demarrageDate));
         }
         String intermediaireDate = resident.getIntermediaireDate();
         if (intermediaireDate != null && !intermediaireDate.isEmpty()) {
-            model.addAttribute("intermediaireDate", intermediaireDate);
+            model.addAttribute("intermediaireDate", UtilDate.getDateFormatyyyyMMdd(intermediaireDate));
         }
         String finaleDate = resident.getFinaleDate();
         if (finaleDate != null && !finaleDate.isEmpty()) {
-            model.addAttribute("finaleDate", finaleDate);
+            model.addAttribute("finaleDate", UtilDate.getDateFormatyyyyMMdd(finaleDate));
         }
         String articulairesD = resident.getArticulairesD();
         if (articulairesD != null && !articulairesD.isEmpty()) {
@@ -517,5 +517,10 @@ public class FicheDeSuiviController {
         }
         System.out.println("Modifications enregistrees!");
         //return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
+    }
+    
+    @ExceptionHandler({MissingServletRequestParameterException.class})
+    public String databaseError() {
+        return "accueil";
     }
 }
