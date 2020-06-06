@@ -33,20 +33,18 @@ header {
 }
 
 #divCentral {
-     margin: 200px auto auto 575px;
-     display: flex;
-}
-#tabEquipesKine {
     border: solid black 1px;
     border-radius: 10px;
     background-image:linear-gradient(#E5755F, #C34D34);
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin-top: 50px;
+    margin: auto auto auto 575px;
+    display: inline-block;
+    width: 700px;
 }
 
-#tabEquipesKine td{
+td{
     height: 50px;
 }
 
@@ -72,4 +70,12 @@ label {
 
 input[type=text] {
     border: solid black 1px;
+}
+
+#ajouterEquipe {
+    margin: 150px auto auto 1375px;
+}
+
+#labelIdAdmin {
+    margin-right: 17px;
 }

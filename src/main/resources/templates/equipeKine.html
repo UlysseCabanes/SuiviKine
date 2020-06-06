@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Equipes kiné</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="equipeKine.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<header>
+    <form action="accueil">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <h1>Equipes de kinésithérapie</h1>
+    <form action="login">
+        <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
+    </form>
+</header>
+<body>
+    <button id="ajouterEquipe" class="bouton">Ajouter une équipe kiné</button>
+    <div id="divCentral">
+        <form th:each="equipeKine : ${lesEquipesKine}" th:id="'formEquipeKine-'+${equipeKine.idEquipeKine}" onsubmit="return false" class="formEquipeKine">
+            <table>
+                <tr>
+                    <td>
+                        <label th:if="${equipeKine.idEquipeKine == 0}" class="equipe">Admin</label>
+                        <label th:unless="${equipeKine.idEquipeKine == 0}" class="equipe">Equipe</label>
+                        <label th:if="${equipeKine.idEquipeKine == 0}" id="labelIdAdmin"></label>
+                        <label th:unless="${equipeKine.idEquipeKine == 0}" th:text="${equipeKine.idEquipeKine}" class="equipe"></label>
+                        <input type="hidden" th:value="${equipeKine.idEquipeKine}" name="idEquipeKine">
+                    </td>
+                    <td>
+                        <label>Identifiant :</label>
+                        <input type="text" th:value="${equipeKine.login}" name="login">
+                    </td>
+                    <td>
+                        <label>Mot de passe :</label>
+                        <input type="text" th:value="${equipeKine.mdp}" name="mdp">
+                    </td>
+                    <td>
+                        <input type="button" value="modifier" class="boutonModifier" th:id="${equipeKine.idEquipeKine}">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript" src="equipeKine.js"></script>
+</body>
+</html>

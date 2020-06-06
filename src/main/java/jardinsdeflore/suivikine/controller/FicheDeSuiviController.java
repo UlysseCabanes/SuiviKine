@@ -515,8 +515,6 @@ public class FicheDeSuiviController {
         if (cotation.isPresent()) {
             resident.setCotation(cotation.get());
         }
-        System.out.println("Modifications enregistrees!");
-        //return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissanceParam;
     }
     
     @ExceptionHandler({MissingServletRequestParameterException.class})
