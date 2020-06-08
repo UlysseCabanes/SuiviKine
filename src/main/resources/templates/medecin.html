@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Equipes kiné</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="medecin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<header>
+    <form action="accueilAdmin">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <h1>Medecins</h1>
+    <form action="login">
+        <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
+    </form>
+</header>
+<body>
+    <div id="divAjouter">
+        <form action="ajouterMedecin">
+            <input type="submit" id="ajouterMedecin" class="bouton" value="Ajouter un medécin">
+        </form>
+    </div>
+    <div id="divCentral">
+        <form th:each="medecin : ${lesMedecins}" th:id="'formMedecin-'+${medecin.idMedecin}" onsubmit="return false" class="formMedecin">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" th:value="${medecin.nom}" name="nom">
+                        <input type="hidden" th:value="${medecin.idMedecin}" name="idMedecin">
+                    </td>
+                    <td>
+                        <input type="button" value="modifier" class="boutonModifierRetirer" th:id="${medecin.idMedecin}" onclick="enregistrerModifications(this)">
+                    </td>
+                    <td>
+                        <input type="button" value="retirer" class="boutonModifierRetirer" th:id="${medecin.idMedecin}" onclick="retirerMedecin(this)">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript" src="medecin.js"></script>
+</body>
+</html>

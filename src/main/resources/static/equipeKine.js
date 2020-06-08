@@ -18,14 +18,3 @@ function enregistrerModifications(event) {
         data:  $(formId).serialize()
     });
 }
-
-//Enregistrer les modifications de l'équipe kiné dans la BDD
-function ajouterEquipeKine() {
-    //Appel ajax vers la fonction modifierEquipekine du controller Equipekine
-    $.ajax({
-        url: "ajouterEquipeKine",
-        type: "POST",
-        //Données extraites du formulaire formEquipekine
-        data:  {login : "login", mdp : "mdp"}
-    });
-}

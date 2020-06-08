@@ -39,16 +39,16 @@ header {
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin: auto auto auto 551px;
+    margin: auto auto auto 636px;
     display: inline-block;
-    width: 700px;
+    width: 530px;
 }
 
 td{
     height: 50px;
 }
 
-.boutonModifier {
+.boutonModifierRetirer {
     background-color: #33CC33;
     border: solid black 1px;
     border-radius: 10px;
@@ -56,40 +56,24 @@ td{
     transition: background-color 1s;
 }
 
-.boutonModifier:hover {
+.boutonModifierRetirer:hover {
     background-color: #20A420;
-}
-
-label {
-    margin-left: 10px;
-}
-
-.equipe {
-    font-weight: bold;
 }
 
 input[type=text] {
     border: solid black 1px;
+    width: 400px;
 }
 
-#labelIdAdmin {
-    margin-right: 17px;
-}
-
-#ajouterEquipe {
+#ajouterMedecin {
     width: 150px;
 }
 
-#retirerEquipe {
-    width: 150px;
+#retirerMedecin {
     margin: auto auto auto 800px;
 }
 
-#divAjouterRetirer {
-    margin: 150px auto auto 401px;
+#divAjouter {
+    margin: 150px auto auto 486px;
     display: flex;
-}
-
-p {
-    margin-left: 160px;
 }

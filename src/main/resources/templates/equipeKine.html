@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <header>
-    <form action="accueil">
+    <form action="accueilAdmin">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
     <h1>Equipes de kinésithérapie</h1>
@@ -16,8 +16,16 @@
     </form>
 </header>
 <body>
-    <button id="ajouterEquipe" class="bouton">Ajouter une équipe kiné</button>
+    <div id="divAjouterRetirer">
+        <form action="ajouterEquipeKine">
+            <input type="submit" id="ajouterEquipe" class="bouton" value="Ajouter une équipe kiné">
+        </form>
+        <form action="retirerEquipeKine">
+            <input type="submit" id="retirerEquipe" class="bouton" value="Retirer une équipe kiné">
+        </form>
+    </div>
     <div id="divCentral">
+        <p>Les identifiants et mots de passe doivent être uniques</p>
         <form th:each="equipeKine : ${lesEquipesKine}" th:id="'formEquipeKine-'+${equipeKine.idEquipeKine}" onsubmit="return false" class="formEquipeKine">
             <table>
                 <tr>

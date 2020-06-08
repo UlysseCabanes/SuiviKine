@@ -5,17 +5,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Equipe_kine")
+@Table(name = "Equipe_kine", uniqueConstraints = {@UniqueConstraint(columnNames="login"), @UniqueConstraint(columnNames="mdp")})
 public class EquipeKine implements Serializable{
     
     @Id
     @Column(name = "id_equipe_kine")
     private int idEquipeKine;
     
+    @Column(unique = true)
     private String login;
     
+    @Column(unique = true)
     private String mdp;
 
     //Constructeurs

@@ -38,6 +38,7 @@ public class LoginController {
         }
         if(equipe.getMdp().equals(mdp)) {
             if(equipe.getLogin().equals("admin")) {
+                session.setAttribute("idEquipe", equipe.getIdEquipeKine());
                 return "accueilAdmin";
             }
             session.setAttribute("idEquipe", equipe.getIdEquipeKine());

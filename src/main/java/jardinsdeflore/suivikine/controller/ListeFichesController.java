@@ -17,8 +17,15 @@ public class ListeFichesController {
 	@GetMapping("/listeFiches")
 	public String listeFiches(HttpSession session, Model model) {
                 int idEquipe = (int) session.getAttribute("idEquipe");
-                Iterable<Resident> residentsEquipe = residentRepository.findByEquipeKine(idEquipe);
-		model.addAttribute("residentsEquipe", residentsEquipe);
+                model.addAttribute("idEquipeKine", idEquipe);
+                if (idEquipe == 0) {
+                    Iterable<Resident> residentsEquipe = residentRepository.findAll();
+                    model.addAttribute("residentsEquipe", residentsEquipe);
+                }
+                else {
+                    Iterable<Resident> residentsEquipe = residentRepository.findByEquipeKine(idEquipe);
+                    model.addAttribute("residentsEquipe", residentsEquipe);
+                }
                 return "listeFiches";
 	}
 
