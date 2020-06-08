@@ -38,11 +38,11 @@
                     </td>
                     <td>
                         <label>Identifiant :</label>
-                        <input type="text" th:value="${equipeKine.login}" name="login">
+                        <input type="text" th:value="${equipeKine.login}" name="login" required>
                     </td>
                     <td>
                         <label>Mot de passe :</label>
-                        <input type="text" th:value="${equipeKine.mdp}" name="mdp">
+                        <input type="text" th:value="${equipeKine.mdp}" name="mdp" required>
                     </td>
                     <td>
                         <input type="button" value="modifier" class="boutonModifier" th:id="${equipeKine.idEquipeKine}">

@@ -21,7 +21,7 @@ public class MedecinController {
     @Autowired
     EntityManager em;
         
-    //Voir tous les médecins de la bdd    
+    //Voir tous les médecins de la bdd 
     @GetMapping("/medecin")
     public String medecin(Model model) {
 
@@ -41,8 +41,10 @@ public class MedecinController {
     ) {
         //Trouver le médecin correspondant à l'id renseigné (Clé primaire)
         Medecin medecin = em.find(Medecin.class, idMedecin);
-        //Modifier le nom du médecin
-        medecin.setNom(nom);
+        if (!nom.trim().isEmpty()) {
+            //Modifier le nom du médecin
+            medecin.setNom(nom.trim());
+        }
     }
 
     //Ajouter un médecin à la BDD
@@ -62,7 +64,6 @@ public class MedecinController {
     public String retirerMedecin(
         @RequestParam("idMedecin") int idMedecin) 
     {
-        
         //Retirer le médecin correspondant à l'id renseigné
         medecinRepository.deleteById(idMedecin);
         

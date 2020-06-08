@@ -20,6 +20,9 @@ function retirerMedecin(event) {
         url: "retirerMedecin",
         type: "GET",
         //Données extraites du formulaire formMedecin
-        data:  $(formId).serialize()
+        data:  $(formId).serialize(),
+        success : function() {
+                    window.location.reload(true);
+                  }
     });
 }

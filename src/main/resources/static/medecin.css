@@ -39,16 +39,16 @@ header {
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin: auto auto auto 636px;
+    margin: auto auto auto 666px;
     display: inline-block;
-    width: 530px;
+    width: 470px;
 }
 
 td{
     height: 50px;
 }
 
-.boutonModifierRetirer {
+.boutonRetirer {
     background-color: #33CC33;
     border: solid black 1px;
     border-radius: 10px;
@@ -56,7 +56,7 @@ td{
     transition: background-color 1s;
 }
 
-.boutonModifierRetirer:hover {
+.boutonRetirer:hover {
     background-color: #20A420;
 }
 
@@ -69,11 +69,7 @@ input[type=text] {
     width: 150px;
 }
 
-#retirerMedecin {
-    margin: auto auto auto 800px;
-}
-
 #divAjouter {
-    margin: 150px auto auto 486px;
+    margin: 150px auto auto 516px;
     display: flex;
 }

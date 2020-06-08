@@ -26,14 +26,11 @@
             <table>
                 <tr>
                     <td>
-                        <input type="text" th:value="${medecin.nom}" name="nom">
+                        <input type="text" th:value="${medecin.nom}" name="nom" th:id="${medecin.idMedecin}" onkeyup="enregistrerModifications(this)">
                         <input type="hidden" th:value="${medecin.idMedecin}" name="idMedecin">
                     </td>
                     <td>
-                        <input type="button" value="modifier" class="boutonModifierRetirer" th:id="${medecin.idMedecin}" onclick="enregistrerModifications(this)">
-                    </td>
-                    <td>
-                        <input type="button" value="retirer" class="boutonModifierRetirer" th:id="${medecin.idMedecin}" onclick="retirerMedecin(this)">
+                        <input type="button" value="retirer" class="boutonRetirer" th:id="${medecin.idMedecin}" onclick="retirerMedecin(this)">
                     </td>
                 </tr>
             </table>

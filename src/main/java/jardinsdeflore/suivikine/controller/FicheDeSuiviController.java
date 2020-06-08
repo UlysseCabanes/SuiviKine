@@ -3,7 +3,6 @@ package jardinsdeflore.suivikine.controller;
 import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import jardinsdeflore.suivikine.entity.Resident;
 import jardinsdeflore.suivikine.repository.ResidentRepository;
-import jardinsdeflore.suivikine.service.ResidentService;
 import jardinsdeflore.suivikine.util.UtilDate;
 import java.text.ParseException;
 import java.util.Optional;
@@ -22,9 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FicheDeSuiviController {
-
-    @Autowired
-    ResidentService residentService;
     
     @Autowired
     ResidentRepository residentRepository;
@@ -51,10 +47,10 @@ public class FicheDeSuiviController {
         //Vérifier si le résident existe déja
         if(residentRepository.existsById(new ResidentId(nom, prenom, dateNaissance))) {
             //Si il existe, on renvoit à la même page et on ne sauvegarde pas le résident dans la BDD
-            return "nouvelleFiche";
+            return "redirect:/nouvelleFiche";
         } 
         else {
-            //Sinon, on renvoit à la page "ficheDeSuivi" et on sauvegarde le résident dans la BDD
+            //Sinon, on on sauvegarde le résident dans la BDD et renvoit à la page "ficheDeSuivi"
             residentRepository.save(resident);
             return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissance;
         }
@@ -80,7 +76,7 @@ public class FicheDeSuiviController {
         model.addAttribute("nSecuSociale", resident.getnSecuSociale());
         model.addAttribute("medecin", resident.getMedecinPrescripteur());
         model.addAttribute("equipeKine", resident.getEquipeKine());
-        
+        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue
         String datePrescription = resident.getDatePrescription();
         if (datePrescription != null && !datePrescription.isEmpty()) {
             model.addAttribute("datePrescription", UtilDate.getDateFormatyyyyMMdd(datePrescription));
@@ -354,7 +350,7 @@ public class FicheDeSuiviController {
 
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
-        
+        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue 
         if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
             String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
             resident.setDatePrescription(datePrescription);
@@ -517,6 +513,7 @@ public class FicheDeSuiviController {
         }
     }
     
+    //Gérer les erreurs 
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public String databaseError() {
         return "accueil";
