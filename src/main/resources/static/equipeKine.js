@@ -15,6 +15,9 @@ function enregistrerModifications(event) {
         url: "modifierEquipeKine",
         type: "POST",
         //Données extraites du formulaire formEquipekine
-        data:  $(formId).serialize()
+        data:  $(formId).serialize(),
+        success : function() {
+                    window.location.reload(true);
+                }
     });
 }
