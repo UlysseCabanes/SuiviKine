@@ -2,6 +2,7 @@ package jardinsdeflore.suivikine.controller;
 
 import jardinsdeflore.suivikine.entity.EquipeKine;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
+import jardinsdeflore.suivikine.service.EquipeKineService;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
@@ -23,6 +24,9 @@ public class EquipeKineController {
     EquipeKineRepository equipeKineRepository;
     
     @Autowired
+    EquipeKineService equipeKineService;
+    
+    @Autowired
     EntityManager em;
         
     //Voir toutes les équipes de la bdd    
@@ -33,7 +37,7 @@ public class EquipeKineController {
         Iterable<EquipeKine> lesEquipesKine = equipeKineRepository.findAll();
         //Envoyer la liste à la vue
         model.addAttribute("lesEquipesKine", lesEquipesKine);
-
+        //Afficher la vue
         return "equipeKine";
     }
 
@@ -41,9 +45,14 @@ public class EquipeKineController {
     @RequestMapping(value = "/modifierEquipeKine", method = RequestMethod.POST)
     public void modifierEquipeKine(
         @RequestParam("idEquipeKine") int idEquipeKine,
-        @RequestParam("login") String login,
-        @RequestParam("mdp") String mdp
+        @RequestParam("login") String loginParam,
+        @RequestParam("mdp") String mdpParam
     ) {
+        
+        //Enlever tous les espaces avant et après l'identifiant et le mot de passe
+        String login = loginParam.trim();
+        String mdp = mdpParam.trim();
+        
         //Trouver l'équipe kiné correspondante à l'id renseigné (Clé primaire)
         EquipeKine equipe = em.find(EquipeKine.class, idEquipeKine);
         //Modifier le login et le mot de passe de l'équipe
@@ -54,20 +63,16 @@ public class EquipeKineController {
     //Ajouter une équipe à la bdd
     @GetMapping("/ajouterEquipeKine")
     public String ajouterEquipeKine() {
-
-        //Compter le nombre d'équipes dans la BDD
-        long taille = equipeKineRepository.count();
-        //Récupérer toutes les équipes
-        ArrayList<EquipeKine> lesEquipes = (ArrayList) equipeKineRepository.findAll();
-        //Récupérer la dernière équipe
-        EquipeKine derniere = lesEquipes.get((int) taille - 1);
+        
+        //Récupérer la dernière équipe kiné
+        EquipeKine derniere = equipeKineService.findLast(equipeKineRepository);
         //Récupérer l'id de la dernière équipe
         int id = derniere.getIdEquipeKine();
         ///Créer une nouvelle équipe en incrémentant l'id
         EquipeKine equipe = new EquipeKine(id+1,"login", "mdp");
         //Enregistrer l'équipe dans la bdd
         equipeKineRepository.save(equipe);
-
+        //Afficher la vue
         return "redirect:/equipeKine";
     }
 
@@ -75,12 +80,8 @@ public class EquipeKineController {
     @GetMapping("/retirerEquipeKine")
     public String retirerEquipeKine() {
 
-        //Compter le nombre d'équipes dans la BDD
-        long taille = equipeKineRepository.count();
-        //Récupérer toutes les équipes
-        ArrayList<EquipeKine> lesEquipes = (ArrayList) equipeKineRepository.findAll();
-        //Récupérer la dernière équipe
-        EquipeKine derniere = lesEquipes.get((int) taille - 1);
+        //Récupérer la dernière équipe kiné
+        EquipeKine derniere = equipeKineService.findLast(equipeKineRepository);
         //Retirer l'équipe de la bdd
         equipeKineRepository.delete(derniere);
 

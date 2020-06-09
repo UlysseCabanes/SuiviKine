@@ -37,13 +37,16 @@ public class MedecinController {
     @RequestMapping(value = "/modifierMedecin", method = RequestMethod.POST)
     public void modifierMedecin(
         @RequestParam("idMedecin") int idMedecin,
-        @RequestParam("nom") String nom
+        @RequestParam("nom") String nomParam
     ) {
+        
+        //Enlever tous les espaces avant et après le nom
+        String nom = nomParam.trim();
         //Trouver le médecin correspondant à l'id renseigné (Clé primaire)
         Medecin medecin = em.find(Medecin.class, idMedecin);
-        if (!nom.trim().isEmpty()) {
+        if (!nom.isEmpty()) {
             //Modifier le nom du médecin
-            medecin.setNom(nom.trim());
+            medecin.setNom(nom);
         }
     }
 

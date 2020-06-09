@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
+import java.util.ArrayList;
 
 @Service 
 public class EquipeKineService {
@@ -19,6 +20,17 @@ public class EquipeKineService {
 
 	public Iterable<EquipeKine> findAll() {
 		return equipeKineRepository.findAll();
+	}
+        
+        public EquipeKine findLast(EquipeKineRepository equipeKineRepository) {
+            //Compter le nombre d'équipes dans la BDD
+            long taille = equipeKineRepository.count();
+            //Récupérer toutes les équipes
+            ArrayList<EquipeKine> lesEquipes = (ArrayList) equipeKineRepository.findAll();
+            //Récupérer la dernière équipe
+            EquipeKine derniere = lesEquipes.get((int) taille - 1);
+            
+            return derniere;
 	}
         
         public EquipeKine findByLogin(String login) {

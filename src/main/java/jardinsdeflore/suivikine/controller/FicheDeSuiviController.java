@@ -30,19 +30,24 @@ public class FicheDeSuiviController {
     
     @GetMapping("/creerFicheDeSuivi")
     public String creerFicheDeSuivi(
-        @RequestParam("nom") String nom,
-        @RequestParam("prenom") String prenom,
+        @RequestParam("nom") String nomParam,
+        @RequestParam("prenom") String prenomParam,
         @RequestParam("dateNaissance") String dateNaissanceParam,
         @RequestParam("sexe") String sexe,
         @RequestParam("medecinPrescripteur") String medecinPrescripteur,
-        @RequestParam("nSecu") String nSecu,
+        @RequestParam("nSecu") String nSecuParam,
         HttpSession session,
         Model model) throws ParseException {
 
+        //Enlever tous les espaces avant et après le nom, le prénom et le numéro de sécurité sociale
+        String nom = nomParam.trim();
+        String prenom = prenomParam.trim();
+        String nSecu = nSecuParam.trim();
+        
         String dateNaissance = UtilDate.getDateFormatddMMyyyy(dateNaissanceParam);
-        //Récupérer l'id de l'équipe kiné connectée et le mettre en attribut de session
+        //Récupérer l'id de l'équipe kiné connectée
         int idEquipe = (int) session.getAttribute("idEquipe");
-        //Créer un résident avec les paramètres de la requête
+        //Créer un résident avec les paramètres
         Resident resident = new Resident(nom, prenom, dateNaissance, sexe, nSecu, medecinPrescripteur, idEquipe);
         //Vérifier si le résident existe déja
         if(residentRepository.existsById(new ResidentId(nom, prenom, dateNaissance))) {
@@ -50,7 +55,7 @@ public class FicheDeSuiviController {
             return "redirect:/nouvelleFiche";
         } 
         else {
-            //Sinon, on on sauvegarde le résident dans la BDD et renvoit à la page "ficheDeSuivi"
+            //Sinon, on on sauvegarde le résident dans la BDD et on redirige vers la page "ficheDeSuivi"
             residentRepository.save(resident);
             return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissance;
         }
@@ -350,7 +355,7 @@ public class FicheDeSuiviController {
 
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
-        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue 
+        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la BDD
         if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
             String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
             resident.setDatePrescription(datePrescription);
@@ -362,12 +367,12 @@ public class FicheDeSuiviController {
             resident.setRenouvellement(renouvellement.get());
         }
         if (indicationMedicale.isPresent()) {
-            resident.setIndicationMedicale(indicationMedicale.get());
+            resident.setIndicationMedicale(indicationMedicale.get().trim());
         }
         resident.setNbProtocoleTherapeutique(nbProtocoleTherapeutique);
         resident.setRythmeSeances(rythmeSeances);
         if (lieuSeances.isPresent()) {
-            resident.setLieuSeances(lieuSeances.get());
+            resident.setLieuSeances(lieuSeances.get().trim());
         }
         if (travailGroupe.isPresent()) {
             resident.setTravailGroupe(travailGroupe.get());
@@ -377,10 +382,10 @@ public class FicheDeSuiviController {
             resident.setDatePremiereSeance(datePremiereSeance);
         }
         if (techniques.isPresent()) {
-            resident.setTechniques(techniques.get());
+            resident.setTechniques(techniques.get().trim());
         }
         if (intitules.isPresent()) {
-            resident.setIntitules(intitules.get());
+            resident.setIntitules(intitules.get().trim());
         }
         if (demarrageDateParam.isPresent() && !demarrageDateParam.get().isEmpty()) {
             String demarrageDate = UtilDate.getDateFormatddMMyyyy(demarrageDateParam.get());
@@ -395,121 +400,121 @@ public class FicheDeSuiviController {
             resident.setFinaleDate(finaleDate);
         }
         if (articulairesD.isPresent()) {
-            resident.setArticulairesD(articulairesD.get());
+            resident.setArticulairesD(articulairesD.get().trim());
         }
         if (articulairesI.isPresent()) {
-            resident.setArticulairesI(articulairesI.get());
+            resident.setArticulairesI(articulairesI.get().trim());
         }
         if (articulairesF.isPresent()) {
-            resident.setArticulairesF(articulairesF.get());
+            resident.setArticulairesF(articulairesF.get().trim());
         }
         if (forceMusculaireD.isPresent()) {
-            resident.setForceMusculaireD(forceMusculaireD.get());
+            resident.setForceMusculaireD(forceMusculaireD.get().trim());
         }
         if (forceMusculaireI.isPresent()) {
-            resident.setForceMusculaireI(forceMusculaireI.get());
+            resident.setForceMusculaireI(forceMusculaireI.get().trim());
         }
         if (forceMusculaireF.isPresent()) {
-            resident.setForceMusculaireF(forceMusculaireF.get());
+            resident.setForceMusculaireF(forceMusculaireF.get().trim());
         }
         if (douleursD.isPresent()) {
-            resident.setDouleursD(douleursD.get());
+            resident.setDouleursD(douleursD.get().trim());
         }
         if (douleursI.isPresent()) {
-            resident.setDouleursI(douleursI.get());
+            resident.setDouleursI(douleursI.get().trim());
         }
         if (douleursF.isPresent()) {
-            resident.setDouleursF(douleursF.get());
+            resident.setDouleursF(douleursF.get().trim());
         }
         if (trophiquesD.isPresent()) {
-            resident.setTrophiquesD(trophiquesD.get());
+            resident.setTrophiquesD(trophiquesD.get().trim());
         }
         if (trophiquesI.isPresent()) {
-            resident.setTrophiquesI(trophiquesI.get());
+            resident.setTrophiquesI(trophiquesI.get().trim());
         }
         if (trophiquesF.isPresent()) {
-            resident.setTrophiquesF(trophiquesF.get());
+            resident.setTrophiquesF(trophiquesF.get().trim());
         }
         if (bilanDeficitsFonctionnelsD.isPresent()) {
-            resident.setBilanDeficitsFonctionnelsD(bilanDeficitsFonctionnelsD.get());
+            resident.setBilanDeficitsFonctionnelsD(bilanDeficitsFonctionnelsD.get().trim());
         }
         if (bilanDeficitsFonctionnelsI.isPresent()) {
-            resident.setBilanDeficitsFonctionnelsI(bilanDeficitsFonctionnelsI.get());
+            resident.setBilanDeficitsFonctionnelsI(bilanDeficitsFonctionnelsI.get().trim());
         }
         if (bilanDeficitsFonctionnelsF.isPresent()) {
-            resident.setBilanDeficitsFonctionnelsF(bilanDeficitsFonctionnelsF.get());
+            resident.setBilanDeficitsFonctionnelsF(bilanDeficitsFonctionnelsF.get().trim());
         }
         if (autresProblemesD.isPresent()) {
-            resident.setAutresProblemesD(autresProblemesD.get());
+            resident.setAutresProblemesD(autresProblemesD.get().trim());
         }
         if (autresProblemesI.isPresent()) {
-            resident.setAutresProblemesI(autresProblemesI.get());
+            resident.setAutresProblemesI(autresProblemesI.get().trim());
         }
         if (autresProblemesF.isPresent()) {
-            resident.setAutresProblemesF(autresProblemesF.get());
+            resident.setAutresProblemesF(autresProblemesF.get().trim());
         }
         if (objectifsCourtTermeD.isPresent()) {
-            resident.setObjectifsCourtTermeD(objectifsCourtTermeD.get());
+            resident.setObjectifsCourtTermeD(objectifsCourtTermeD.get().trim());
         }
         if (objectifsCourtTermeI.isPresent()) {
-            resident.setObjectifsCourtTermeI(objectifsCourtTermeI.get());
+            resident.setObjectifsCourtTermeI(objectifsCourtTermeI.get().trim());
         }
         if (objectifsCourtTermeF.isPresent()) {
-            resident.setObjectifsCourtTermeF(objectifsCourtTermeF.get());
+            resident.setObjectifsCourtTermeF(objectifsCourtTermeF.get().trim());
         }
         if (objectifsMoyenTermeD.isPresent()) {
-            resident.setObjectifsMoyenTermeD(objectifsMoyenTermeD.get());
+            resident.setObjectifsMoyenTermeD(objectifsMoyenTermeD.get().trim());
         }
         if (objectifsMoyenTermeI.isPresent()) {
-            resident.setObjectifsMoyenTermeI(objectifsMoyenTermeI.get());
+            resident.setObjectifsMoyenTermeI(objectifsMoyenTermeI.get().trim());
         }
         if (objectifsMoyenTermeF.isPresent()) {
-            resident.setObjectifsMoyenTermeF(objectifsMoyenTermeF.get());
+            resident.setObjectifsMoyenTermeF(objectifsMoyenTermeF.get().trim());
         }
         if (objectifsLongTermeD.isPresent()) {
-            resident.setObjectifsLongTermeD(objectifsLongTermeD.get());
+            resident.setObjectifsLongTermeD(objectifsLongTermeD.get().trim());
         }
         if (objectifsLongTermeI.isPresent()) {
-            resident.setObjectifsLongTermeI(objectifsLongTermeI.get());
+            resident.setObjectifsLongTermeI(objectifsLongTermeI.get().trim());
         }
         if (objectifsLongTermeF.isPresent()) {
-            resident.setObjectifsLongTermeF(objectifsLongTermeF.get());
+            resident.setObjectifsLongTermeF(objectifsLongTermeF.get().trim());
         }
         if (diagnosticD.isPresent()) {
-            resident.setDiagnosticD(diagnosticD.get());
+            resident.setDiagnosticD(diagnosticD.get().trim());
         }
         if (diagnosticI.isPresent()) {
-            resident.setDiagnosticI(diagnosticI.get());
+            resident.setDiagnosticI(diagnosticI.get().trim());
         }
         if (diagnosticF.isPresent()) {
-            resident.setDiagnosticF(diagnosticF.get());
+            resident.setDiagnosticF(diagnosticF.get().trim());
         }
         if (conseilsD.isPresent()) {
-            resident.setConseilsD(conseilsD.get());
+            resident.setConseilsD(conseilsD.get().trim());
         }
         if (conseilsI.isPresent()) {
-            resident.setConseilsI(conseilsI.get());
+            resident.setConseilsI(conseilsI.get().trim());
         }
         if (conseilsF.isPresent()) {
-            resident.setConseilsF(conseilsF.get());
+            resident.setConseilsF(conseilsF.get().trim());
         }
         if (propositionsD.isPresent()) {
-            resident.setPropositionsD(propositionsD.get());
+            resident.setPropositionsD(propositionsD.get().trim());
         }
         if (propositionsI.isPresent()) {
-            resident.setPropositionsI(propositionsI.get());
+            resident.setPropositionsI(propositionsI.get().trim());
         }
         if (propositionsF.isPresent()) {
-            resident.setPropositionsF(propositionsF.get());
+            resident.setPropositionsF(propositionsF.get().trim());
         }
         if (commentairesD.isPresent()) {
-            resident.setCommentairesD(commentairesD.get());
+            resident.setCommentairesD(commentairesD.get().trim());
         }
         if (commentairesI.isPresent()) {
-            resident.setCommentairesI(commentairesI.get());
+            resident.setCommentairesI(commentairesI.get().trim());
         }
         if (cotation.isPresent()) {
-            resident.setCotation(cotation.get());
+            resident.setCotation(cotation.get().trim());
         }
     }
     
