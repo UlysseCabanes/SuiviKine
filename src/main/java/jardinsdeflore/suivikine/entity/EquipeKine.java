@@ -15,10 +15,10 @@ public class EquipeKine implements Serializable{
     @Column(name = "id_equipe_kine")
     private int idEquipeKine;
     
-    @Column(unique = true)
+    @Column(name = "login", unique = true)
     private String login;
     
-    @Column(unique = true)
+    @Column(name = "mdp", unique = true)
     private String mdp;
 
     //Constructeurs

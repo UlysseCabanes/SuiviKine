@@ -1,7 +1,5 @@
 package jardinsdeflore.suivikine.service;
 
-
-
 import jardinsdeflore.suivikine.entity.Medecin;
 import org.springframework.stereotype.Service;
 import java.util.logging.Level;
@@ -21,7 +19,7 @@ public class MedecinService {
 		return medecinRepository.findAll();
 	}
         
-        public Medecin findByNom(String nom) {
+        public Iterable<Medecin> findByNom(String nom) {
 		return medecinRepository.findByNom(nom);
 	}
 
@@ -35,8 +33,7 @@ public class MedecinService {
 
 	public void save(Medecin medecin) {
 		if (medecin == null) { 
-			LOGGER.log(Level.SEVERE,
-					"medecin is null. Are you sure you have connected your form to the application?");
+			LOGGER.log(Level.SEVERE, "Medecin = null");
 			return;
 		}
 		medecinRepository.save(medecin);

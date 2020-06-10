@@ -30,6 +30,13 @@ header {
     vertical-align: top;
 }
 
+/* En-têtes du tableau */
+#tabFicheSuivi th{
+    border: solid black 1px;
+    padding: 0px 3px 3px 3px;
+    vertical-align: top;
+}
+
 /* Titres */
 .titre {
     font-weight: bold;
@@ -43,14 +50,12 @@ input[type=text] {
 
 /* input type="date" */
 input[type=date] {
-    border: none;
+    display: none;
 }
 
 /* input type="number" */
 input[type=number] {
-    border: none;
-    width: 30px;
-    -moz-appearance: textfield;
+    display: none;
 }
 
 /* textarea */
@@ -63,10 +68,6 @@ textarea {
 
 #techniques {
     width: 1400px;
-}
-
-#intituleKine {
-    width: 250px;
 }
 
 #cotation {

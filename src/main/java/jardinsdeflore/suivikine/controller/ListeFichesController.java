@@ -17,24 +17,23 @@ public class ListeFichesController {
 	@GetMapping("/listeFiches")
 	public String listeFiches(HttpSession session, Model model) {
             //Récupérer l'id de l'équipe kiné connectée
-                int idEquipe = (int) session.getAttribute("idEquipe");
-                //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 0, sinon accueil
-                model.addAttribute("idEquipeKine", idEquipe);
-                //Si l'id vaut 0
-                if (idEquipe == 0) {
-                    //Créer une liste de tous les résidents
-                    Iterable<Resident> lesResidents = residentRepository.findAll();
-                    //Envoyer la liste à la vue
-                    model.addAttribute("residentsEquipe", lesResidents);
-                }
-                else {
-                    //Créer une liste des résidents créés par l'équipe kiné connectée
-                    Iterable<Resident> residentsEquipe = residentRepository.findByEquipeKine(idEquipe);
-                    //Envoyer la liste à la vue
-                    model.addAttribute("residentsEquipe", residentsEquipe);
-                }
-                //Afficher la vue
-                return "listeFiches";
+            int idEquipe = (int) session.getAttribute("idEquipe");
+            //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 0, sinon accueil
+            model.addAttribute("idEquipeKine", idEquipe);
+            //Si l'id vaut 0
+            if (idEquipe == 0) {
+                //Créer une liste de tous les résidents
+                Iterable<Resident> lesResidents = residentRepository.findAll();
+                //Envoyer la liste à la vue
+                model.addAttribute("residentsEquipe", lesResidents);
+            }
+            else {
+                //Créer une liste des résidents créés par l'équipe kiné connectée
+                Iterable<Resident> residentsEquipe = residentRepository.findByEquipeKine(idEquipe);
+                //Envoyer la liste à la vue
+                model.addAttribute("residentsEquipe", residentsEquipe);
+            }
+            return "listeFiches";
 	}
 
 }

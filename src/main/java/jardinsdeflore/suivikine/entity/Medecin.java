@@ -16,6 +16,7 @@ public class Medecin implements Serializable{
     @Column(name = "id_medecin")
     private int idMedecin;
     
+    @Column(name = "nom")
     private String nom;
 
     //Constructeurs

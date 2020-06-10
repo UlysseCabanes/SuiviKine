@@ -19,11 +19,13 @@ public class Resident implements Serializable {
     @Id
     @NotNull
     @NotEmpty
+    @Column(name="nom")
     private String nom;
 
     @Id
     @NotNull
     @NotEmpty
+    @Column(name="prenom")
     private String prenom;
 
     @Id
@@ -33,6 +35,7 @@ public class Resident implements Serializable {
 
     @NotNull
     @NotEmpty
+    @Column(name="sexe")
     private String sexe;
 
     @NotNull
@@ -75,8 +78,10 @@ public class Resident implements Serializable {
     @Column(name="date_premiere_seance")
     private String datePremiereSeance;
 
+    @Column(name="techniques")
     private String techniques;
 
+    @Column(name="intitules")
     private String intitules;
 
     @Column(name="demarrage_date")
@@ -88,120 +93,121 @@ public class Resident implements Serializable {
     @Column(name="finale_date")
     private String finaleDate;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name = "articulairesD", columnDefinition="TEXT")
     private String articulairesD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name = "articulairesI", columnDefinition="TEXT")
     private String articulairesI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name = "articulairesF", columnDefinition="TEXT")
     private String articulairesF;
 
-    @Column(columnDefinition="TEXT", name="force_musculaireD")
+    @Column(name="force_musculaireD", columnDefinition="TEXT")
     private String forceMusculaireD;
 
-    @Column(columnDefinition="TEXT", name="force_musculaireI")
+    @Column(name="force_musculaireI", columnDefinition="TEXT")
     private String forceMusculaireI;
 
-    @Column(columnDefinition="TEXT", name="force_musculaireF")
+    @Column(name="force_musculaireF", columnDefinition="TEXT")
     private String forceMusculaireF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="douleursD", columnDefinition="TEXT")
     private String douleursD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="douleursI", columnDefinition="TEXT")
     private String douleursI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="douleursF", columnDefinition="TEXT")
     private String douleursF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="trophiquesD", columnDefinition="TEXT")
     private String trophiquesD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="trophiquesI", columnDefinition="TEXT")
     private String trophiquesI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="trophiquesF", columnDefinition="TEXT")
     private String trophiquesF;
 
-    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsD")
+    @Column(name="bilan_deficits_fonctionnelsD", columnDefinition="TEXT")
     private String bilanDeficitsFonctionnelsD;
 
-    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsI")
+    @Column(name="bilan_deficits_fonctionnelsI", columnDefinition="TEXT")
     private String bilanDeficitsFonctionnelsI;
 
-    @Column(columnDefinition="TEXT", name="bilan_deficits_fonctionnelsF")
+    @Column(name="bilan_deficits_fonctionnelsF", columnDefinition="TEXT")
     private String bilanDeficitsFonctionnelsF;
 
-    @Column(columnDefinition="TEXT", name="autres_problemesD")
+    @Column(name="autres_problemesD", columnDefinition="TEXT")
     private String autresProblemesD;
 
-    @Column(columnDefinition="TEXT", name="autres_problemesI")
+    @Column(name="autres_problemesI", columnDefinition="TEXT")
     private String autresProblemesI;
 
-    @Column(columnDefinition="TEXT", name="autres_problemesF")
+    @Column(name="autres_problemesF", columnDefinition="TEXT")
     private String autresProblemesF;
 
-    @Column(columnDefinition="TEXT", name="objectifs_court_termeD")
+    @Column(name="objectifs_court_termeD", columnDefinition="TEXT")
     private String objectifsCourtTermeD;
 
-    @Column(columnDefinition="TEXT", name="objectifs_court_termeI")
+    @Column(name="objectifs_court_termeI", columnDefinition="TEXT")
     private String objectifsCourtTermeI;
 
-    @Column(columnDefinition="TEXT", name="objectifs_court_termeF")
+    @Column(name="objectifs_court_termeF", columnDefinition="TEXT")
     private String objectifsCourtTermeF;
 
-    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeD")
+    @Column(name="objectifs_moyen_termeD", columnDefinition="TEXT")
     private String objectifsMoyenTermeD;
 
-    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeI")
+    @Column(name="objectifs_moyen_termeI", columnDefinition="TEXT")
     private String objectifsMoyenTermeI;
 
-    @Column(columnDefinition="TEXT", name="objectifs_moyen_termeF")
+    @Column(name="objectifs_moyen_termeF", columnDefinition="TEXT")
     private String objectifsMoyenTermeF;
 
-    @Column(columnDefinition="TEXT", name="objectifs_long_termeD")
+    @Column(name="objectifs_long_termeD", columnDefinition="TEXT")
     private String objectifsLongTermeD;
 
-    @Column(columnDefinition="TEXT", name="objectifs_long_termeI")
+    @Column(name="objectifs_long_termeI", columnDefinition="TEXT")
     private String objectifsLongTermeI;
 
-    @Column(columnDefinition="TEXT", name="objectifs_long_termeF")
+    @Column(name="objectifs_long_termeF", columnDefinition="TEXT")
     private String objectifsLongTermeF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="diagnosticD", columnDefinition="TEXT")
     private String diagnosticD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="diagnosticI", columnDefinition="TEXT")
     private String diagnosticI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="diagnosticF", columnDefinition="TEXT")
     private String diagnosticF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="conseilsD", columnDefinition="TEXT")
     private String conseilsD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="conseilsI", columnDefinition="TEXT")
     private String conseilsI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="conseilsF", columnDefinition="TEXT")
     private String conseilsF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="propositionsD", columnDefinition="TEXT")
     private String propositionsD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="propositionsI", columnDefinition="TEXT")
     private String propositionsI;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="propositionsF", columnDefinition="TEXT")
     private String propositionsF;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="commentairesD", columnDefinition="TEXT")
     private String commentairesD;
 
-    @Column(columnDefinition="TEXT")
+    @Column(name="commentairesI", columnDefinition="TEXT")
     private String commentairesI;
 
+    @Column(name="cotation")
     private String cotation;
 
     //Constructeurs

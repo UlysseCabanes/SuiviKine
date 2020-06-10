@@ -1,6 +1,5 @@
 package jardinsdeflore.suivikine.service;
 
-
 import jardinsdeflore.suivikine.entity.EquipeKine;
 import org.springframework.stereotype.Service;
 import java.util.logging.Level;
@@ -47,8 +46,7 @@ public class EquipeKineService {
 
 	public void save(EquipeKine equipeKine) {
 		if (equipeKine == null) { 
-			LOGGER.log(Level.SEVERE,
-					"equipeKine is null. Are you sure you have connected your form to the application?");
+			LOGGER.log(Level.SEVERE, "EquipeKine = null");
 			return;
 		}
 		equipeKineRepository.save(equipeKine);

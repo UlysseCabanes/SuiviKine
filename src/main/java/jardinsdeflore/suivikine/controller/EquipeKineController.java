@@ -4,7 +4,6 @@ import jardinsdeflore.suivikine.entity.EquipeKine;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
 import jardinsdeflore.suivikine.service.EquipeKineService;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;

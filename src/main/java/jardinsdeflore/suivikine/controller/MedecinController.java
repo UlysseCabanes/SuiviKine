@@ -25,7 +25,7 @@ public class MedecinController {
     @GetMapping("/medecin")
     public String medecin(Model model) {
 
-        //Récupérer tous les médecins
+        //Créer une liste de tous les médecins
         Iterable<Medecin> lesMedecins = medecinRepository.findAll();
         //Envoyer la liste à la vue
         model.addAttribute("lesMedecins", lesMedecins);

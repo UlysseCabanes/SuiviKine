@@ -84,6 +84,7 @@ public class FicheDeSuiviController {
         //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue
         String datePrescription = resident.getDatePrescription();
         if (datePrescription != null && !datePrescription.isEmpty()) {
+            model.addAttribute("datePrescriptionLabel", datePrescription);
             model.addAttribute("datePrescription", UtilDate.getDateFormatyyyyMMdd(datePrescription));
         }
         String prescriptionQuantitative = resident.getPrescriptionQuantitative();
@@ -110,6 +111,7 @@ public class FicheDeSuiviController {
         }
         String datePremiereSeance = resident.getDatePremiereSeance();
         if (datePremiereSeance != null && !datePremiereSeance.isEmpty()) {
+            model.addAttribute("datePremiereSeanceLabel", datePremiereSeance);
             model.addAttribute("datePremiereSeance", UtilDate.getDateFormatyyyyMMdd(datePremiereSeance));
         }
         String techniques = resident.getTechniques();
@@ -122,14 +124,17 @@ public class FicheDeSuiviController {
         }
         String demarrageDate = resident.getDemarrageDate();
         if (demarrageDate != null && !demarrageDate.isEmpty()) {
+            model.addAttribute("demarrageDateLabel", demarrageDate);
             model.addAttribute("demarrageDate", UtilDate.getDateFormatyyyyMMdd(demarrageDate));
         }
         String intermediaireDate = resident.getIntermediaireDate();
         if (intermediaireDate != null && !intermediaireDate.isEmpty()) {
+            model.addAttribute("intermediaireDateLabel", intermediaireDate);
             model.addAttribute("intermediaireDate", UtilDate.getDateFormatyyyyMMdd(intermediaireDate));
         }
         String finaleDate = resident.getFinaleDate();
         if (finaleDate != null && !finaleDate.isEmpty()) {
+            model.addAttribute("finaleDateLabel", finaleDate);
             model.addAttribute("finaleDate", UtilDate.getDateFormatyyyyMMdd(finaleDate));
         }
         String articulairesD = resident.getArticulairesD();
@@ -522,5 +527,5 @@ public class FicheDeSuiviController {
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public String databaseError() {
         return "accueil";
-    }
+    } 
 }

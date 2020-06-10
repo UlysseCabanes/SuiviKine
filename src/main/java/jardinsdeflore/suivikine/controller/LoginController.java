@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -18,6 +19,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String deconnexion() {
+        //Lors du clic sur le bouton "déconnexion", renvoyer à la page de login
         return "login";
     }
 
@@ -49,6 +51,12 @@ public class LoginController {
             }
         }
         //En cas d'échec, rester sur la page de login
+        return "login";
+    }
+    
+    //Gérer les erreurs 
+    @ExceptionHandler({NullPointerException.class})
+    public String nullPointerError() {
         return "login";
     }
 }

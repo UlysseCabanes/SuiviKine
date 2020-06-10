@@ -24,14 +24,14 @@
 <body>
     <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
         <table id="tabFicheSuivi">
-            <tbody>
-                <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
-                <colgroup>
-                    <col id="col1" style="width: 15%">
-                    <col id="col2" style="width: 28%">
-                    <col id="col3" style="width: 28%">
-                    <col id="col4" style="width: 29%">
-                </colgroup>
+            <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
+            <colgroup>
+                <col id="col1" style="width: 15%">
+                <col id="col2" style="width: 28%">
+                <col id="col3" style="width: 28%">
+                <col id="col4" style="width: 29%">
+            </colgroup>
+            <thead>
                 <!-- Ligne 1-->
                 <tr id="L1">
                     <td id="L1C1" colspan="4">
@@ -65,24 +65,25 @@
                         <label class="titre">PRESCRIPTION</label> 
                         <label class="labelPrescription">Date de la prescription : </label> 
                         <input type="date" name="datePrescription" id="datePrescription" th:value="${datePrescription}">
+                        <label th:text="${datePrescriptionLabel}" class="labelPrint"></label>
                         <label class="labelPrescription">S'agit-il d'une prescription quantitative : </label> 
-                        <label>Oui</label>
+                        <label for="prescripQuantOui">Oui</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui">
-                        <label>Non</label>
+                        <label for="prescripQuantNon">Non</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
                         <label class="labelPrescription">S'agit-il d'un renouvellement : </label> 
-                        <label>Oui</label>
+                        <label for="renouvellementOui">Oui</label>
                         <input th:if="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
                         <input th:unless="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui">
-                        <label>Non</label>
+                        <label for="renouvellementNon">Non</label>
                         <input th:if="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon" checked>
                         <input th:unless="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
                         <br>
                         <label class="titre">INDICATION MEDICALE : </label>
-                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic">
-                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic">
+                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="177">
+                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="177">
                     </td>
                 </tr>
                 <!-- Ligne 3-->
@@ -91,69 +92,75 @@
                         <label class="titre">Protocole thérapeutique</label>
                         <label class="labelProtocoleTherapeutique">Nombre : </label>
                         <input type="number" th:value="${nbProtocoleTherapeutique}" name="nbProtocoleTherapeutique">
+                        <label th:text="${nbProtocoleTherapeutique}" class="labelPrint"></label>
                         <label class="labelProtocoleTherapeutique">Rythme des séances : </label>
                         <input type="number" th:value="${rythmeSeances}" name="rythmeSeances">
+                        <label th:text="${rythmeSeances}" class="labelPrint"></label>
                         <label>/semaine</label>
                         <label class="labelProtocoleTherapeutique">Lieu des séances : </label>
                         <input type="text" th:value="${lieuSeances}" name="lieuSeances">
                         <label class="labelProtocoleTherapeutique">Travail en groupe : </label>
-                        <label>Oui</label>
+                        <label for="travailEnGroupeOui">Oui</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui">
-                        <label>Non</label>
+                        <label for="travailEnGroupeNon">Non</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon">
                         <label class="labelProtocoleTherapeutique">Date de la première séance : </label>
                         <input type="date" th:value="${datePremiereSeance}" name="datePremiereSeance">
+                        <label th:text="${datePremiereSeanceLabel}" class="labelPrint"></label>
                         <br>
                         <label>Techniques : </label>
-                        <input type="text" th:value="${techniques}" name="techniques" id="techniques">
+                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="184">
                     </td>
                 </tr>
                 <!-- Ligne 4-->
                 <tr id="L4">
                     <!-- Colonne 1-->
-                    <td id="L4C1">
+                    <th id="L4C1">
                         <label class="titre">INTITULES</label>
                         <br>
                         <input type="text" th:value="${intitules}" name="intitules" id="intituleKine">
-                    </td>
+                        <label th:text="${intitules}" class="labelPrint"></label>
+                    </th>
                     <!-- Colonne 2-->
-                    <td id="L4C2">
+                    <th id="L4C2">
                         <input type="button" id="masquer2" class="masquer" value="-">
                         <label class="titre">DEMARRAGE - date : </label>
                         <input class="titre" type="date" th:value="${demarrageDate}" name="demarrageDate" id="dateDemarrage">
-                    </td>
+                        <label th:text="${demarrageDateLabel}" class="labelPrint"></label>
+                    </th>
                     <!-- Colonne 3-->
-                    <td id="L4C3">
+                    <th id="L4C3">
                         <input type="button" id="masquer3" class="masquer" value="-">
                         <label class="titre">INTERMEDIAIRE - date : </label>
                         <input class="titre" type="date" th:value="${intermediaireDate}" name="intermediaireDate" id="dateIntermediaire">
-                    </td>
+                        <label th:text="${intermediaireDateLabel}" class="labelPrint"></label>
+                    </th>
                     <!-- Colonne 4-->
-                    <td id="L4C4">
+                    <th id="L4C4">
                         <input type="button" id="masquer4" class="masquer" value="-">
                         <label class="titre">FINALE - date : </label>
                         <input class="titre" type="date" th:value="${finaleDate}" name="finaleDate" id="dateIntermediaireFinale">
-                    </td>
+                        <label th:text="${finaleDateLabel}" class="labelPrint"></label>
+                    </th>
                 </tr>
+            </thead>
+            <tbody>
                 <!-- Ligne 5-->
                 <tr id="L5"> 
                     <!-- Colonne 1-->
-                    <td id="L5C1" style="border-bottom: none">
+                    <td headers="L4C1" id="L5C1" style="border-bottom: none">
                         <label class="titre">Bilan des déficits structurels :</label>
                     </td>
                     <!-- Colonne 2-->
-                    <td id="L5C2" style="border-bottom: none">
-
+                    <td headers="L4C2" id="L5C2" style="border-bottom: none">
                     </td>
                     <!-- Colonne 3-->
-                    <td id="L5C3" style="border-bottom: none">
-
+                    <td headers="L4C3" id="L5C3" style="border-bottom: none">
                     </td>
                     <!-- Colonne 4-->
-                    <td id="L5C4" style="border-bottom: none">
-
+                    <td headers="L4C4" id="L5C4" style="border-bottom: none">
                     </td>
                 </tr>
                 <!-- Ligne 6-->
@@ -165,7 +172,7 @@
                         <textarea th:value="${articulairesD}" th:text="${articulairesD}" name="articulairesD"></textarea>
                     </td>
                     <td id="L6C3" style="border-top: none; border-bottom: none">
-                        <textarea th:value="${articulairesI}" th:text="${articulairesI}"name="articulairesI"></textarea>
+                        <textarea th:value="${articulairesI}" th:text="${articulairesI}" name="articulairesI"></textarea>
                     </td>
                     <td id="L6C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${articulairesF}" th:text="${articulairesF}" name="articulairesF"></textarea>

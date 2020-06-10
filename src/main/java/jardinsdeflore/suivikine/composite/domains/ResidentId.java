@@ -6,13 +6,9 @@
 package jardinsdeflore.suivikine.composite.domains;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- *
- * @author ulyss
- */
+//Classe définissant la clé primaire composite de l'entité Résident
 public class ResidentId implements Serializable{
     
     private String nom;
@@ -60,6 +56,4 @@ public class ResidentId implements Serializable{
         }
         return true;
     }
-    
-    
 }

@@ -40,7 +40,7 @@ header {
 /* tableau */
 #tabFicheSuivi{
     border-collapse: collapse;
-    height: 827px;
+    height: 830px;
     width: 1500px;
     margin-left: auto;
     margin-right: auto;
@@ -48,6 +48,13 @@ header {
 
 /* Cellules du tableau */
 #tabFicheSuivi td{
+    border: solid black 1px;
+    padding: 0px 3px 3px 3px;
+    vertical-align: top;
+}
+
+/* En-têtes du tableau */
+#tabFicheSuivi th{
     border: solid black 1px;
     padding: 0px 3px 3px 3px;
     vertical-align: top;
@@ -71,6 +78,14 @@ input[type=date] {
     background-color: #F0F0F0;
 }
 
+.labelPrint {
+    display: none;
+}
+
+#intitulesPrint {
+    display: none;
+}
+
 /* input type="number" */
 input[type=number] {
     border: none;
@@ -88,7 +103,7 @@ textarea {
 }
 
 #techniques {
-    width: 1400px;
+    width: 1325px;
 }
 
 #intituleKine {
@@ -101,7 +116,7 @@ textarea {
 }
 
 #indicMedic {
-    width: 1280px;
+    width: 1205px;
 }
 
 .labelSocioAdministratifs {

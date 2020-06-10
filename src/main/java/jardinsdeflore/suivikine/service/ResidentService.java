@@ -11,7 +11,6 @@ public class ResidentService {
 	private static final Logger LOGGER = Logger.getLogger(ResidentService.class.getName());
 	private ResidentRepository residentRepository;
 
-
 	public ResidentService(ResidentRepository residentRepository) { 
 		this.residentRepository = residentRepository;
 	}
@@ -30,8 +29,7 @@ public class ResidentService {
 
 	public void save(Resident resident) {
 		if (resident == null) { 
-			LOGGER.log(Level.SEVERE,
-					"residet is null. Are you sure you have connected your form to the application?");
+			LOGGER.log(Level.SEVERE, "Resident = null");
 			return;
 		}
 		residentRepository.save(resident);

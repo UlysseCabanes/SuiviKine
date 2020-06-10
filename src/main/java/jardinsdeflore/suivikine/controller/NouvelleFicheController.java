@@ -15,7 +15,9 @@ public class NouvelleFicheController {
     
     @GetMapping("/nouvelleFiche")
     public String nouvelleFiche(Model model) {
+        //Créer une liste de tous les médecins de la BDD
         Iterable<Medecin> lesMedecins = medecinRepository.findAll();
+        //Envoyer la liste à la vue
         model.addAttribute("medecins", lesMedecins);
         return "nouvelleFiche";
     }
