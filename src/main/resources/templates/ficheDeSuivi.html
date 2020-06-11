@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="ficheDeSuivi_Impression.css" media="print">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
+<!-- En-tête de la page -->
 <header>
     <form action="accueil">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
@@ -23,17 +24,27 @@
 </header>
 <body>
     <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
+        <!-- Tableau : fiche de suivi -->
         <table id="tabFicheSuivi">
-            <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>
+            <!-- Titre de la fiche 
+            <caption class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</caption>-->
+            <!-- 4 colonnes -->
             <colgroup>
                 <col id="col1" style="width: 15%">
                 <col id="col2" style="width: 28%">
                 <col id="col3" style="width: 28%">
                 <col id="col4" style="width: 29%">
             </colgroup>
+            <!-- En-tête de la fiche -->
             <thead>
-                <!-- Ligne 1-->
+                <tr>
+                    <td colspan="4" style="border: none; text-align: center">
+                        <label class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</label>
+                    </td>
+                </tr>
+                <!-- Ligne 1 -->
                 <tr id="L1">
+                    <!-- Colonne 1 -->
                     <td id="L1C1" colspan="4">
                         <label class="titre">RENSEIGNEMENTS SOCIO-ADMINISTRATIFS</label>
                         <br>
@@ -59,8 +70,9 @@
                         <label th:text="${equipeKine}"></label>
                     </td>
                 </tr>
-                <!-- Ligne 2-->
+                <!-- Ligne 2 -->
                 <tr id="L2">
+                    <!-- Colonne 1 -->
                     <td id="L2C1" colspan="4">
                         <label class="titre">PRESCRIPTION</label> 
                         <label class="labelPrescription">Date de la prescription : </label> 
@@ -82,13 +94,14 @@
                         <input th:unless="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
                         <br>
                         <label class="titre">INDICATION MEDICALE : </label>
-                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="191">
-                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="191">
+                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="200">
+                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="200">
                         <label th:text="${indicationMedicale}" class="labelPrint"></label>
                     </td>
                 </tr>
-                <!-- Ligne 3-->
+                <!-- Ligne 3 -->
                 <tr id="L3">
+                    <!-- Colonne 1 -->
                     <td id="L3C1" colspan="4">
                         <label class="titre">Protocole thérapeutique</label>
                         <label class="labelProtocoleTherapeutique">Nombre : </label>
@@ -99,7 +112,8 @@
                         <label th:text="${rythmeSeances}" class="labelPrint"></label>
                         <label>/semaine</label>
                         <label class="labelProtocoleTherapeutique">Lieu des séances : </label>
-                        <input type="text" th:value="${lieuSeances}" name="lieuSeances">
+                        <input type="text" th:value="${lieuSeances}" name="lieuSeances" maxlength="30" id="lieuSeances">
+                        <label th:text="${lieuSeances}" class="labelPrint"></label>
                         <label class="labelProtocoleTherapeutique">Travail en groupe : </label>
                         <label for="travailEnGroupeOui">Oui</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
@@ -112,34 +126,34 @@
                         <label th:text="${datePremiereSeanceLabel}" class="labelPrint"></label>
                         <br>
                         <label>Techniques : </label>
-                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="211">
+                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="220">
                         <label th:text="${techniques}" class="labelPrint"></label>
                     </td>
                 </tr>
-                <!-- Ligne 4-->
+                <!-- Ligne 4 -->
                 <tr id="L4">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <th id="L4C1">
                         <label class="titre">INTITULES</label>
                         <br>
-                        <input type="text" th:value="${intitules}" name="intitules" id="intitulesKine">
+                        <input type="text" th:value="${intitules}" name="intitules" id="intitulesKine" maxlength="40">
                         <label th:text="${intitules}" class="labelPrint"></label>
                     </th>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <th id="L4C2">
                         <input type="button" id="masquer2" class="masquer" value="-">
                         <label class="titre">DEMARRAGE - date : </label>
                         <input class="titre" type="date" th:value="${demarrageDate}" name="demarrageDate" id="dateDemarrage">
                         <label th:text="${demarrageDateLabel}" class="labelPrint"></label>
                     </th>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <th id="L4C3">
                         <input type="button" id="masquer3" class="masquer" value="-">
                         <label class="titre">INTERMEDIAIRE - date : </label>
                         <input class="titre" type="date" th:value="${intermediaireDate}" name="intermediaireDate" id="dateIntermediaire">
                         <label th:text="${intermediaireDateLabel}" class="labelPrint"></label>
                     </th>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <th id="L4C4">
                         <input type="button" id="masquer4" class="masquer" value="-">
                         <label class="titre">FINALE - date : </label>
@@ -148,269 +162,303 @@
                     </th>
                 </tr>
             </thead>
+            <!-- Corps de la fiche -->
             <tbody>
-                <!-- Ligne 5-->
+                <!-- Ligne 5 -->
                 <tr id="L5"> 
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td headers="L4C1" id="L5C1" style="border-bottom: none">
                         <label class="titre">Bilan des déficits structurels :</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td headers="L4C2" id="L5C2" style="border-bottom: none">
                     </td>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <td headers="L4C3" id="L5C3" style="border-bottom: none">
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td headers="L4C4" id="L5C4" style="border-bottom: none">
                     </td>
                 </tr>
-                <!-- Ligne 6-->
+                <!-- Ligne 6 -->
                 <tr id="L6">
+                    <!-- Colonne 1 -->
                     <td id="L6C1" style="border-top: none; border-bottom: none">
                         <label>- articulaires</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L6C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${articulairesD}" th:text="${articulairesD}" name="articulairesD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L6C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${articulairesI}" th:text="${articulairesI}" name="articulairesI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L6C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${articulairesF}" th:text="${articulairesF}" name="articulairesF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 7-->
+                <!-- Ligne 7 -->
                 <tr id="L7">
+                    <!-- Colonne 1 -->
                     <td id="L7C1" style="border-top: none; border-bottom: none">
                         <label>- force musculaire</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L7C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${forceMusculaireD}" th:text="${forceMusculaireD}" name="forceMusculaireD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L7C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${forceMusculaireI}" th:text="${forceMusculaireI}" name="forceMusculaireI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L7C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${forceMusculaireF}" th:text="${forceMusculaireF}" name="forceMusculaireF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 8-->
+                <!-- Ligne 8 -->
                 <tr id="L8">
+                    <!-- Colonne 1 -->
                     <td id="L8C1" style="border-top: none; border-bottom: none">
                         <label>- douleurs</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L8C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${douleursD}" th:text="${douleursD}" name="douleursD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L8C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${douleursI}" th:text="${douleursI}" name="douleursI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L8C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${douleursF}" th:text="${douleursF}" name="douleursF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 9-->
+                <!-- Ligne 9 -->
                 <tr id="L9">
+                    <!-- Colonne 1 -->
                     <td id="L9C1" style="border-top: none; border-bottom: none">
                         <label for="tD">- trophiques</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L9C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${trophiquesD}" th:text="${trophiquesD}" name="trophiquesD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L9C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${trophiquesI}" th:text="${trophiquesI}" name="trophiquesI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L9C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${trophiquesF}" th:text="${trophiquesF}" name="trophiquesF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 10-->
+                <!-- Ligne 10 -->
                 <tr id="L10">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L10C1">
                         <label class="titre">Bilan des déficits fonctionnels</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L10C2">
                         <textarea th:value="${bilanDeficitsFonctionnelsD}" th:text="${bilanDeficitsFonctionnelsD}" name="bilanDeficitsFonctionnelsD"></textarea>
                     </td>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <td id="L10C3">
                         <textarea th:value="${bilanDeficitsFonctionnelsI}" th:text="${bilanDeficitsFonctionnelsI}" name="bilanDeficitsFonctionnelsI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L10C4">
                         <textarea th:value="${bilanDeficitsFonctionnelsF}" th:text="${bilanDeficitsFonctionnelsF}" name="bilanDeficitsFonctionnelsF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 11-->
+                <!-- Ligne 11 -->
                 <tr id="L11">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L11C1">
                         <label class="titre">Autres problèmes généraux identifiés par le Masseur kinésithérapeute</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L11C2">
                         <textarea th:value="${autresProblemesD}" th:text="${autresProblemesD}" name="autresProblemesD"></textarea>
                     </td>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <td id="L11C3">
                         <textarea th:value="${autresProblemesI}" th:text="${autresProblemesI}" name="autresProblemesI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L11C4">
                         <textarea th:value="${autresProblemesF}" th:text="${autresProblemesF}" name="autresProblemesF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 12-->
+                <!-- Ligne 12 -->
                 <tr id="L12"> 
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L12C1" style="border-bottom: none">
                         <label class="titre">Objectifs :</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L12C2" style="border-bottom: none">
                     </td>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <td id="L12C3" style="border-bottom: none">
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L12C4" style="border-bottom: none">
                     </td>
                 </tr>
-                <!-- Ligne 13-->
+                <!-- Ligne 13 -->
                 <tr id="L13">
+                    <!-- Colonne 1 -->
                     <td id="L13C1" style="border-top: none; border-bottom: none">
                         <label>- à court terme :</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L13C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsCourtTermeD}" th:text="${objectifsCourtTermeD}" name="objectifsCourtTermeD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L13C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsCourtTermeI}" th:text="${objectifsCourtTermeI}" name="objectifsCourtTermeI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L13C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsCourtTermeF}" th:text="${objectifsCourtTermeF}" name="objectifsCourtTermeF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 14-->
+                <!-- Ligne 14 -->
                 <tr id="L14">
+                    <!-- Colonne 1 -->
                     <td id="L14C1" style="border-top: none; border-bottom: none">
                         <label>- à moyen terme :</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L14C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsMoyenTermeD}" th:text="${objectifsMoyenTermeD}" name="objectifsMoyenTermeD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L14C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsMoyenTermeI}" th:text="${objectifsMoyenTermeI}" name="objectifsMoyenTermeI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L14C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsMoyenTermeF}" th:text="${objectifsMoyenTermeF}" name="objectifsMoyenTermeF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 15-->
+                <!-- Ligne 15 -->
                 <tr id="L15">
+                    <!-- Colonne 1 -->
                     <td id="L15C1" style="border-top: none; border-bottom: none">
                         <label>- à long terme :</label>
                     </td>
+                    <!-- Colonne 2 -->
                     <td id="L15C2" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsLongTermeD}" th:text="${objectifsLongTermeD}" name="objectifsLongTermeD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L15C3" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsLongTermeI}" th:text="${objectifsLongTermeI}" name="objectifsLongTermeI"></textarea>
                     </td>
+                    <!-- Colonne 4 -->
                     <td id="L15C4" style="border-top: none; border-bottom: none">
                         <textarea th:value="${objectifsLongTermeF}" th:text="${objectifsLongTermeF}" name="objectifsLongTermeF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 16-->
+                <!-- Ligne 16 -->
                 <tr id="L16">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L16C1">
                         <label class="titre">Diagnostic kinésithérapique</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L16C2">
                         <textarea th:value="${diagnosticD}" th:text="${diagnosticD}" name="diagnosticD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L16C3">
-                    <!-- Colonne 3-->
                         <textarea th:value="${diagnosticI}" th:text="${diagnosticI}" name="diagnosticI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L16C4">
                         <textarea th:value="${diagnosticF}" th:text="${diagnosticF}" name="diagnosticF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 17-->
+                <!-- Ligne 17 -->
                 <tr id="L17">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L17C1">
                         <label class="titre">Conseils</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L17C2">
                         <textarea th:value="${conseilsD}" th:text="${conseilsD}" name="conseilsD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L17C3">
-                    <!-- Colonne 3-->
                         <textarea th:value="${conseilsI}" th:text="${conseilsI}" name="conseilsI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L17C4">
                         <textarea th:value="${conseilsF}" th:text="${conseilsF}" name="conseilsF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 18-->
+                <!-- Ligne 18 -->
                 <tr id="L18">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L18C1">
                         <label class="titre">Propositions consécutives</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L18C2">
                         <textarea th:value="${propositionsD}" th:text="${propositionsD}" name="propositionsD"></textarea>
                     </td>
+                    <!-- Colonne 3 -->
                     <td id="L18C3">
-                    <!-- Colonne 3-->
                         <textarea th:value="${propositionsI}" th:text="${propositionsI}" name="propositionsI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L18C4">
                         <textarea th:value="${propositionsF}" th:text="${propositionsF}" name="propositionsF"></textarea>
                     </td>
                 </tr>
-                <!-- Ligne 19-->
+                <!-- Ligne 19 -->
                 <tr id="L19">
-                    <!-- Colonne 1-->
+                    <!-- Colonne 1 -->
                     <td id="L19C1">
                         <label class="titre">Commentaires</label>
                     </td>
-                    <!-- Colonne 2-->
+                    <!-- Colonne 2 -->
                     <td id="L19C2">
                         <textarea th:value="${commentairesD}" th:text="${commentairesD}" name="commentairesD"></textarea>
                     </td>
-                    <!-- Colonne 3-->
+                    <!-- Colonne 3 -->
                     <td id="L19C3">
                         <textarea th:value="${commentairesI}" th:text="${commentairesI}" name="commentairesI"></textarea>
                     </td>
-                    <!-- Colonne 4-->
+                    <!-- Colonne 4 -->
                     <td id="L19C4">
                         <label class="titre" id="cotation">COTATION : </label>
                         <input type="text" th:value="${cotation}" name="cotation">
                     </td>
                 </tr>
             </tbody>
+            <!-- Pied du tableau -->
             <tfoot>
-                <tr>
-                    <td style="border: none">
+                <!-- Ligne 20 -->
+                <tr id="L20">
+                    <!-- Colonne 1 -->
+                    <td id="L20C1" style="border: none">
                         <label class="titre">Date :</label>
                     </td>
-                    <td colspan="2" style="border: none;">
+                    <!-- Colonne 2 -->
+                    <td id="L20C2" colspan="2" style="border: none;">
                         <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
                     </td>
-                    <td style="border: none">
+                    <!-- Colonne 3 -->
+                    <td id="L20C3" style="border: none">
                         <label class="titre">Signature :</label>
                     </td>
                 </tr>

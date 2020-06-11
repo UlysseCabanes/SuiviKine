@@ -7,23 +7,25 @@
     for(let t of textarea) {
         t.addEventListener('keydown', autosize);
     }
-    //Mettre les textarea à la bonne taille au chargement de la page
-    window.onload = function() {
-        //Donner aux trois colonnes une largeur standard
-        document.getElementById("col" + 2).style.width = "33%";
-        document.getElementById("col" + 3).style.width = "33%";
-        document.getElementById("col" + 4).style.width = "34%";
-        for(let t of textarea) {
-            t.style.width = "100%";
-            t.dispatchEvent(new KeyboardEvent('keydown'));
-        }
-    };
     //Fonction pour ajuster la taille d'un élément à son contenu textuel          
     function autosize(){
         let t = this;
         t.style.cssText = 'height:auto; padding:0';
         t.style.cssText = 'height:' + t.scrollHeight + 'px';
     }
+    //Mettre les textarea à la bonne taille au chargement de la page
+    window.onload = function() {
+        //Donner aux trois colonnes une largeur standard
+        document.getElementById("col" + 2).style.width = "28%";
+        document.getElementById("col" + 3).style.width = "28%";
+        document.getElementById("col" + 4).style.width = "29%";
+        //Simuler un appui d'une touche dans toutes les zones de texte pour les remettre à la bonne taille
+        for(let t of textarea) {
+            t.style.width = "100%";
+            t.dispatchEvent(new KeyboardEvent('keydown'));
+        }
+    };
+    
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Masquer les colonnes pour améliorer la lisibilité 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,8 +87,13 @@
             bouton3.value="-";
             bouton4.value="-";
         }
+        //Simuler un appui d'une touche dans toutes les zones de texte pour les remettre à la bonne taille
+        for(let t of textarea) {
+            t.style.width = "100%";
+            t.dispatchEvent(new KeyboardEvent('keydown'));
+        }
     }
- 
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Imprimer
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,3 +1,4 @@
+/* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
@@ -13,10 +14,12 @@
     white-space: pre-line;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Placer les boutons de l'en-tête de page */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
@@ -33,6 +36,7 @@
     margin: 20px 20px auto 20px;
 }
 
+/* Centrer les éléments de l'en-tête de page */
 header {
     display: flex;
 }
@@ -60,6 +64,11 @@ header {
     vertical-align: top;
 }
 
+/* Cacher le pied du tableau dans l'application */
+#tabFicheSuivi tfoot{
+    visibility: hidden;
+}
+
 /* Titres */
 .titre {
     font-weight: bold;
@@ -78,15 +87,47 @@ input[type=date] {
     background-color: #F0F0F0;
 }
 
-.labelPrint {
-    display: none;
-}
-
 /* input type="number" */
 input[type=number] {
     border: none;
     background-color: #F0F0F0;
     width: 30px;
+}
+
+/* Labels des renseignements socio administratifs */
+.labelSocioAdministratifs {
+    margin-left: 20px;
+}
+
+/* Labels de la prescription */
+.labelPrescription {
+    margin-left: 40px;
+}
+
+/* Labels du protocole thérapeutique */
+.labelProtocoleTherapeutique {
+    margin-left: 30px;
+}
+
+/* Cacher les labels d'indication médicale, techniques et intitules kiné */
+.labelPrint {
+    display: none;
+}
+
+/* Input type=text de l'indication médicale */
+#indicMedic {
+    width: 1105px;
+}
+
+/* Input type=text de la technique */
+#techniques {
+    width: 1205px;
+    margin-left: 20px;
+}
+
+/* Input type=text de l'intitulé kiné */
+#intitulesKine {
+    width: 250px;
 }
 
 /* textarea */
@@ -98,31 +139,8 @@ textarea {
     height: 100%;
 }
 
-#techniques {
-    width: 1325px;
-}
-
-#intitulesKine {
-    width: 250px;
-}
-
+/* Centrer la cotation */
 #cotation {
     margin-left: 80px;
     margin-top: 10px;
-}
-
-#indicMedic {
-    width: 1205px;
-}
-
-.labelSocioAdministratifs {
-    margin-left: 20px;
-}
-
-.labelPrescription {
-    margin-left: 40px;
-}
-
-.labelProtocoleTherapeutique {
-    margin-left: 30px;
 }

@@ -1,15 +1,21 @@
+/* Feuile de style pour l'impression */
+
+/* Impression au format paysage */
 @page { 
     size: landscape; 
 };
 
+/* Cacher l'en-tête de page */
 header {
     display: none;
 }
 
+/* Cacher les boutons */
 .bouton {
     display: none;
 }
 
+/* Cacher les boutons pour masquer les colonnes */
 .masquer {
     display: none;
 }
@@ -37,7 +43,7 @@ header {
     vertical-align: top;
 }
 
-/* Titres */
+/* Titres en gras*/
 .titre {
     font-weight: bold;
 }
@@ -58,6 +64,41 @@ input[type=number] {
     display: none;
 }
 
+/* Labels des renseignements socio administratifs */
+.labelSocioAdministratifs {
+    margin-left: 20px;
+}
+
+/* Labels de la prescription */
+.labelPrescription {
+    margin-left: 40px;
+}
+
+/* Labels du protocole thérapeutique */
+.labelProtocoleTherapeutique {
+    margin-left: 30px;
+}
+
+/* Cacher l'input type=text de l'indication médicale */
+#indicMedic {
+    display: none;
+}
+
+/* Cacher l'input type=text de lieu séances */
+#lieuSeances {
+    display: none;
+}
+
+/* Cacher l'input type=text de la technique */
+#techniques {
+    display: none;
+}
+
+/* Cacher l'input type=text de l'intitulé kiné */
+#intitulesKine {
+    display: none;
+}
+
 /* textarea */
 textarea {
     overflow:hidden;
@@ -66,31 +107,8 @@ textarea {
     height: 100%;
 }
 
-#techniques {
-    display: none;
-}
-
+/* Centrer la cotation */
 #cotation {
     margin-left: 80px;
     margin-top: 10px;
-}
-
-#indicMedic {
-    display: none;
-}
-
-#intitulesKine {
-    display: none;
-}
-
-.labelSocioAdministratifs {
-    margin-left: 20px;
-}
-
-.labelPrescription {
-    margin-left: 40px;
-}
-
-.labelProtocoleTherapeutique {
-    margin-left: 30px;
 }
