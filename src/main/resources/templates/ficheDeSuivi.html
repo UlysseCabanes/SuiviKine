@@ -82,8 +82,9 @@
                         <input th:unless="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
                         <br>
                         <label class="titre">INDICATION MEDICALE : </label>
-                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="177">
-                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="177">
+                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="191">
+                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="191">
+                        <label th:text="${indicationMedicale}" class="labelPrint"></label>
                     </td>
                 </tr>
                 <!-- Ligne 3-->
@@ -111,7 +112,8 @@
                         <label th:text="${datePremiereSeanceLabel}" class="labelPrint"></label>
                         <br>
                         <label>Techniques : </label>
-                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="184">
+                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="211">
+                        <label th:text="${techniques}" class="labelPrint"></label>
                     </td>
                 </tr>
                 <!-- Ligne 4-->
@@ -120,7 +122,7 @@
                     <th id="L4C1">
                         <label class="titre">INTITULES</label>
                         <br>
-                        <input type="text" th:value="${intitules}" name="intitules" id="intituleKine">
+                        <input type="text" th:value="${intitules}" name="intitules" id="intitulesKine">
                         <label th:text="${intitules}" class="labelPrint"></label>
                     </th>
                     <!-- Colonne 2-->

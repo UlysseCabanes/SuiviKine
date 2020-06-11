@@ -67,7 +67,7 @@ textarea {
 }
 
 #techniques {
-    width: 1400px;
+    display: none;
 }
 
 #cotation {
@@ -76,7 +76,11 @@ textarea {
 }
 
 #indicMedic {
-    width: 1280px;
+    display: none;
+}
+
+#intitulesKine {
+    display: none;
 }
 
 .labelSocioAdministratifs {

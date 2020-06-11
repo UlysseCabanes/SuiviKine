@@ -1,4 +1,6 @@
-//Ajustement automatique de la taille des textarea
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Ajustement automatique de la taille des textarea 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Récupérer toutes les "textarea"
     let textarea = document.getElementsByTagName('textarea');
     //Attribuer la fonction "autosize" à l'appui d'une touche sur toutes les "textarea"
@@ -7,7 +9,12 @@
     }
     //Mettre les textarea à la bonne taille au chargement de la page
     window.onload = function() {
+        //Donner aux trois colonnes une largeur standard
+        document.getElementById("col" + 2).style.width = "33%";
+        document.getElementById("col" + 3).style.width = "33%";
+        document.getElementById("col" + 4).style.width = "34%";
         for(let t of textarea) {
+            t.style.width = "100%";
             t.dispatchEvent(new KeyboardEvent('keydown'));
         }
     };
@@ -17,8 +24,9 @@
         t.style.cssText = 'height:auto; padding:0';
         t.style.cssText = 'height:' + t.scrollHeight + 'px';
     }
-
-//Masquer les colonnes pour améliorer la lisibilité
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Masquer les colonnes pour améliorer la lisibilité 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Attribuer la fonction "masquer" au click sur tous les boutons "+" et "-"
     for(let i = 2; i <= 4; i++) {
         document.getElementById("masquer" + i).addEventListener("click", masquer);
@@ -79,26 +87,22 @@
         }
     }
  
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Imprimer
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Atribuer la fonction imprimer() au bouton d'impression
     document.getElementById("boutonImpression").addEventListener("click", imprimer);
 
     //Fonction d'impression de la fiche
     function imprimer() {
-        //Donner aux trois colonnes une largeur standard
-        document.getElementById("col" + 2).style.width = "33%";
-        document.getElementById("col" + 3).style.width = "33%";
-        document.getElementById("col" + 4).style.width = "34%";
-        //Remettre toutes les textarea à leur largeur normale
-        for(let t of textarea) {
-            t.style.width = "100%";
-            t.dispatchEvent(new KeyboardEvent('keydown'));
-        }
+        window.location.reload(true);
         //Imprimer la fiche
         window.print();
     }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Enregistrer les modifications de la fiche
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Récupérer tous les input de type date
     let date = document.querySelectorAll('input[type=date]');
     for (let d of date) {
