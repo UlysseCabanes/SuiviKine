@@ -1,3 +1,4 @@
+/* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
@@ -12,27 +13,33 @@
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Bouton accueil */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
 
+/* Bouton déconnexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
 
+/* Titre de niveau 1 */
 h1 {
     margin: auto;
 }
 
+/* En-tête de page */
 header {
     display: flex;
     margin-bottom: 100px;
 }
 
+/* Mise en forme des boutons pour voir une fiche */
 .fiche {
     margin-left: 20px;
     border: solid black 1px;
@@ -48,10 +55,12 @@ header {
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .fiche:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Div contenant les boutons pour voir les fiches */
 div {
     display: flex;
 }

@@ -1,3 +1,4 @@
+/* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
@@ -12,26 +13,32 @@
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Bouton accueil */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
 
+/* Bouton déconnexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
 
+/* Titre de niveau 1 */
 h1 {
     margin: auto;
 }
 
+/* En-tête de page */
 header {
     display: flex;
 }
 
+/* Div central */
 #divCentral {
     border: solid black 1px;
     border-radius: 10px;
@@ -44,10 +51,12 @@ header {
     width: 700px;
 }
 
+/* Cases du tableau */
 td{
     height: 50px;
 }
 
+/* Bouton modifier */
 .boutonModifier {
     background-color: #33CC33;
     border: solid black 1px;
@@ -56,40 +65,49 @@ td{
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond du bouton modifier lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 .boutonModifier:hover {
     background-color: #20A420;
 }
 
+/* Marge des labels */
 label {
     margin-left: 10px;
 }
 
+/* Nom des équipes en gras */
 .equipe {
     font-weight: bold;
 }
 
+/* Input type text avec bordure */
 input[type=text] {
     border: solid black 1px;
 }
 
+/* Label admin plus à gauche car le mot "admin" est plus court que le mot "équipe" */
 #labelIdAdmin {
     margin-right: 17px;
 }
 
+/* Bouton ajouter équipe */
 #ajouterEquipe {
     width: 150px;
 }
 
+/* Bouton retirer équipe */
 #retirerEquipe {
     width: 150px;
     margin: auto auto auto 800px;
 }
 
+/* Div ajouter retirer équipe */
 #divAjouterRetirer {
     margin: 150px auto auto 401px;
     display: flex;
 }
 
+/* Marge du paragraphe "Les identifiants et mots de passe doivent être uniques" */
 p {
     margin-left: 160px;
 }

@@ -1,3 +1,4 @@
+/* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
@@ -12,26 +13,32 @@
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Bouton accueil */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
 
+/* Bouton déconnexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
 
+/* Titre de niveau 1 */
 h1 {
     margin: auto;
 }
 
+/* En-tête de page */
 header {
     display: flex;
 }
 
+/* Div central */
 #divCentral {
     border: solid black 1px;
     border-radius: 10px;
@@ -44,10 +51,12 @@ header {
     width: 470px;
 }
 
+/* Cases du tableau */
 td{
     height: 50px;
 }
 
+/* Bouton retirer */
 .boutonRetirer {
     background-color: #33CC33;
     border: solid black 1px;
@@ -56,19 +65,23 @@ td{
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond du bouton retirer lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 .boutonRetirer:hover {
     background-color: #20A420;
 }
 
+/* Input type text avec bordure */
 input[type=text] {
     border: solid black 1px;
     width: 400px;
 }
 
+/* Bouton ajouter médecin */
 #ajouterMedecin {
     width: 150px;
 }
 
+/* Div ajouter médecin */
 #divAjouter {
     margin: 150px auto auto 516px;
     display: flex;
