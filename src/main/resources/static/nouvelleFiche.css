@@ -10,6 +10,7 @@
     box-shadow: 2px 2px 5px;
 }
 
+/* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
@@ -24,38 +25,47 @@
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
     background-image:linear-gradient(#C34D34, #9B250C);
 }
 
+/* Bouton accueil */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
 
+/* Bouton déconnexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
 
+/* Titre de niveau 1 */
 h1 {
     margin: auto;
 }
 
+/* label */
 label {
     margin-left: 15px;
 }
 
+/* input avec bordure */
 input {
     border: solid black 2px;
 }
 
+/* select avec bordure */
 select {
     border: solid black 2px;
 }
 
+/* En-tête de page */
 header {
     display: flex;
 }
 
+/* Bouton submit */
 #submitCreation {
     background-color: #33CC33;
     margin-left: 325px;
@@ -67,17 +77,7 @@ header {
     transition: background-color 1s;
 }
 
+/* Changer la couleur de fond du bouton submit lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 #submitCreation:hover {
     background-color: #20A420;
-}
-
-#jour, #mois {
-    width: 20px;
-    text-align: center;
-    
-}
-
-#annee {
-    width: 30px;
-    text-align: center;
 }

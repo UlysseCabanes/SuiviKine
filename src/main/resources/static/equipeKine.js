@@ -21,7 +21,7 @@
     }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Retirer le médecin de la BDD
+//Retirer l'équipe de la BDD
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     function retirerEquipeKine(event) {
         //Id du bouton qui a déclenché la fonction
@@ -32,7 +32,7 @@
         $.ajax({
             url: "retirerEquipeKine",
             type: "GET",
-            //Données extraites du formulaire formMedecin
+            //Données extraites du formulaire formEquipeKine
             data:  $(formId).serialize(),
             //Recharger la page pour que l'équipe supprimée ne soit plus visible
             success : function() {

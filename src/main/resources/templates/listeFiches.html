@@ -6,10 +6,10 @@
     <link rel="stylesheet" type="text/css" href="listeFiches.css">
 </head>
 <header>
-    <form th:if="${nomEquipe} == 'admin'" action="accueilAdmin">
+    <form th:if="${idEquipe} == 1" action="accueilAdmin">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
-    <form th:unless="${nomEquipe} == 'admin'" action="accueil">
+    <form th:unless="${idEquipe} == 1" action="accueil">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
     <h1>Fiches de suivi</h1>

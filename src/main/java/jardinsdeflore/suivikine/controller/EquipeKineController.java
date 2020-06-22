@@ -1,7 +1,9 @@
 package jardinsdeflore.suivikine.controller;
 
 import jardinsdeflore.suivikine.entity.EquipeKine;
+import jardinsdeflore.suivikine.entity.Resident;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
+import jardinsdeflore.suivikine.repository.ResidentRepository;
 import jardinsdeflore.suivikine.service.EquipeKineService;
 import java.sql.SQLException;
 import javax.persistence.EntityManager;
@@ -22,6 +24,9 @@ public class EquipeKineController {
     @Autowired
     EquipeKineRepository equipeKineRepository;
     
+    @Autowired
+    ResidentRepository residentRepository;
+            
     @Autowired
     EquipeKineService equipeKineService;
     
@@ -54,7 +59,7 @@ public class EquipeKineController {
         String login = loginParam.trim();
         String mdp = mdpParam.trim();
         
-        //Trouver l'équipe kiné correspondante à l'id renseigné (Clé primaire)
+        //Trouver l'équipe kiné correspondant à l'id renseigné (Clé primaire)
         EquipeKine equipe = em.find(EquipeKine.class, idEquipeKine);
         //Modifier le nom, le login et le mot de passe de l'équipe
         equipe.setNom(nom);
@@ -62,7 +67,7 @@ public class EquipeKineController {
         equipe.setMdp(mdp);
     }
 
-    //Ajouter une équipe à la bdd
+    //Ajouter une équipe à la BDD
     @GetMapping("/ajouterEquipeKine")
     public String ajouterEquipeKine() {
         
@@ -79,7 +84,16 @@ public class EquipeKineController {
     public String retirerEquipeKine(
         @RequestParam("idEquipeKine") int idEquipe) 
     {
-        //Retirer l'équipe correspondant à l'id renseigné
+        //Créer une liste de tous les résidents
+        Iterable<Resident> lesResidents = residentRepository.findAll();
+        //Vérifier i l'équipe n'est pas renseignée dans une fiche de suivi
+        for (Resident r : lesResidents) {
+            if (r.getEquipeKine() == idEquipe) {
+                //Si c'est le cas, renvoyer vers la page sans supprimer l'équipe
+                return "redirect:/equipeKine";
+            }
+        }
+        //Sinon, retirer l'équipe correspondant à l'id renseigné
         equipeKineRepository.deleteById(idEquipe);
         
         return "redirect:/equipeKine";

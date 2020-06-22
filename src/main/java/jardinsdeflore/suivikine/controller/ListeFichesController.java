@@ -22,12 +22,10 @@ public class ListeFichesController {
 	public String listeFiches(HttpSession session, Model model) {
             //Récupérer l'id de l'équipe kiné connectée
             int idEquipe = (int) session.getAttribute("idEquipe");
-            //Récupérer le nom de l'équipe kiné connectée
-            String nomEquipe = equipeKineRepository.findById(idEquipe).get().getNom();
-            //Envoyer le nom à la vue pour changer l'action du bouton "accueil" : accueil admin si le nom est admin, sinon accueil
-            model.addAttribute("nomEquipe", nomEquipe);
-            //Si le nom est admin
-            if (nomEquipe.equals("admin")) {
+            //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 1, sinon accueil
+            model.addAttribute("idEquipe", idEquipe);
+            //Si l'id vaut 1
+            if (idEquipe == 1) {
                 //Créer une liste de tous les résidents
                 Iterable<Resident> lesResidents = residentRepository.findAll();
                 //Envoyer la liste à la vue
@@ -41,5 +39,4 @@ public class ListeFichesController {
             }
             return "listeFiches";
 	}
-
 }
