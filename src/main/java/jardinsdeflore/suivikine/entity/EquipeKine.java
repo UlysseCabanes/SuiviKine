@@ -3,6 +3,7 @@ package jardinsdeflore.suivikine.entity;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -12,8 +13,12 @@ import javax.persistence.UniqueConstraint;
 public class EquipeKine implements Serializable{
     
     @Id
+    @GeneratedValue
     @Column(name = "id_equipe_kine")
     private int idEquipeKine;
+    
+    @Column(name = "nom", unique = true)
+    private String nom;
     
     @Column(name = "login", unique = true)
     private String login;
@@ -25,8 +30,8 @@ public class EquipeKine implements Serializable{
     public EquipeKine() {
     }
 
-    public EquipeKine(int idEquipeKine, String login, String mdp) {
-        this.idEquipeKine = idEquipeKine;
+    public EquipeKine(String nom, String login, String mdp) {
+        this.nom = nom;
         this.login = login;
         this.mdp = mdp;
     }
@@ -34,6 +39,10 @@ public class EquipeKine implements Serializable{
     //Getter
     public int getIdEquipeKine() {
         return idEquipeKine;
+    }
+    
+    public String getNom() {
+        return nom;
     }
 
     public String getLogin() {
@@ -49,6 +58,10 @@ public class EquipeKine implements Serializable{
         this.idEquipeKine = idEquipeKine;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
     public void setLogin(String login) {
         this.login = login;
     }

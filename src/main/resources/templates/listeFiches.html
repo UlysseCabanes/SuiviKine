@@ -6,10 +6,10 @@
     <link rel="stylesheet" type="text/css" href="listeFiches.css">
 </head>
 <header>
-    <form th:if="${idEquipeKine} == 0" action="accueilAdmin">
+    <form th:if="${nomEquipe} == 'admin'" action="accueilAdmin">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
-    <form th:unless="${idEquipeKine} == 0" action="accueil">
+    <form th:unless="${nomEquipe} == 'admin'" action="accueil">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
     <h1>Fiches de suivi</h1>
@@ -20,9 +20,9 @@
 <body>
     <div>
         <form th:each="resident: ${residentsEquipe}" class="fiche" onclick="submit()" th:action="voirFicheDeSuivi">
-            <label th:text="${resident.nom}"></label>
+            <label th:text="${resident.nom}" id="nom"></label>
             <input type="hidden" name="nom" th:value="${resident.nom}">
-            <label th:text="${resident.prenom}"></label>
+            <label th:text="${resident.prenom}" id="prenom"></label>
             <input type="hidden" name="prenom" th:value="${resident.prenom}">
             <br><br>
             <label th:text="${resident.dateNaissance}"></label>

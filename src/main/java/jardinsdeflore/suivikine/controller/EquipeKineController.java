@@ -44,17 +44,20 @@ public class EquipeKineController {
     @RequestMapping(value = "/modifierEquipeKine", method = RequestMethod.POST)
     public void modifierEquipeKine(
         @RequestParam("idEquipeKine") int idEquipeKine,
+        @RequestParam("nom") String nomParam,
         @RequestParam("login") String loginParam,
         @RequestParam("mdp") String mdpParam
     ) {
         
-        //Enlever tous les espaces avant et après l'identifiant et le mot de passe
+        //Enlever tous les espaces avant et après le nom, l'identifiant et le mot de passe
+        String nom = nomParam.trim();
         String login = loginParam.trim();
         String mdp = mdpParam.trim();
         
         //Trouver l'équipe kiné correspondante à l'id renseigné (Clé primaire)
         EquipeKine equipe = em.find(EquipeKine.class, idEquipeKine);
-        //Modifier le login et le mot de passe de l'équipe
+        //Modifier le nom, le login et le mot de passe de l'équipe
+        equipe.setNom(nom);
         equipe.setLogin(login);
         equipe.setMdp(mdp);
     }
@@ -63,27 +66,22 @@ public class EquipeKineController {
     @GetMapping("/ajouterEquipeKine")
     public String ajouterEquipeKine() {
         
-        //Récupérer la dernière équipe kiné
-        EquipeKine derniere = equipeKineService.findLast(equipeKineRepository);
-        //Récupérer l'id de la dernière équipe
-        int id = derniere.getIdEquipeKine();
-        ///Créer une nouvelle équipe en incrémentant l'id
-        EquipeKine equipe = new EquipeKine(id+1,"login", "mdp");
+        ///Créer une nouvelle équipe
+        EquipeKine equipe = new EquipeKine("nom", "login", "mdp");
         //Enregistrer l'équipe dans la bdd
         equipeKineRepository.save(equipe);
         //Afficher la vue
         return "redirect:/equipeKine";
     }
 
-    //Retirer la dernière équipe de la bdd
+    //Retirer une équipe de la BDD
     @GetMapping("/retirerEquipeKine")
-    public String retirerEquipeKine() {
-
-        //Récupérer la dernière équipe kiné
-        EquipeKine derniere = equipeKineService.findLast(equipeKineRepository);
-        //Retirer l'équipe de la bdd
-        equipeKineRepository.delete(derniere);
-
+    public String retirerEquipeKine(
+        @RequestParam("idEquipeKine") int idEquipe) 
+    {
+        //Retirer l'équipe correspondant à l'id renseigné
+        equipeKineRepository.deleteById(idEquipe);
+        
         return "redirect:/equipeKine";
     }
         

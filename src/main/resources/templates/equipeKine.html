@@ -16,36 +16,29 @@
     </form>
 </header>
 <body>
-    <div id="divAjouterRetirer">
-        <form action="ajouterEquipeKine">
-            <input type="submit" id="ajouterEquipe" class="bouton" value="Ajouter une équipe kiné">
-        </form>
-        <form action="retirerEquipeKine">
-            <input type="submit" id="retirerEquipe" class="bouton" value="Retirer une équipe kiné">
-        </form>
-    </div>
+    <form action="ajouterEquipeKine">
+        <input type="submit" id="ajouterEquipe" class="bouton" value="Ajouter une équipe kiné">
+    </form>
     <div id="divCentral">
         <p>Les identifiants et mots de passe doivent être uniques</p>
         <form th:each="equipeKine : ${lesEquipesKine}" th:id="'formEquipeKine-'+${equipeKine.idEquipeKine}" onsubmit="return false" class="formEquipeKine">
             <table>
                 <tr>
                     <td>
-                        <label th:if="${equipeKine.idEquipeKine == 0}" class="equipe">Admin</label>
-                        <label th:unless="${equipeKine.idEquipeKine == 0}" class="equipe">Equipe</label>
-                        <label th:if="${equipeKine.idEquipeKine == 0}" id="labelIdAdmin"></label>
-                        <label th:unless="${equipeKine.idEquipeKine == 0}" th:text="${equipeKine.idEquipeKine}" class="equipe"></label>
+                        <label th:if="${equipeKine.nom == 'admin'}" class="equipe" id="labelAdmin">Admin</label>
+                        <input th:unless="${equipeKine.nom == 'admin'}" type="text" th:value="${equipeKine.nom}" class="equipe" name="nom" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
                         <input type="hidden" th:value="${equipeKine.idEquipeKine}" name="idEquipeKine">
                     </td>
                     <td>
                         <label>Identifiant :</label>
-                        <input type="text" th:value="${equipeKine.login}" name="login" required>
+                        <input type="text" th:value="${equipeKine.login}" name="login" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
                     </td>
                     <td>
                         <label>Mot de passe :</label>
-                        <input type="text" th:value="${equipeKine.mdp}" name="mdp" required>
+                        <input type="text" th:value="${equipeKine.mdp}" name="mdp" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
                     </td>
                     <td>
-                        <input type="button" value="modifier" class="boutonModifier" th:id="${equipeKine.idEquipeKine}">
+                        <input type="button" value="retirer" class="boutonRetirer" th:id="${equipeKine.idEquipeKine}" onclick="retirerEquipeKine(this)">
                     </td>
                 </tr>
             </table>

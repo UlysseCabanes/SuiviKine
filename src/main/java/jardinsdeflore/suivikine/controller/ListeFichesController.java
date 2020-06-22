@@ -1,6 +1,7 @@
 package jardinsdeflore.suivikine.controller;
 
 import jardinsdeflore.suivikine.entity.Resident;
+import jardinsdeflore.suivikine.repository.EquipeKineRepository;
 import jardinsdeflore.suivikine.repository.ResidentRepository;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,19 @@ public class ListeFichesController {
     @Autowired
     ResidentRepository residentRepository;
     
+    @Autowired
+    EquipeKineRepository equipeKineRepository;
+    
 	@GetMapping("/listeFiches")
 	public String listeFiches(HttpSession session, Model model) {
             //Récupérer l'id de l'équipe kiné connectée
             int idEquipe = (int) session.getAttribute("idEquipe");
-            //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 0, sinon accueil
-            model.addAttribute("idEquipeKine", idEquipe);
-            //Si l'id vaut 0
-            if (idEquipe == 0) {
+            //Récupérer le nom de l'équipe kiné connectée
+            String nomEquipe = equipeKineRepository.findById(idEquipe).get().getNom();
+            //Envoyer le nom à la vue pour changer l'action du bouton "accueil" : accueil admin si le nom est admin, sinon accueil
+            model.addAttribute("nomEquipe", nomEquipe);
+            //Si le nom est admin
+            if (nomEquipe.equals("admin")) {
                 //Créer une liste de tous les résidents
                 Iterable<Resident> lesResidents = residentRepository.findAll();
                 //Envoyer la liste à la vue

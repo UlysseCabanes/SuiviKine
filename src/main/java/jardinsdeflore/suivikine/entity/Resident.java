@@ -69,9 +69,6 @@ public class Resident implements Serializable {
     @Column(name="rythme_seances")
     private int rythmeSeances;
 
-    @Column(name="lieu_seances")
-    private String lieuSeances;
-
     @Column(name="travail_groupe")
     private String travailGroupe;
 
@@ -275,10 +272,6 @@ public class Resident implements Serializable {
 
     public int getRythmeSeances() {
         return rythmeSeances;
-    }
-
-    public String getLieuSeances() {
-        return lieuSeances;
     }
 
     public String getTravailGroupe() {
@@ -516,10 +509,6 @@ public class Resident implements Serializable {
 
     public void setRythmeSeances(int rythmeSences) {
         this.rythmeSeances = rythmeSences;
-    }
-
-    public void setLieuSeances(String lieuseances) {
-        this.lieuSeances = lieuseances;
     }
 
     public void setTravailGroupe(String travailGroupe) {

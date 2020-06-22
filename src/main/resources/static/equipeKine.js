@@ -1,18 +1,9 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Récupérer tous les boutons modifier
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    let boutonsModifier = document.getElementsByClassName("boutonModifier");
-    for (let bm of boutonsModifier) {
-        //Appeler la fonction enregistrerModifications() au click sur le bouton
-        bm.addEventListener("click", enregistrerModifications);
-    }
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Enregistrer les modifications de l'équipe kiné dans la BDD
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     function enregistrerModifications(event) {
         //Récupérer l'id du bouton qui a déclenché la fonction
-        let id = event.target.id;
+        let id = event.id;
         //Récupérer l'id du formulaire correspondant
         let formId = "#formEquipeKine-" + id;
         //Appel ajax vers la fonction modifierEquipekine du controller Equipekine
@@ -26,5 +17,26 @@
             success : function() {
                         window.location.reload(true);
                     }
+        });
+    }
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Retirer le médecin de la BDD
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    function retirerEquipeKine(event) {
+        //Id du bouton qui a déclenché la fonction
+        let id = event.id;
+        //Id du formulaire correspondant
+        let formId = "#formEquipeKine-" + id;
+        //Appel ajax vers la fonction retirerEquipeKine du controller EquipeKine
+        $.ajax({
+            url: "retirerEquipeKine",
+            type: "GET",
+            //Données extraites du formulaire formMedecin
+            data:  $(formId).serialize(),
+            //Recharger la page pour que l'équipe supprimée ne soit plus visible
+            success : function() {
+                        window.location.reload(true);
+                      }
         });
     }

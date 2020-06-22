@@ -46,9 +46,9 @@ header {
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin: auto auto auto 551px;
+    margin: auto auto auto 501px;
     display: inline-block;
-    width: 700px;
+    width: 800px;
 }
 
 /* Cases du tableau */
@@ -57,7 +57,7 @@ td{
 }
 
 /* Bouton modifier */
-.boutonModifier {
+.boutonRetirer {
     background-color: #33CC33;
     border: solid black 1px;
     border-radius: 10px;
@@ -86,28 +86,17 @@ input[type=text] {
 }
 
 /* Label admin plus à gauche car le mot "admin" est plus court que le mot "équipe" */
-#labelIdAdmin {
-    margin-right: 17px;
+#labelAdmin {
+    margin: 0px 60px 0px 60px;
 }
 
 /* Bouton ajouter équipe */
 #ajouterEquipe {
     width: 150px;
-}
-
-/* Bouton retirer équipe */
-#retirerEquipe {
-    width: 150px;
-    margin: auto auto auto 800px;
-}
-
-/* Div ajouter retirer équipe */
-#divAjouterRetirer {
-    margin: 150px auto auto 401px;
-    display: flex;
+    margin: 150px auto auto 351px;
 }
 
 /* Marge du paragraphe "Les identifiants et mots de passe doivent être uniques" */
 p {
-    margin-left: 160px;
+    margin-left: 210px;
 }

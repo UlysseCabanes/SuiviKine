@@ -2,6 +2,7 @@ package jardinsdeflore.suivikine.controller;
 
 import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import jardinsdeflore.suivikine.entity.Resident;
+import jardinsdeflore.suivikine.repository.EquipeKineRepository;
 import jardinsdeflore.suivikine.repository.ResidentRepository;
 import jardinsdeflore.suivikine.util.UtilDate;
 import java.text.ParseException;
@@ -24,6 +25,9 @@ public class FicheDeSuiviController {
     
     @Autowired
     ResidentRepository residentRepository;
+    
+    @Autowired
+    EquipeKineRepository equipeKineRepository;
     
     @Autowired
     EntityManager em;
@@ -66,6 +70,7 @@ public class FicheDeSuiviController {
         @RequestParam("nom") String nomParam,
         @RequestParam("prenom") String prenomParam,
         @RequestParam("dateNaissance") String dateNaissanceParam,
+        HttpSession session,
         Model model) throws ParseException {
         
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
@@ -80,7 +85,8 @@ public class FicheDeSuiviController {
         model.addAttribute("sexe", resident.getSexe());
         model.addAttribute("nSecuSociale", resident.getnSecuSociale());
         model.addAttribute("medecin", resident.getMedecinPrescripteur());
-        model.addAttribute("equipeKine", resident.getEquipeKine());
+        String nomEquipe = equipeKineRepository.findById(resident.getEquipeKine()).get().getNom();
+        model.addAttribute("equipeKine", nomEquipe);
         //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue
         String datePrescription = resident.getDatePrescription();
         if (datePrescription != null && !datePrescription.isEmpty()) {
@@ -101,10 +107,6 @@ public class FicheDeSuiviController {
         }
         model.addAttribute("nbProtocoleTherapeutique", resident.getNbProtocoleTherapeutique());
         model.addAttribute("rythmeSeances", resident.getRythmeSeances());
-        String lieuSeances = resident.getLieuSeances();
-        if (lieuSeances != null && !lieuSeances.isEmpty()) {
-            model.addAttribute("lieuSeances", resident.getLieuSeances());
-        }
         String travailGroupe = resident.getTravailGroupe();
         if (travailGroupe != null && !travailGroupe.isEmpty()) {
             model.addAttribute("travailGroupe", travailGroupe);
@@ -309,7 +311,6 @@ public class FicheDeSuiviController {
         @RequestParam("indicationMedicale") Optional<String> indicationMedicale,
         @RequestParam("nbProtocoleTherapeutique") int nbProtocoleTherapeutique,
         @RequestParam("rythmeSeances") int rythmeSeances,
-        @RequestParam("lieuSeances") Optional<String> lieuSeances,
         @RequestParam("travailGroupe") Optional<String> travailGroupe,
         @RequestParam("datePremiereSeance") Optional<String> datePremiereSeanceParam,
         @RequestParam("techniques") Optional<String> techniques,
@@ -376,9 +377,6 @@ public class FicheDeSuiviController {
         }
         resident.setNbProtocoleTherapeutique(nbProtocoleTherapeutique);
         resident.setRythmeSeances(rythmeSeances);
-        if (lieuSeances.isPresent()) {
-            resident.setLieuSeances(lieuSeances.get().trim());
-        }
         if (travailGroupe.isPresent()) {
             resident.setTravailGroupe(travailGroupe.get());
         }

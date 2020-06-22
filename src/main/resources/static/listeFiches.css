@@ -47,9 +47,9 @@ header {
     background-image:linear-gradient(#E5755F, #C34D34);
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
-    padding: 5px;
-    height: 100px;
-    width: 200px;
+    padding: 40px 10px 0px 10px;
+    min-height: 100px;
+    min-width: 200px;
     text-align: center;
     cursor: pointer;
     transition: background-color 1s;
@@ -63,4 +63,9 @@ header {
 /* Div contenant les boutons pour voir les fiches */
 div {
     display: flex;
+}
+
+/* nom et prénom en gras */
+#nom, #prenom {
+    font-weight: bold;
 }

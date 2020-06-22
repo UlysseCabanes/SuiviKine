@@ -42,7 +42,7 @@ public class LoginController {
                 //Passer l'id de l'équipe kiné en attribut de session
                 session.setAttribute("idEquipe", equipe.getIdEquipeKine());
                 //Vérifier si le login saisit est celui de l'administrateur
-                if(equipe.getLogin().equals("admin")) {
+                if(equipe.getNom().equals("admin")) {
                     //Rediriger vers l'accueil de l'administrateur
                     return "accueilAdmin";
                 }

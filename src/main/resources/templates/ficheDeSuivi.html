@@ -111,9 +111,7 @@
                         <input type="number" th:value="${rythmeSeances}" name="rythmeSeances">
                         <label th:text="${rythmeSeances}" class="labelPrint"></label>
                         <label>/semaine</label>
-                        <label class="labelProtocoleTherapeutique">Lieu des séances : </label>
-                        <input type="text" th:value="${lieuSeances}" name="lieuSeances" maxlength="30" id="lieuSeances">
-                        <label th:text="${lieuSeances}" class="labelPrint"></label>
+                        <label class="labelProtocoleTherapeutique">Lieu des séances : Résidence</label>
                         <label class="labelProtocoleTherapeutique">Travail en groupe : </label>
                         <label for="travailEnGroupeOui">Oui</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
@@ -450,12 +448,11 @@
                 <!-- Ligne 20 -->
                 <tr id="L20">
                     <!-- Colonne 1 -->
-                    <td id="L20C1" style="border: none">
-                        <label class="titre">Date :</label>
+                    <td id="L20C1" colspan="2" style="border: none;">
+                        <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
                     </td>
                     <!-- Colonne 2 -->
-                    <td id="L20C2" colspan="2" style="border: none;">
-                        <label class="titre">Nom du masseur kinésithérapeute et cachet :</label>
+                    <td id="L20C2" style="border: none">
                     </td>
                     <!-- Colonne 3 -->
                     <td id="L20C3" style="border: none">
