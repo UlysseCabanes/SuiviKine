@@ -116,13 +116,14 @@ input[type=number] {
 
 /* Input type=text de l'indication médicale */
 #indicMedic {
-    width: 1105px;
+    width: 1160px;
+    margin-left: 15px;
 }
 
 /* Input type=text de la technique */
 #techniques {
-    width: 1205px;
-    margin-left: 20px;
+    width: 1260px;
+    margin-left: 36px;
 }
 
 /* Input type=text de l'intitulé kiné */

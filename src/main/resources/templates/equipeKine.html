@@ -38,7 +38,7 @@
                         <input type="text" th:value="${equipeKine.mdp}" name="mdp" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
                     </td>
                     <td>
-                        <input type="button" value="retirer" class="boutonRetirer" th:id="${equipeKine.idEquipeKine}" onclick="retirerEquipeKine(this)">
+                        <input th:unless="${equipeKine.nom == 'admin'}" type="button" value="retirer" class="boutonRetirer" th:id="${equipeKine.idEquipeKine}" onclick="retirerEquipeKine(this)">
                     </td>
                 </tr>
             </table>
