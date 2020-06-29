@@ -73,6 +73,11 @@ public class FicheDeSuiviController {
         HttpSession session,
         Model model) throws ParseException {
         
+        //Récupérer l'id de l'équipe kiné connectée
+        int idEquipe = (int) session.getAttribute("idEquipe");
+        //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 1, sinon accueil
+        model.addAttribute("idEquipe", idEquipe);
+            
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nomParam, prenomParam, dateNaissanceParam));
         //Envoyer tous les attributs du résident à la vue
@@ -295,6 +300,7 @@ public class FicheDeSuiviController {
         if (cotation != null && !cotation.isEmpty()) {
             model.addAttribute("cotation", cotation);
         }
+        model.addAttribute("archive", resident.getArchive());
         //Afficher la vue
         return "ficheDeSuivi";
     }
@@ -356,7 +362,8 @@ public class FicheDeSuiviController {
         @RequestParam("propositionsF") Optional<String> propositionsF,
         @RequestParam("commentairesD") Optional<String> commentairesD,
         @RequestParam("commentairesI") Optional<String> commentairesI,
-        @RequestParam("cotation") Optional<String> cotation
+        @RequestParam("cotation") Optional<String> cotation,
+        @RequestParam("archive") Optional<String> archive
         ) throws ParseException {
 
         //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
@@ -518,6 +525,36 @@ public class FicheDeSuiviController {
         }
         if (cotation.isPresent()) {
             resident.setCotation(cotation.get().trim());
+        }
+        if (archive.isPresent()) {
+            resident.setArchive(archive.get().trim());
+        }
+    }
+    
+    @GetMapping("/supprimerFicheDeSuivi")
+    public String supprimerFicheDeSuivi(
+        @RequestParam("nom") String nomParam,
+        @RequestParam("prenom") String prenomParam,
+        @RequestParam("dateNaissance") String dateNaissance,
+        HttpSession session
+        ) throws ParseException {
+
+        //Enlever tous les espaces avant et après le nom et le prénom
+        String nom = nomParam.trim();
+        String prenom = prenomParam.trim();
+
+        //Supprimer le résident de la BDD
+        residentRepository.deleteById(new ResidentId(nom, prenom, dateNaissance));
+        
+        //Récupérer l'id de l'équipe kiné connectée
+        int idEquipe = (int) session.getAttribute("idEquipe");
+        if (idEquipe == 1) {
+            //Renvoyer à l'accueil admin
+            return "accueilAdmin";
+        }
+        else {
+            //Renvoyer à l'accueil
+            return "accueil";
         }
     }
     

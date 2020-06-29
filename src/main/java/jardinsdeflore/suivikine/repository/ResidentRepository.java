@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ResidentRepository extends CrudRepository<Resident, ResidentId> {
     Iterable<Resident> findByEquipeKine(int idEquipe);
+    Iterable<Resident> findByArchive(String archive);
+    Iterable<Resident> findByArchiveAndEquipeKine(String archive, int idEquipe);
 }

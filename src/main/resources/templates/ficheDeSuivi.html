@@ -9,11 +9,17 @@
 </head>
 <!-- En-tête de la page -->
 <header>
-    <form action="accueil">
+    <form th:if="${idEquipe} == 1" action="accueilAdmin">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
-    <form action="listeFiches">
-        <input type="submit" value="Liste des fiches de suivi" class="bouton" id="boutonListeFiches">
+    <form th:unless="${idEquipe} == 1" action="accueil">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <form action="supprimerFicheDeSuivi">
+        <input type="hidden" th:value="${nom}" name="nom">
+        <input type="hidden" th:value="${prenom}" name="prenom">
+        <input type="hidden" th:value="${dateNaissance}" name="dateNaissance">
+        <input type="submit" value="Supprimer la fiche" class="bouton" id="boutonSuppression">
     </form>
     <form>
         <input type="submit" value="Imprimer la fiche" class="bouton" id="boutonImpression">
@@ -24,6 +30,15 @@
 </header>
 <body>
     <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
+        <div id="divArchive">
+            <label>Résident décédé :</label>
+            <label for="archiveOui">Oui</label>
+            <input th:if="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui" checked>
+            <input th:unless="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui">
+            <label for="archiveNon">Non</label>
+            <input th:if="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon" checked>
+            <input th:unless="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon">
+        </div>
         <!-- Tableau : fiche de suivi -->
         <table id="tabFicheSuivi">
             <!-- Titre de la fiche 

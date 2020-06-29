@@ -206,6 +206,11 @@ public class Resident implements Serializable {
 
     @Column(name="cotation")
     private String cotation;
+    
+    @NotNull
+    @NotEmpty
+    @Column(name="archive")
+    private String archive = "Non";
 
     //Constructeurs
     public Resident() {
@@ -457,6 +462,10 @@ public class Resident implements Serializable {
     public String getCotation() {
         return cotation;
     }
+    
+    public String getArchive() {
+        return archive;
+    }
 
     //Setter
     public void setNom(String nom) {
@@ -693,5 +702,9 @@ public class Resident implements Serializable {
 
     public void setCotation(String cotation) {
         this.cotation = cotation;
+    }
+    
+    public void setArchive(String archive) {
+        this.archive = archive;
     }
 }

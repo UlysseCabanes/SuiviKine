@@ -23,10 +23,10 @@
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
-
-#boutonListeFiches {
+#boutonSuppression {
     margin: 20px auto auto 20px;
 }
+
 
 #boutonImpression {
     margin: 20px auto auto 1424px;
@@ -144,4 +144,8 @@ textarea {
 #cotation {
     margin-left: 80px;
     margin-top: 10px;
+}
+
+#divArchive {
+    margin: 10px auto auto 20px;
 }

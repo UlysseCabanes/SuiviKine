@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Liste des fiches archivées</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="listeFiches.css">
+</head>
+<header>
+    <form th:if="${idEquipe} == 1" action="accueilAdmin">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <form th:unless="${idEquipe} == 1" action="accueil">
+        <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
+    </form>
+    <h1>Fiches de suivi archivées</h1>
+    <form action="login">
+        <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
+    </form>
+</header>
+<body>
+    <div>
+        <form th:each="resident: ${residentsArchives}" class="fiche" onclick="submit()" th:action="voirFicheDeSuivi">
+            <label th:text="${resident.nom}" id="nom"></label>
+            <input type="hidden" name="nom" th:value="${resident.nom}">
+            <label th:text="${resident.prenom}" id="prenom"></label>
+            <input type="hidden" name="prenom" th:value="${resident.prenom}">
+            <br><br>
+            <label th:text="${resident.dateNaissance}"></label>
+            <input type="hidden" name="dateNaissance" th:value="${resident.dateNaissance}">
+        </form>
+    </div>
+</body>
+</html>
