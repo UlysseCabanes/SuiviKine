@@ -41,7 +41,7 @@ header {
 
 /* Mise en forme des boutons pour voir une fiche */
 .fiche {
-    margin-left: 20px;
+    margin: 0px 0px 20px 20px;
     border: solid black 1px;
     border-radius: 10px;
     background-image:linear-gradient(#E5755F, #C34D34);
@@ -63,6 +63,7 @@ header {
 /* Div contenant les boutons pour voir les fiches */
 div {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* nom et prénom en gras */

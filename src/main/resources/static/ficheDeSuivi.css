@@ -85,6 +85,7 @@ input[type=text] {
 input[type=date] {
     border: none;
     background-color: #F0F0F0;
+    cursor: pointer;
 }
 
 /* input type="number" */
@@ -93,6 +94,16 @@ input[type=number] {
     background-color: #F0F0F0;
     width: 30px;
 }
+
+/* input type="radio" */
+input[type=radio] {
+    cursor: pointer;
+}
+
+/* labels pour les input type="radio" */
+.labelRadio {
+    cursor: pointer;
+} 
 
 /* Labels des renseignements socio administratifs */
 .labelSocioAdministratifs {
@@ -148,4 +159,8 @@ textarea {
 
 #divArchive {
     margin: 10px auto auto 20px;
+}
+
+.masquer {
+    cursor: pointer;
 }

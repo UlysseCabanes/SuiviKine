@@ -15,11 +15,11 @@
     <form th:unless="${idEquipe} == 1" action="accueil">
         <input type="submit" value="Accueil" class="bouton" id="boutonAccueil">
     </form>
-    <form action="supprimerFicheDeSuivi">
+    <form action="supprimerFicheDeSuivi" id="formSuppression">
         <input type="hidden" th:value="${nom}" name="nom">
         <input type="hidden" th:value="${prenom}" name="prenom">
         <input type="hidden" th:value="${dateNaissance}" name="dateNaissance">
-        <input type="submit" value="Supprimer la fiche" class="bouton" id="boutonSuppression">
+        <input type="button" value="Supprimer la fiche" class="bouton" id="boutonSuppression" onclick="confirmerSuppression()">
     </form>
     <form>
         <input type="submit" value="Imprimer la fiche" class="bouton" id="boutonImpression">
@@ -32,10 +32,10 @@
     <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
         <div id="divArchive">
             <label>Résident décédé :</label>
-            <label for="archiveOui">Oui</label>
+            <label for="archiveOui" class="labelRadio">Oui</label>
             <input th:if="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui" checked>
             <input th:unless="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui">
-            <label for="archiveNon">Non</label>
+            <label for="archiveNon" class="labelRadio">Non</label>
             <input th:if="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon" checked>
             <input th:unless="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon">
         </div>
@@ -94,23 +94,23 @@
                         <input type="date" name="datePrescription" id="datePrescription" th:value="${datePrescription}">
                         <label th:text="${datePrescriptionLabel}" class="labelPrint"></label>
                         <label class="labelPrescription">S'agit-il d'une prescription quantitative : </label> 
-                        <label for="prescripQuantOui">Oui</label>
+                        <label for="prescripQuantOui" class="labelRadio">Oui</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Oui'}" type="radio" value="Oui" name="prescriptionQuantitative" id="prescripQuantOui">
-                        <label for="prescripQuantNon">Non</label>
+                        <label for="prescripQuantNon" class="labelRadio">Non</label>
                         <input th:if="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon" checked>
                         <input th:unless="${prescriptionQuantitative !=null && prescriptionQuantitative == 'Non'}" type="radio" value="Non" name="prescriptionQuantitative" id="prescripQuantNon">
                         <label class="labelPrescription">S'agit-il d'un renouvellement : </label> 
-                        <label for="renouvellementOui">Oui</label>
+                        <label for="renouvellementOui" class="labelRadio">Oui</label>
                         <input th:if="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui" checked>
                         <input th:unless="${renouvellement !=null && renouvellement == 'Oui'}" type="radio" value="Oui" name="renouvellement" id="renouvellementOui">
-                        <label for="renouvellementNon">Non</label>
+                        <label for="renouvellementNon" class="labelRadio">Non</label>
                         <input th:if="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon" checked>
                         <input th:unless="${renouvellement !=null && renouvellement == 'Non'}" type="radio" value="Non" name="renouvellement" id="renouvellementNon">
                         <br>
                         <label class="titre">INDICATION MEDICALE : </label>
-                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="289">
-                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="289">
+                        <input th:if="${indicationMedicale != null}" type="text" th:value="${indicationMedicale}" name="indicationMedicale" id="indicMedic" maxlength="289" autoComplete="off">
+                        <input th:unless="${indicationMedicale != null}" type="text" name="indicationMedicale" id="indicMedic" maxlength="289" autoComplete="off">
                         <label th:text="${indicationMedicale}" class="labelPrint"></label>
                     </td>
                 </tr>
@@ -120,18 +120,18 @@
                     <td id="L3C1" colspan="4">
                         <label class="titre">Protocole thérapeutique</label>
                         <label class="labelProtocoleTherapeutique">Nombre : </label>
-                        <input type="number" th:value="${nbProtocoleTherapeutique}" name="nbProtocoleTherapeutique">
+                        <input type="number" th:value="${nbProtocoleTherapeutique}" name="nbProtocoleTherapeutique" min="0">
                         <label th:text="${nbProtocoleTherapeutique}" class="labelPrint"></label>
                         <label class="labelProtocoleTherapeutique">Rythme des séances : </label>
-                        <input type="number" th:value="${rythmeSeances}" name="rythmeSeances">
+                        <input type="number" th:value="${rythmeSeances}" name="rythmeSeances" min="0">
                         <label th:text="${rythmeSeances}" class="labelPrint"></label>
                         <label>/semaine</label>
                         <label class="labelProtocoleTherapeutique">Lieu des séances : Résidence</label>
                         <label class="labelProtocoleTherapeutique">Travail en groupe : </label>
-                        <label for="travailEnGroupeOui">Oui</label>
+                        <label for="travailEnGroupeOui" class="labelRadio">Oui</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Oui'}" type="radio" value="Oui" name="travailGroupe" id="travailEnGroupeOui">
-                        <label for="travailEnGroupeNon">Non</label>
+                        <label for="travailEnGroupeNon" class="labelRadio">Non</label>
                         <input th:if="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon" checked>
                         <input th:unless="${travailGroupe !=null && travailGroupe == 'Non'}" type="radio" value="Non" name="travailGroupe" id="travailEnGroupeNon">
                         <label class="labelProtocoleTherapeutique">Date de la première séance : </label>
@@ -139,7 +139,7 @@
                         <label th:text="${datePremiereSeanceLabel}" class="labelPrint"></label>
                         <br>
                         <label>Techniques : </label>
-                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="314">
+                        <input type="text" th:value="${techniques}" name="techniques" id="techniques" maxlength="314" autoComplete="off">
                         <label th:text="${techniques}" class="labelPrint"></label>
                     </td>
                 </tr>
@@ -149,7 +149,7 @@
                     <th id="L4C1">
                         <label class="titre">INTITULES</label>
                         <br>
-                        <input type="text" th:value="${intitules}" name="intitules" id="intitulesKine" maxlength="40">
+                        <input type="text" th:value="${intitules}" name="intitules" id="intitulesKine" maxlength="40" autoComplete="off">
                         <label th:text="${intitules}" class="labelPrint"></label>
                     </th>
                     <!-- Colonne 2 -->

@@ -17,9 +17,9 @@
 <body>
     <form id="formCreation" action="creerFicheDeSuivi">
         <label>Nom*</label> 
-        <input type="text" id="nom" name="nom" placeholder="ex: Pages" required>
+        <input type="text" id="nom" name="nom" placeholder="ex: Pages" autoComplete="off" required>
         <label>Prénom*</label> 
-        <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette" required>
+        <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette" autoComplete="off" required>
         <label>Date de naissance*</label>
         <input type="date" name="dateNaissance" required>
         <br><br>
@@ -34,7 +34,7 @@
         </select>
         <br><br>
         <label>N° sécurité sociale*</label> 
-        <input type="text" name="nSecu" id="nSecu" placeholder="ex: 000000000000000" required> 
+        <input type="text" name="nSecu" id="nSecu" placeholder="000000000000000" autoComplete="off" size="15" minlength="15" maxlength="15" required> 
         <br><br><br>
         <input type="submit" value="CREATION" id="submitCreation">
         <br><br><br>

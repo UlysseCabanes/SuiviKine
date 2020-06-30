@@ -26,7 +26,7 @@
             <table>
                 <tr>
                     <td>
-                        <input type="text" th:value="${medecin.nom}" name="nom" th:id="${medecin.idMedecin}" onkeyup="enregistrerModifications(this)">
+                        <input type="text" th:value="${medecin.nom}" name="nom" th:id="${medecin.idMedecin}" onkeyup="enregistrerModifications(this)" autoComplete="off">
                         <input type="hidden" th:value="${medecin.idMedecin}" name="idMedecin">
                     </td>
                     <td>

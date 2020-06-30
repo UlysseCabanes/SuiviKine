@@ -62,9 +62,16 @@ public class EquipeKineController {
         //Trouver l'équipe kiné correspondant à l'id renseigné (Clé primaire)
         EquipeKine equipe = em.find(EquipeKine.class, idEquipeKine);
         //Modifier le nom, le login et le mot de passe de l'équipe
-        equipe.setNom(nom);
-        equipe.setLogin(login);
-        equipe.setMdp(mdp);
+        if (!nom.isEmpty()) {
+            equipe.setNom(nom);
+        }
+        if (!login.isEmpty()) {
+            equipe.setLogin(login);
+        }
+        if (!mdp.isEmpty()) {
+            equipe.setMdp(mdp);
+        }
+        
     }
 
     //Ajouter une équipe à la BDD

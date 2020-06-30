@@ -26,16 +26,16 @@
                 <tr>
                     <td>
                         <label th:if="${equipeKine.nom == 'admin'}" class="equipe" id="labelAdmin">Admin</label>
-                        <input th:unless="${equipeKine.nom == 'admin'}" type="text" th:value="${equipeKine.nom}" class="equipe" name="nom" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
+                        <input th:unless="${equipeKine.nom == 'admin'}" type="text" th:value="${equipeKine.nom}" class="equipe" name="nom" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" autoComplete="off">
                         <input type="hidden" th:value="${equipeKine.idEquipeKine}" name="idEquipeKine">
                     </td>
                     <td>
                         <label>Identifiant :</label>
-                        <input type="text" th:value="${equipeKine.login}" name="login" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
+                        <input type="text" th:value="${equipeKine.login}" name="login" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" autoComplete="off">
                     </td>
                     <td>
                         <label>Mot de passe :</label>
-                        <input type="text" th:value="${equipeKine.mdp}" name="mdp" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" required>
+                        <input type="text" th:value="${equipeKine.mdp}" name="mdp" th:id="${equipeKine.idEquipeKine}" onkeyup="enregistrerModifications(this)" autoComplete="off">
                     </td>
                     <td>
                         <input th:unless="${equipeKine.nom == 'admin'}" type="button" value="retirer" class="boutonRetirer" th:id="${equipeKine.idEquipeKine}" onclick="retirerEquipeKine(this)">
