@@ -6,9 +6,10 @@
     width: 300px;
     height: 250px;
     margin: 230px auto auto 250px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
     font-size: 18px;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     cursor: pointer;
     transition: background-color 1s;
@@ -16,7 +17,7 @@
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .fiche:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
 }
 
 /* Formulaires en ligne */
@@ -28,8 +29,9 @@ form {
 #boutonDeconnexion {
     border: solid black 1px;
     border-radius: 10px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     padding: 5px;
     height: 50px;
@@ -41,5 +43,12 @@ form {
 
 /* Changer la couleur de fond du bouton déconnexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 #boutonDeconnexion:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
+}
+
+/* Fond d'écran */
+body {
+    background-image: url("Images/background.png");
+    background-size: cover;
+    margin: 0px;
 }

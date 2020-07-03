@@ -30,15 +30,6 @@
 </header>
 <body>
     <form onsubmit="return false" method="POST" id="formFicheDeSuivi">
-        <div id="divArchive">
-            <label>Résident décédé :</label>
-            <label for="archiveOui" class="labelRadio">Oui</label>
-            <input th:if="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui" checked>
-            <input th:unless="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui">
-            <label for="archiveNon" class="labelRadio">Non</label>
-            <input th:if="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon" checked>
-            <input th:unless="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon">
-        </div>
         <!-- Tableau : fiche de suivi -->
         <table id="tabFicheSuivi">
             <!-- Titre de la fiche 
@@ -52,6 +43,19 @@
             </colgroup>
             <!-- En-tête de la fiche -->
             <thead>
+                <tr>
+                    <td style="border: none">
+                        <div id="divArchive">
+                            <label>Résident décédé :</label>
+                            <label for="archiveOui" class="labelRadio">Oui</label>
+                            <input th:if="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui" checked>
+                            <input th:unless="${archive !=null && archive == 'Oui'}" type="radio" value="Oui" name="archive" id="archiveOui">
+                            <label for="archiveNon" class="labelRadio">Non</label>
+                            <input th:if="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon" checked>
+                            <input th:unless="${archive !=null && archive == 'Non'}" type="radio" value="Non" name="archive" id="archiveNon">
+                        </div>
+                    </td>
+                </tr>
                 <tr>
                     <td colspan="4" style="border: none; text-align: center">
                         <label class="titre">FICHE DE SYNTHESE DU BILAN-DIAGNOSTIC KINESITHERAPIQUE</label>

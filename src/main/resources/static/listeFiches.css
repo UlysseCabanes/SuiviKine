@@ -2,8 +2,9 @@
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     padding: 5px;
     height: 50px;
@@ -15,7 +16,7 @@
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
 }
 
 /* Bouton accueil */
@@ -44,8 +45,9 @@ header {
     margin: 0px 0px 20px 20px;
     border: solid black 1px;
     border-radius: 10px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     padding: 40px 10px 0px 10px;
     min-height: 100px;
@@ -57,7 +59,7 @@ header {
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .fiche:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
 }
 
 /* Div contenant les boutons pour voir les fiches */
@@ -69,4 +71,11 @@ div {
 /* nom et prénom en gras */
 #nom, #prenom {
     font-weight: bold;
+}
+
+/* Fond d'écran */
+body {
+    background-image: url("Images/background.png");
+    background-size: cover;
+    margin: 0px;
 }

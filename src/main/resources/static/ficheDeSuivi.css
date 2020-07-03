@@ -2,8 +2,9 @@
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     padding: 5px;
     height: 50px;
@@ -16,7 +17,7 @@
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
 }
 
 /* Placer les boutons de l'en-tête de page */
@@ -66,7 +67,7 @@ header {
 
 /* Cacher le pied du tableau dans l'application */
 #tabFicheSuivi tfoot{
-    visibility: hidden;
+    display: none;
 }
 
 /* Titres */
@@ -157,10 +158,24 @@ textarea {
     margin-top: 10px;
 }
 
-#divArchive {
-    margin: 10px auto auto 20px;
-}
-
+/* Curseur en forme de main sur les boutons masquer*/
 .masquer {
     cursor: pointer;
+}
+
+/* Formulaire contenant le tableau */
+#formFicheDeSuivi {
+    background-color: white;
+    padding: 5px;
+    border: solid #74A333 3px;
+    width: auto;
+    display: inline-block;
+    margin: 10px auto auto 200px;
+}
+
+/* Fond d'écran */
+body {
+    background-image: url("Images/background.png");
+    background-size: cover;
+    margin: 0px;
 }

@@ -5,8 +5,9 @@
     padding: 20px 30px 30px 30px;
     width: 300px;
     height: 250px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     margin: 300px auto auto auto;
     box-shadow: 2px 2px 5px;
 }
@@ -58,9 +59,10 @@ input[type=password] {
 
 /* Bouton submit */
 #submitLogin {
+    font-weight: bold;
     margin: 20px auto auto 127px;
     height: 30px;
-    background-color: #33CC33;
+    background-color: #F4DD06;
     border: solid black 1px;
     border-radius: 10px;
     cursor: pointer;
@@ -69,5 +71,12 @@ input[type=password] {
 
 /* Changer la couleur de fond du bouton submit lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 #submitLogin:hover {
-    background-color: #20A420;
+    background-color: #D4BD00;
+}
+
+/* Fond d'écran */
+body {
+    background-image: url("Images/background.png");
+    background-size: cover;
+    margin: 0px;
 }

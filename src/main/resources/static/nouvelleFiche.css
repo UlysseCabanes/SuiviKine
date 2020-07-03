@@ -5,8 +5,9 @@
     width: 750px;
     height: 200px;
     margin: 230px auto auto auto;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
 }
 
@@ -14,8 +15,9 @@
 .bouton {
     border: solid black 1px;
     border-radius: 10px;
-    background-image:linear-gradient(#E5755F, #C34D34);
+    background-color: #74A333;
     font-family: "Open", sans-serif;
+    font-weight: bold;
     box-shadow: 2px 2px 5px;
     padding: 5px;
     height: 50px;
@@ -27,7 +29,7 @@
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 .bouton:hover {
-    background-image:linear-gradient(#C34D34, #9B250C);
+    background-color: #4C7B0B;
 }
 
 /* Bouton accueil */
@@ -67,7 +69,7 @@ header {
 
 /* Bouton submit */
 #submitCreation {
-    background-color: #33CC33;
+    background-color: #F4DD06;
     margin-left: 325px;
     border: solid black 1px;
     border-radius: 10px;
@@ -75,9 +77,17 @@ header {
     width: 80px;
     cursor: pointer;
     transition: background-color 1s;
+    font-weight: bold;
 }
 
 /* Changer la couleur de fond du bouton submit lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
 #submitCreation:hover {
-    background-color: #20A420;
+    background-color: #D4BD00;
+}
+
+/* Fond d'écran */
+body {
+    background-image: url("Images/background.png");
+    background-size: cover;
+    margin: 0px;
 }
