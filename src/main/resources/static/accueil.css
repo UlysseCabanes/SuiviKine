@@ -12,7 +12,7 @@
     font-weight: bold;
     box-shadow: 2px 2px 5px;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
@@ -38,7 +38,7 @@ form {
     width: 100px;
     margin: 20px auto auto 1784px;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 
 /* Changer la couleur de fond du bouton déconnexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */

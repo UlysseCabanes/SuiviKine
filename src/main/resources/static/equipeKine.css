@@ -11,7 +11,7 @@
     width: 100px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
@@ -63,7 +63,7 @@ td{
     border: solid black 1px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
     font-weight: bold;
 }
 

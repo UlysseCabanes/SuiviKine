@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     <label>N° sécurité sociale*</label> 
-                    <input type="number" name="nSecu" id="nSecu" placeholder="000000000000000" autoComplete="off" size="15" min="15" max="15" required>
+                    <input type="text" name="nSecu" id="nSecu" placeholder="000000000000000" autoComplete="off" size="15" minlength="15" maxlength="15" onkeypress="return verif(event);" required>
                 </td>
             </tr>
         </table>
@@ -58,5 +58,6 @@
         <br>
         <label id="champObligatoire">*CHAMP OBLIGATOIRE</label>
     </form>
+    <script type="text/javascript" src="nouvelleFiche.js"></script>
 </body>
 </html>

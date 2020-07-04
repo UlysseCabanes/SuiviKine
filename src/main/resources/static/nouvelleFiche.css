@@ -24,7 +24,7 @@
     width: 100px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
 }
 
 /* Changer la couleur de fond des boutons lorsque l'on passe dessus avec le curseur pour montrer qu'ils sont cliquables */
@@ -70,13 +70,13 @@ header {
 /* Bouton submit */
 #submitCreation {
     background-color: #F4DD06;
-    margin-left: 325px;
+    margin-left: 335px;
     border: solid black 1px;
     border-radius: 10px;
     height: 25px;
     width: 80px;
     cursor: pointer;
-    transition: background-color 1s;
+    transition: background-color 0.5s;
     font-weight: bold;
 }
 
@@ -97,6 +97,7 @@ input[type=number] {
 /* Hauteur de cellule du tableau */
 table td {
     height: 40px;
+    padding-left: 50px;
 }
 
 /* Fond d'écran */
