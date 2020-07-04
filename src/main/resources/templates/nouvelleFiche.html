@@ -16,28 +16,46 @@
 </header>
 <body>
     <form id="formCreation" action="creerFicheDeSuivi">
-        <label>Nom*</label> 
-        <input type="text" id="nom" name="nom" placeholder="ex: Pages" autoComplete="off" required>
-        <label>Prénom*</label> 
-        <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette" autoComplete="off" required>
-        <label>Date de naissance*</label>
-        <input type="date" name="dateNaissance" required>
-        <br><br>
-        <label>Sexe*</label> 
-        <label for="F">F</label> 
-        <input type="radio" name="sexe" id="F" value="F" required> 
-        <label for="M">M</label> 
-        <input type="radio" name="sexe" id="M" value="M"required>
-        <label>Médecin traitant*</label> 
-        <select name="medecinPrescripteur" required>
-            <option th:each="medecin: ${medecins}" th:value="${medecin.nom}" th:text="${medecin.nom}"></option>
-        </select>
-        <br><br>
-        <label>N° sécurité sociale*</label> 
-        <input type="text" name="nSecu" id="nSecu" placeholder="000000000000000" autoComplete="off" size="15" minlength="15" maxlength="15" required> 
-        <br><br><br>
+        <table>
+            <tr>
+                <td>
+                    <label>Nom*</label> 
+                    <input type="text" id="nom" name="nom" placeholder="ex: Pages" autoComplete="off" required>
+                </td>
+                <td>
+                    <label>Prénom*</label> 
+                    <input type="text" id="prenom" name="prenom" placeholder="ex: Huguette" autoComplete="off" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Date de naissance*</label>
+                    <input type="date" name="dateNaissance" required>
+                </td>
+                <td>
+                    <label>Sexe*</label> 
+                    <label for="F" class="labelRadio">F</label> 
+                    <input type="radio" name="sexe" id="F" value="F" required> 
+                    <label for="M" class="labelRadio">M</label> 
+                    <input type="radio" name="sexe" id="M" value="M"required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Médecin traitant*</label> 
+                    <select name="medecinPrescripteur" required>
+                        <option th:each="medecin: ${medecins}" th:value="${medecin.nom}" th:text="${medecin.nom}"></option>
+                    </select>
+                </td>
+                <td>
+                    <label>N° sécurité sociale*</label> 
+                    <input type="number" name="nSecu" id="nSecu" placeholder="000000000000000" autoComplete="off" size="15" min="15" max="15" required>
+                </td>
+            </tr>
+        </table>
+        <br>
         <input type="submit" value="CREATION" id="submitCreation">
-        <br><br><br>
+        <br>
         <label id="champObligatoire">*CHAMP OBLIGATOIRE</label>
     </form>
 </body>

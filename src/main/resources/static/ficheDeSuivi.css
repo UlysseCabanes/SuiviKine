@@ -165,7 +165,7 @@ textarea {
 
 /* Formulaire contenant le tableau */
 #formFicheDeSuivi {
-    background-color: white;
+    background-color: #F7F7F7;
     padding: 5px;
     border: solid #74A333 3px;
     width: auto;

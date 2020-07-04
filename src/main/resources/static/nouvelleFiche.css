@@ -85,6 +85,20 @@ header {
     background-color: #D4BD00;
 }
 
+/* input type="date", input type="readio" et leurs labels, lise déroulante */
+input[type=date], input[type=radio], .labelRadio, select {
+    cursor: pointer;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Hauteur de cellule du tableau */
+table td {
+    height: 40px;
+}
+
 /* Fond d'écran */
 body {
     background-image: url("Images/background.png");
