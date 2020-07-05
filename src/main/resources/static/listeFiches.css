@@ -75,7 +75,7 @@ div {
 
 /* Fond d'écran */
 body {
-    background-image: url("Images/background.png");
+    background: #F4DD06 url("Images/background.png");
     background-size: cover;
     margin: 0px;
 }

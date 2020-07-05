@@ -47,9 +47,9 @@ header {
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin: auto auto auto 501px;
+    margin: auto auto auto 522px;
     display: inline-block;
-    width: 800px;
+    width: 755px;
 }
 
 /* Cases du tableau */
@@ -95,7 +95,7 @@ input[type=text] {
 /* Bouton ajouter équipe */
 #ajouterEquipe {
     width: 150px;
-    margin: 150px auto auto 351px;
+    margin: 150px auto auto 372px;
     font-weight: bold;
 }
 
@@ -106,7 +106,7 @@ p {
 
 /* Fond d'écran */
 body {
-    background-image: url("Images/background.png");
+    background: #F4DD06 url("Images/background.png");
     background-size: cover;
     margin: 0px;
 }

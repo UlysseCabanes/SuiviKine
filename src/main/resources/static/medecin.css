@@ -47,7 +47,7 @@ header {
     font-family: "Open", sans-serif;
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
-    margin: auto auto auto 666px;
+    margin: auto auto auto 670px;
     display: inline-block;
     width: 470px;
 }
@@ -82,17 +82,12 @@ input[type=text] {
 #ajouterMedecin {
     width: 150px;
     font-weight: bold;
-}
-
-/* Div ajouter médecin */
-#divAjouter {
-    margin: 150px auto auto 516px;
-    display: flex;
+    margin: 150px auto auto 520px;
 }
 
 /* Fond d'écran */
 body {
-    background-image: url("Images/background.png");
+    background: #F4DD06 url("Images/background.png");
     background-size: cover;
     margin: 0px;
 }
