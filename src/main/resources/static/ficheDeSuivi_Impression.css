@@ -112,6 +112,8 @@ textarea {
     margin-left: 80px;
     margin-top: 10px;
 }
+
+/* Masquer les boutons radio pour déterminer si le résident est mort */
 #divArchive {
     display: none;
 }

@@ -1,3 +1,4 @@
+/* Mise en forme du formulaire */
 #formCreation {
     border: solid black 1px;
     border-radius: 10px;
@@ -88,10 +89,6 @@ header {
 /* input type="date", input type="readio" et leurs labels, lise déroulante */
 input[type=date], input[type=radio], .labelRadio, select {
     cursor: pointer;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
 }
 
 /* Hauteur de cellule du tableau */
