@@ -16,9 +16,6 @@
     </form>
 </header>
 <body>
-    <form action="ajouterMedecin">
-        <input type="submit" id="ajouterMedecin" class="bouton" value="Ajouter un medécin">
-    </form>
     <div id="divCentral">
         <form th:each="medecin : ${lesMedecins}" th:id="'formMedecin-'+${medecin.idMedecin}" onsubmit="return false" class="formMedecin">
             <table>
@@ -34,6 +31,9 @@
             </table>
         </form>
     </div>
+    <form action="ajouterMedecin">
+        <input type="submit" id="ajouterMedecin" class="bouton" value="Ajouter un medécin">
+    </form>
     <script type="text/javascript" src="medecin.js"></script>
 </body>
 </html>
