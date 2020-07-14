@@ -29,6 +29,7 @@ input[type=password] {
     border: solid black 2px;
     height: 25px;
     width: 140px;
+    margin-left: 1px;
 }
 
 /* Première partie du titre */
