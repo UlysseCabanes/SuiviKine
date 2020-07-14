@@ -95,7 +95,7 @@ input[type=text] {
 /* Bouton ajouter équipe */
 #ajouterEquipe {
     width: 150px;
-    margin: 150px auto auto 372px;
+    margin: 100px auto auto 372px;
     font-weight: bold;
 }
 
