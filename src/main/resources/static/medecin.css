@@ -48,7 +48,6 @@ header {
     box-shadow: 2px 2px 5px;
     padding: 25px 50px 25px 50px;
     margin: 100px auto auto 670px;
-    display: inline-block;
     width: 470px;
 }
 
@@ -82,7 +81,7 @@ input[type=text] {
 #ajouterMedecin {
     width: 150px;
     font-weight: bold;
-    margin: auto auto auto 520px;
+    margin: auto auto 50px 520px;
 }
 
 /* Fond d'écran */
