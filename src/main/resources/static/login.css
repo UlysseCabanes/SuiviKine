@@ -78,6 +78,9 @@ input[type=password] {
 /* Fond d'écran */
 body {
     background: #F4DD06 url("Images/background.png") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     margin: 0px;
     padding: 0px;
