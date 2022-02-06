@@ -45,6 +45,7 @@ public class EquipeKineController {
         return "equipeKine";
     }
 
+    //Modifier une équipe
     @Transactional
     @RequestMapping(value = "/modifierEquipeKine", method = RequestMethod.POST)
     public void modifierEquipeKine(

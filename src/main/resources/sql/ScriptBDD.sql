@@ -10,18 +10,19 @@ SET @@global.time_zone = '+00:00';
 SET @@session.time_zone = '+00:00';
 
 -- -----------------------------------------------------
--- Schema SuiviKine
+-- Schema suivikine
 --
 -- BDD pour l'application SuiviKine
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `SuiviKine`;
-CREATE SCHEMA `SuiviKine` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
-USE `SuiviKine` ;
+DROP SCHEMA IF EXISTS `suivikine`;
+CREATE SCHEMA `suivikine` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
+USE `suivikine` ;
 
 -- -----------------------------------------------------
--- Table `SuiviKine`.`Resident`
+-- Table `suivikine`.`resident`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SuiviKine`.`Resident` (
+DROP TABLE IF EXISTS `suivikine`.`resident`;
+CREATE TABLE IF NOT EXISTS `suivikine`.`resident` (
   `nom` VARCHAR(100) NOT NULL DEFAULT "",
   `prenom` VARCHAR(100) NOT NULL DEFAULT "",
   `date_naissance` VARCHAR(10) NOT NULL DEFAULT "",
@@ -87,9 +88,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SuiviKine`.`EquipeKine`
+-- Table `suivikine`.`equipekine`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SuiviKine`.`Equipe_kine` (
+DROP TABLE IF EXISTS `suivikine`.`equipe_kine`;
+CREATE TABLE IF NOT EXISTS `suiviKine`.`equipe_kine` (
   `id_equipe_kine` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(200) NOT NULL DEFAULT "Equipe kiné",
   `login` VARCHAR(200) NOT NULL DEFAULT "login",
@@ -99,8 +101,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SuiviKine`.`Medecin`
+-- Table `suivikine`.`medecin`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `suivikine`.`medecin`;
 CREATE TABLE IF NOT EXISTS `SuiviKine`.`Medecin` (
   `id_medecin` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(200), 
@@ -114,9 +117,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Equipes kiné
 -- -----------------------------------------------------
-INSERT INTO `SuiviKine`.`Equipe_kine` (nom, login, mdp) VALUES ("admin", "admin", "mdpAdmin");
-INSERT INTO `SuiviKine`.`Equipe_kine` (nom, login, mdp) VALUES ("Santenac", "equipe1", "mdp1");
-INSERT INTO `SuiviKine`.`Equipe_kine` (nom, login, mdp) VALUES ("Martin", "equipe2", "mdp2");
+INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("admin", "admin", "mdpAdmin");
+INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("Santenac", "equipe1", "mdp1");
+INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("Martin", "equipe2", "mdp2");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

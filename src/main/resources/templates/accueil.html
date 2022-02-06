@@ -1,25 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Page d'accueil</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="accueil.css">
-</head>
-<header>
-    <form action="login">
-        <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
-    </form>
-</header>
-<body>
-    <form action="nouvelleFiche">
-        <input type="submit" value="Nouvelle fiche" class="fiche">
-    </form>
-    <form action="listeFiches">
-        <input type="submit" value="Fiches de suivi" class="fiche">
-    </form>
-    <form action="listeFichesArchivees">
-        <input type="submit" value="Fiches de suivi archivées" class="fiche">
-    </form>
-    <script type="text/javascript" src="bloquerAccesExterne.js"></script>
-</body>
+    <head> 
+        <title>Page d'accueil</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="accueil.css">
+    </head>
+    <header>
+        <form action="login">
+            <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
+        </form>
+    </header>
+    <body>
+        <div>
+            <form action="nouvelleFiche">
+                <input type="submit" value="Nouvelle fiche" class="fiche">
+            </form>
+            <form action="listeFiches">
+                <input type="submit" value="Fiches de suivi" class="fiche">
+            </form>
+            <form action="listeFichesArchivees">
+                <input type="submit" value="Fiches de suivi archivées" class="fiche">
+            </form>
+        </div>
+        <script type="text/javascript" src="bloquerAccesExterne.js"></script>
+    </body>
 </html>

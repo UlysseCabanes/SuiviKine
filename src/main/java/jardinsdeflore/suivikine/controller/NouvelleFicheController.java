@@ -13,6 +13,7 @@ public class NouvelleFicheController {
     @Autowired
     MedecinRepository medecinRepository;
     
+    //Ajouter une fiche de suivi à la BDD
     @GetMapping("/nouvelleFiche")
     public String nouvelleFiche(Model model) {
         //Créer une liste de tous les médecins de la BDD triés par ordre alphabétique

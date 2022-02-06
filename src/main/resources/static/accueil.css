@@ -1,11 +1,30 @@
-/* Mise en forme des boutons pour voir ou créer une fiche */
+/* Fond d'?cran */
+body {
+    background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
+    margin: 0px;
+    padding: 0px;
+    word-break: break-all;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div{
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* Mise en forme des boutons pour voir ou cr?er une fiche */
 .fiche {
     border: solid black 1px;
     border-radius: 10px;
     padding: 30px;
-    width: 300px;
-    height: 250px;
-    margin: 230px auto auto 250px;
+    width: 20vw;
+    height: 20vh;
     background-color: #74A333;
     font-family: "Open", sans-serif;
     font-size: 18px;
@@ -25,7 +44,7 @@ form {
     display: inline-block;
 }
 
-/* Mise en forme du bouton déconnexion */
+/* Mise en forme du bouton d?connexion */
 #boutonDeconnexion {
     border: solid black 1px;
     border-radius: 10px;
@@ -36,20 +55,12 @@ form {
     padding: 5px;
     height: 50px;
     width: 100px;
-    margin: 20px auto auto 1784px;
+    margin: 10px;
     cursor: pointer;
     transition: background-color 0.5s;
 }
 
-/* Changer la couleur de fond du bouton déconnexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
+/* Changer la couleur de fond du bouton d?connexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 #boutonDeconnexion:hover {
     background-color: #4C7B0B;
-}
-
-/* Fond d'écran */
-body {
-    background: #F4DD06 url("Images/background.png") no-repeat center fixed;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
 }

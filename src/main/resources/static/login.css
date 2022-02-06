@@ -1,9 +1,3 @@
-/* Fond d'écran 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-*/
 body {
     background: url("Images/background.png") no-repeat center/cover fixed, #F4DD06;
     margin: 0px;

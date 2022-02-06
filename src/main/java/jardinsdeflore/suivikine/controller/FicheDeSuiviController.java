@@ -32,6 +32,7 @@ public class FicheDeSuiviController {
     @Autowired
     EntityManager em;
     
+    //Ajouter une fiche de suivi à la BDD
     @GetMapping("/creerFicheDeSuivi")
     public String creerFicheDeSuivi(
         @RequestParam("nom") String nomParam,
@@ -65,6 +66,7 @@ public class FicheDeSuiviController {
         }
     }
     
+    //Voir une fiche de suivi
     @GetMapping("/voirFicheDeSuivi")
     public String voirFicheDeSuivi(
         @RequestParam("nom") String nomParam,
@@ -305,6 +307,7 @@ public class FicheDeSuiviController {
         return "ficheDeSuivi";
     }
     
+    //Modifier une fiche de suivi
     @Transactional
     @RequestMapping(value = "/modifierFicheDeSuivi", method = RequestMethod.POST)
     public void modifierFicheDeSuivi(
@@ -531,6 +534,7 @@ public class FicheDeSuiviController {
         }
     }
     
+    //Supprimer une fiche de suivi de la BDD
     @GetMapping("/supprimerFicheDeSuivi")
     public String supprimerFicheDeSuivi(
         @RequestParam("nom") String nomParam,

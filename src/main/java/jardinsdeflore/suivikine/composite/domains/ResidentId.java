@@ -8,7 +8,7 @@ package jardinsdeflore.suivikine.composite.domains;
 import java.io.Serializable;
 import java.util.Objects;
 
-//Classe définissant la clé primaire composite de l'entité Résident
+//Classe définissant la clé primaire composite (composée de plusieurs attributs) de l'entité Résident
 public class ResidentId implements Serializable{
     
     private String nom;

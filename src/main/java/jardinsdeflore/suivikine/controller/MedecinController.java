@@ -17,11 +17,11 @@ public class MedecinController {
 
     @Autowired
     MedecinRepository medecinRepository;
-    
+
     @Autowired
     EntityManager em;
-        
-    //Voir tous les médecins de la bdd 
+
+    //Voir tous les médecins de la BDD 
     @GetMapping("/medecin")
     public String medecin(Model model) {
 
@@ -33,13 +33,14 @@ public class MedecinController {
         return "medecin";
     }
 
+    //Modifier un médecin
     @Transactional
     @RequestMapping(value = "/modifierMedecin", method = RequestMethod.POST)
     public void modifierMedecin(
-        @RequestParam("idMedecin") int idMedecin,
-        @RequestParam("nom") String nomParam
+            @RequestParam("idMedecin") int idMedecin,
+            @RequestParam("nom") String nomParam
     ) {
-        
+
         //Enlever tous les espaces avant et après le nom
         String nom = nomParam.trim();
         //Trouver le médecin correspondant à l'id renseigné (Clé primaire)
@@ -65,11 +66,10 @@ public class MedecinController {
     //Retirer un médecin de la BDD
     @GetMapping("/retirerMedecin")
     public String retirerMedecin(
-        @RequestParam("idMedecin") int idMedecin) 
-    {
+            @RequestParam("idMedecin") int idMedecin) {
         //Retirer le médecin correspondant à l'id renseigné
         medecinRepository.deleteById(idMedecin);
-        
+
         return "redirect:/medecin";
     }
 }

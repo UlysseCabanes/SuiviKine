@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Resident")
+@Table(name = "resident")
 @IdClass(ResidentId.class)
 public class Resident implements Serializable {
 

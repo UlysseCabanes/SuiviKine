@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Equipe_kine", uniqueConstraints = {@UniqueConstraint(columnNames="login"), @UniqueConstraint(columnNames="mdp")})
+@Table(name = "equipe_kine", uniqueConstraints = {@UniqueConstraint(columnNames="login"), @UniqueConstraint(columnNames="mdp")})
 public class EquipeKine implements Serializable{
     
     @Id
