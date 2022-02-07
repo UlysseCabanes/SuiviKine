@@ -9,7 +9,5 @@ public class SuiviKineApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SuiviKineApplication.class, args);
-        System.out.println("Default: " + Charset.defaultCharset());
     }
-
 }

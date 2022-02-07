@@ -22,11 +22,11 @@ public class EquipeKineService {
 	}
         
         public EquipeKine findLast(EquipeKineRepository equipeKineRepository) {
-            //Compter le nombre d'équipes dans la BDD
+            //Compter le nombre d'Ã©quipes dans la BDD
             long taille = equipeKineRepository.count();
-            //Récupérer toutes les équipes
+            //RÃ©cupÃ©rer toutes les Ã©quipes
             ArrayList<EquipeKine> lesEquipes = (ArrayList) equipeKineRepository.findAll();
-            //Récupérer la dernière équipe
+            //RÃ©cupÃ©rer la derniÃ¨re Ã©quipe
             EquipeKine derniere = lesEquipes.get((int) taille - 1);
             
             return derniere;

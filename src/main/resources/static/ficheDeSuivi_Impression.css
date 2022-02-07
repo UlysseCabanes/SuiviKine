@@ -5,7 +5,7 @@
     size: landscape; 
 };
 
-/* Cacher l'en-tête de page */
+/* Cacher l'en-tÃªte de page */
 header {
     display: none;
 }
@@ -36,7 +36,7 @@ header {
     vertical-align: top;
 }
 
-/* En-têtes du tableau */
+/* En-tÃªtes du tableau */
 #tabFicheSuivi th{
     border: solid black 1px;
     padding: 0px 3px 3px 3px;
@@ -74,17 +74,17 @@ input[type=number] {
     margin-left: 40px;
 }
 
-/* Labels du protocole thérapeutique */
+/* Labels du protocole thÃ©rapeutique */
 .labelProtocoleTherapeutique {
     margin-left: 30px;
 }
 
-/* Cacher l'input type=text de l'indication médicale */
+/* Cacher l'input type=text de l'indication mÃ©dicale */
 #indicMedic {
     display: none;
 }
 
-/* Cacher l'input type=text de lieu séances */
+/* Cacher l'input type=text de lieu sÃ©ances */
 #lieuSeances {
     display: none;
 }
@@ -94,7 +94,7 @@ input[type=number] {
     display: none;
 }
 
-/* Cacher l'input type=text de l'intitulé kiné */
+/* Cacher l'input type=text de l'intitulÃ© kinÃ© */
 #intitulesKine {
     display: none;
 }
@@ -113,7 +113,7 @@ textarea {
     margin-top: 10px;
 }
 
-/* Masquer les boutons radio pour déterminer si le résident est mort */
+/* Masquer les boutons radio pour dÃ©terminer si le rÃ©sident est mort */
 #divArchive {
     display: none;
 }

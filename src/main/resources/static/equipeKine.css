@@ -1,3 +1,10 @@
+/* Fond d'Ã©cran */
+body {
+    background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
+    margin: 0px;
+    padding: 0px;
+}
+
 /* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
@@ -24,7 +31,7 @@
     margin: 20px auto auto 20px;
 }
 
-/* Bouton déconnexion */
+/* Bouton dÃ©connexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
@@ -34,7 +41,7 @@ h1 {
     margin: auto;
 }
 
-/* En-tête de page */
+/* En-tÃªte de page */
 header {
     display: flex;
 }
@@ -77,7 +84,7 @@ label {
     margin-left: 10px;
 }
 
-/* Nom des équipes en gras */
+/* Nom des Ã©quipes en gras */
 .equipe {
     font-weight: bold;
 }
@@ -87,27 +94,19 @@ input[type=text] {
     border: solid black 1px;
 }
 
-/* Label admin plus à gauche car le mot "admin" est plus court que le mot "équipe" */
+/* Label admin plus Ã  gauche car le mot "admin" est plus court que le mot "Ã©quipe" */
 #labelAdmin {
     margin: 0px 60px 0px 60px;
 }
 
-/* Bouton ajouter équipe */
+/* Bouton ajouter Ã©quipe */
 #ajouterEquipe {
     width: 150px;
     margin: 100px auto auto 372px;
     font-weight: bold;
 }
 
-/* Marge du paragraphe "Les identifiants et mots de passe doivent être uniques" */
+/* Marge du paragraphe "Les identifiants et mots de passe doivent Ãªtre uniques" */
 p {
     margin-left: 210px;
-}
-
-/* Fond d'écran */
-body {
-    background: #F4DD06 url("Images/background.png") no-repeat center fixed;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
 }

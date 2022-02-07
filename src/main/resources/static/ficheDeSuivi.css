@@ -1,3 +1,10 @@
+/* Fond d'Ã©cran */
+body {
+    background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
+    margin: 0px;
+    padding: 0px;
+}
+
 /* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
@@ -20,7 +27,7 @@
     background-color: #4C7B0B;
 }
 
-/* Placer les boutons de l'en-tête de page */
+/* Placer les boutons de l'en-tÃªte de page */
 #boutonAccueil {
     margin: 20px auto auto 20px;
 }
@@ -36,7 +43,7 @@
     margin: 20px 20px auto 20px;
 }
 
-/* Centrer les éléments de l'en-tête de page */
+/* Centrer les Ã©lÃ©ments de l'en-tÃªte de page */
 header {
     display: flex;
 }
@@ -57,7 +64,7 @@ header {
     vertical-align: top;
 }
 
-/* En-têtes du tableau */
+/* En-tÃªtes du tableau */
 #tabFicheSuivi th{
     border: solid black 1px;
     padding: 0px 3px 3px 3px;
@@ -115,17 +122,17 @@ input[type=radio] {
     margin-left: 40px;
 }
 
-/* Labels du protocole thérapeutique */
+/* Labels du protocole thÃ©rapeutique */
 .labelProtocoleTherapeutique {
     margin-left: 30px;
 }
 
-/* Cacher les labels d'indication médicale, techniques et intitules kiné */
+/* Cacher les labels d'indication mÃ©dicale, techniques et intitules kinÃ© */
 .labelPrint {
     display: none;
 }
 
-/* Input type=text de l'indication médicale */
+/* Input type=text de l'indication mÃ©dicale */
 #indicMedic {
     width: 1160px;
     margin-left: 17px;
@@ -137,7 +144,7 @@ input[type=radio] {
     margin-left: 36px;
 }
 
-/* Input type=text de l'intitulé kiné */
+/* Input type=text de l'intitulï¿½ kinÃ© */
 #intitulesKine {
     width: 250px;
 }
@@ -170,12 +177,4 @@ textarea {
     width: auto;
     display: inline-block;
     margin: 10px auto auto 200px;
-}
-
-/* Fond d'écran */
-body {
-    background: #F4DD06 url("Images/background.png") no-repeat center fixed;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
 }

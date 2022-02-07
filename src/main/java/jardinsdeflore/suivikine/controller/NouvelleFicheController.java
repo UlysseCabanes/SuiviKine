@@ -13,12 +13,12 @@ public class NouvelleFicheController {
     @Autowired
     MedecinRepository medecinRepository;
     
-    //Ajouter une fiche de suivi à la BDD
+    //Ajouter une fiche de suivi Ã  la BDD
     @GetMapping("/nouvelleFiche")
     public String nouvelleFiche(Model model) {
-        //Créer une liste de tous les médecins de la BDD triés par ordre alphabétique
+        //CrÃ©er une liste de tous les mÃ©decins de la BDD triÃ©s par ordre alphabÃ©tique
         Iterable<Medecin> lesMedecins = medecinRepository.findAllByOrderByNomAsc();
-        //Envoyer la liste à la vue
+        //Envoyer la liste Ã  la vue
         model.addAttribute("medecins", lesMedecins);
         return "nouvelleFiche";
     }

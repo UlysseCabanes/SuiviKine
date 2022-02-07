@@ -32,7 +32,7 @@ public class FicheDeSuiviController {
     @Autowired
     EntityManager em;
     
-    //Ajouter une fiche de suivi à la BDD
+    //Ajouter une fiche de suivi Ã  la BDD
     @GetMapping("/creerFicheDeSuivi")
     public String creerFicheDeSuivi(
         @RequestParam("nom") String nomParam,
@@ -44,23 +44,23 @@ public class FicheDeSuiviController {
         HttpSession session,
         Model model) throws ParseException {
 
-        //Enlever tous les espaces avant et après le nom, le prénom et le numéro de sécurité sociale
+        //Enlever tous les espaces avant et aprÃ¨s le nom, le prÃ©nom et le numÃ©ro de sÃ©curitÃ© sociale
         String nom = nomParam.trim();
         String prenom = prenomParam.trim();
         String nSecu = nSecuParam.trim();
         
         String dateNaissance = UtilDate.getDateFormatddMMyyyy(dateNaissanceParam);
-        //Récupérer l'id de l'équipe kiné connectée
+        //RÃ©cupÃ©rer l'id de l'Ã©quipe kinÃ© connectÃ©e
         int idEquipe = (int) session.getAttribute("idEquipe");
-        //Créer un résident avec les paramètres
+        //CrÃ©er un rÃ©sident avec les paramÃ¨tres de base
         Resident resident = new Resident(nom, prenom, dateNaissance, sexe, nSecu, medecinPrescripteur, idEquipe);
-        //Vérifier si le résident existe déja
+        //VÃ©rifier si le rÃ©sident existe dÃ©ja
         if(residentRepository.existsById(new ResidentId(nom, prenom, dateNaissance))) {
-            //Si il existe, on renvoit à la même page et on ne sauvegarde pas le résident dans la BDD
+            //S'il existe, on renvoit Ã  la mÃªme page et on ne sauvegarde pas le rÃ©sident dans la BDD
             return "redirect:/nouvelleFiche";
-        } 
+        }
         else {
-            //Sinon, on on sauvegarde le résident dans la BDD et on redirige vers la page "ficheDeSuivi"
+            //Sinon, on on sauvegarde le rÃ©sident dans la BDD et on redirige vers la page "ficheDeSuivi"
             residentRepository.save(resident);
             return "redirect:/voirFicheDeSuivi?nom="+nom+"&prenom="+prenom+"&dateNaissance="+dateNaissance;
         }
@@ -75,18 +75,18 @@ public class FicheDeSuiviController {
         HttpSession session,
         Model model) throws ParseException {
         
-        //Récupérer l'id de l'équipe kiné connectée
+        //RÃ©cupÃ©rer l'id de l'Ã©quipe kinÃ© connectÃ©e
         int idEquipe = (int) session.getAttribute("idEquipe");
-        //Envoyer l'id à la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 1, sinon accueil
+        //Envoyer l'id Ã  la vue pour changer l'action du bouton "accueil" : accueil admin si l'id vaut 1, sinon accueil
         model.addAttribute("idEquipe", idEquipe);
             
-        //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
+        //Trouver le rÃ©sident correspondant aux nom, prÃ©nom et date de naissance renseignÃ©s (ClÃ© primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nomParam, prenomParam, dateNaissanceParam));
-        //Envoyer tous les attributs du résident à la vue
+        //Envoyer tous les attributs du rÃ©sident Ã  la vue
         model.addAttribute("nom", resident.getNom());
         model.addAttribute("prenom", resident.getPrenom());
         model.addAttribute("dateNaissance", resident.getDateNaissance());
-        //Calculer l'âge à partir de la date de naissance
+        //Calculer l'Ã¢ge Ã  partir de la date de naissance
         int age = UtilDate.getAge(dateNaissanceParam);
         model.addAttribute("age", age);
         model.addAttribute("sexe", resident.getSexe());
@@ -94,7 +94,7 @@ public class FicheDeSuiviController {
         model.addAttribute("medecin", resident.getMedecinPrescripteur());
         String nomEquipe = equipeKineRepository.findById(resident.getEquipeKine()).get().getNom();
         model.addAttribute("equipeKine", nomEquipe);
-        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la vue
+        //VÃ©rifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter Ã  la vue
         String datePrescription = resident.getDatePrescription();
         if (datePrescription != null && !datePrescription.isEmpty()) {
             model.addAttribute("datePrescriptionLabel", datePrescription);
@@ -369,9 +369,9 @@ public class FicheDeSuiviController {
         @RequestParam("archive") Optional<String> archive
         ) throws ParseException {
 
-        //Trouver le résident correspondant aux nom, prénom et date de naissance renseignés (Clé primaire)
+        //Trouver le rÃ©sident correspondant aux nom, prÃ©nom et date de naissance renseignÃ©s (ClÃ© primaire)
         Resident resident = em.find(Resident.class, new ResidentId(nom, prenom, dateNaissanceParam));
-        //Vérifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter à la BDD
+        //VÃ©rifier que les informations facultatives existent et qu'elles ne sont pas vides, puis les ajouter Ã  la BDD
         if (datePrescriptionParam.isPresent() && !datePrescriptionParam.get().isEmpty()) {
             String datePrescription = UtilDate.getDateFormatddMMyyyy(datePrescriptionParam.get());
             resident.setDatePrescription(datePrescription);
@@ -543,26 +543,26 @@ public class FicheDeSuiviController {
         HttpSession session
         ) throws ParseException {
 
-        //Enlever tous les espaces avant et après le nom et le prénom
+        //Enlever tous les espaces avant et aprÃ¨s le nom et le prÃ©nom
         String nom = nomParam.trim();
         String prenom = prenomParam.trim();
 
-        //Supprimer le résident de la BDD
+        //Supprimer le rÃ©sident de la BDD
         residentRepository.deleteById(new ResidentId(nom, prenom, dateNaissance));
         
-        //Récupérer l'id de l'équipe kiné connectée
+        //RÃ©cupÃ©rer l'id de l'Ã©quipe kinÃ© connectÃ©e
         int idEquipe = (int) session.getAttribute("idEquipe");
         if (idEquipe == 1) {
-            //Renvoyer à l'accueil admin
+            //Renvoyer Ã  l'accueil admin
             return "accueilAdmin";
         }
         else {
-            //Renvoyer à l'accueil
+            //Renvoyer Ã  l'accueil
             return "accueil";
         }
     }
     
-    //Gérer les erreurs 
+    //GÃ©rer les erreurs 
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public String databaseError() {
         return "accueil";

@@ -38,7 +38,7 @@
     margin: 20px auto auto 20px;
 }
 
-/* Bouton déconnexion */
+/* Bouton dÃ©connexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
@@ -63,7 +63,14 @@ select {
     border: solid black 2px;
 }
 
-/* En-tête de page */
+/* Fond d'Ã©cran */
+body {
+    background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* En-tÃªte de page */
 header {
     display: flex;
 }
@@ -86,7 +93,7 @@ header {
     background-color: #D4BD00;
 }
 
-/* input type="date", input type="readio" et leurs labels, lise déroulante */
+/* input type="date", input type="readio" et leurs labels, lise dÃ©roulante */
 input[type=date], input[type=radio], .labelRadio, select {
     cursor: pointer;
 }
@@ -95,12 +102,4 @@ input[type=date], input[type=radio], .labelRadio, select {
 table td {
     height: 40px;
     padding-left: 50px;
-}
-
-/* Fond d'écran */
-body {
-    background: #F4DD06 url("Images/background.png") no-repeat center fixed;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
 }

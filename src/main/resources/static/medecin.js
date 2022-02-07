@@ -1,8 +1,8 @@
 ////----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Enregistrer les modifications du médecin dans la BDD
+//Enregistrer les modifications du mÃ©decin dans la BDD
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     function enregistrerModifications(event) {
-        //Id du bouton qui a déclenché la fonction
+        //Id du bouton qui a dï¿½clenchÃ© la fonction
         let id = event.id;
         //Id du formulaire correspondant
         let formId = "#formMedecin-" + id;
@@ -10,16 +10,16 @@
         $.ajax({
             url: "modifierMedecin",
             type: "POST",
-            //Données extraites du formulaire formMedecin
+            //DonnÃ©es extraites du formulaire formMedecin
             data:  $(formId).serialize()
         });
     }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Retirer le médecin de la BDD
+//Retirer le mÃ©decin de la BDD
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     function retirerMedecin(event) {
-        //Id du bouton qui a déclenché la fonction
+        //Id du bouton qui a dÃ©clenchÃ© la fonction
         let id = event.id;
         //Id du formulaire correspondant
         let formId = "#formMedecin-" + id;
@@ -27,9 +27,9 @@
         $.ajax({
             url: "retirerMedecin",
             type: "GET",
-            //Données extraites du formulaire formMedecin
+            //Donnï¿½es extraites du formulaire formMedecin
             data:  $(formId).serialize(),
-            //Recharger la page pour que le médecin supprimé ne soit plus visible
+            //Recharger la page pour que le mÃ©decin supprimÃ© ne soit plus visible
             success : function() {
                         window.location.reload(true);
                       }

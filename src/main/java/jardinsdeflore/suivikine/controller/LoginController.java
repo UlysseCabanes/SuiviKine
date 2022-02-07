@@ -19,30 +19,30 @@ public class LoginController {
 
     @GetMapping("/login")
     public String deconnexion() {
-        //Lors du clic sur le bouton "déconnexion", renvoyer à la page de login
+        //Lors du clic sur le bouton "dÃ©connexion", renvoyer Ã  la page de login
         return "login";
     }
 
-    //Se connecter avec un compte admin ou équipe kiné
+    //Se connecter avec un compte admin ou Ã©quipe kinÃ©
     @GetMapping("/connexion")
     public String connexion(
             @RequestParam("login") String loginParam,
             @RequestParam("mdp") String mdpParam,
             HttpSession session) {
 
-        //Enlever tous les espaces avant et après l'identifiant et le mot de passe
+        //Enlever tous les espaces avant et aprÃ¨s l'identifiant et le mot de passe
         String login = loginParam.trim();
         String mdp = mdpParam.trim();
 
-        //Vérifier si l'identifiant et le mot de passe saisis contiennent tous les deux au moins un caractère
+        //VÃ©rifier si l'identifiant et le mot de passe saisis contiennent tous les deux au moins un caractÃ¨re
         if (!login.isEmpty() && !mdp.isEmpty()) {
-            //Trouver l'équipe kiné correspondant au login saisit
+            //Trouver l'Ã©quipe kinÃ© correspondant au login saisit
             EquipeKine equipe = equipeKineRepository.findByLogin(login);
-            //Vérifier si le mot de passe de cette équipe kiné correspond au mot de passe saisit
+            //VÃ©rifier si le mot de passe de cette Ã©quipe kinÃ© correspond au mot de passe saisit
             if (equipe.getMdp().equals(mdp)) {
-                //Passer l'id de l'équipe kiné en attribut de session
+                //Passer l'id de l'Ã©quipe kinÃ© en attribut de session
                 session.setAttribute("idEquipe", equipe.getIdEquipeKine());
-                //Vérifier si le login saisit est celui de l'administrateur
+                //VÃ©rifier si le login saisit est celui de l'administrateur
                 if (equipe.getNom().equals("admin")) {
                     //Rediriger vers l'accueil de l'administrateur
                     return "accueilAdmin";
@@ -51,11 +51,11 @@ public class LoginController {
                 return "accueil";
             }
         }
-        //En cas d'échec, rester sur la page de login
+        //En cas d'Ã©chec, rester sur la page de login
         return "login";
     }
 
-    //Gérer les erreurs 
+    //GÃ©rer les erreurs 
     @ExceptionHandler({NullPointerException.class})
     public String nullPointerError() {
         return "login";

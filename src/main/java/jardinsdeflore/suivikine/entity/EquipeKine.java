@@ -37,7 +37,7 @@ public class EquipeKine implements Serializable{
         this.mdp = mdp;
     }
 
-    //Getter
+    //Getters
     public int getIdEquipeKine() {
         return idEquipeKine;
     }
@@ -54,7 +54,7 @@ public class EquipeKine implements Serializable{
         return mdp;
     }
 
-    //Setter
+    //Setters
     public void setIdEquipeKine(int idEquipeKine) {
         this.idEquipeKine = idEquipeKine;
     }

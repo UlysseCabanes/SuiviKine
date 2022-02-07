@@ -1,4 +1,4 @@
-/* Fond d'?cran */
+/* Fond d'écran */
 body {
     background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
     margin: 0px;
@@ -45,7 +45,7 @@ form {
     display: inline-block;
 }
 
-/* Mise en forme du bouton d?connexion */
+/* Mise en forme du bouton déconnexion */
 #boutonDeconnexion {
     border: solid black 1px;
     border-radius: 10px;
@@ -61,7 +61,7 @@ form {
     transition: background-color 0.5s;
 }
 
-/* Changer la couleur de fond du bouton d?connexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
+/* Changer la couleur de fond du bouton déconnexion lorsque l'on passe dessus avec le curseur pour montrer qu'il est cliquable */
 #boutonDeconnexion:hover {
     background-color: #4C7B0B;
 }

@@ -226,7 +226,7 @@ public class Resident implements Serializable {
         this.equipeKine = equipeKine;
     }
 
-    //Getter
+    //Getters
     public String getNom() {
         return nom;
     }
@@ -467,7 +467,7 @@ public class Resident implements Serializable {
         return archive;
     }
 
-    //Setter
+    //Setters
     public void setNom(String nom) {
         this.nom = nom;
     }

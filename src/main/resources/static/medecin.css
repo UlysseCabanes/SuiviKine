@@ -1,3 +1,10 @@
+/* Fond d'Ã©cran */
+body {
+    background: #F4DD06 url("Images/background.png") no-repeat center/cover fixed;
+    margin: 0px;
+    padding: 0px;
+}
+
 /* Mise en forme des boutons */
 .bouton {
     border: solid black 1px;
@@ -24,7 +31,7 @@
     margin: 20px auto auto 20px;
 }
 
-/* Bouton déconnexion */
+/* Bouton dÃ©connexion */
 #boutonDeconnexion {
     margin: 20px 20px auto auto;
 }
@@ -34,7 +41,7 @@ h1 {
     margin: auto;
 }
 
-/* En-tête de page */
+/* En-tÃªte de page */
 header {
     display: flex;
 }
@@ -77,17 +84,9 @@ input[type=text] {
     width: 400px;
 }
 
-/* Bouton ajouter médecin */
+/* Bouton ajouter mÃ©decin */
 #ajouterMedecin {
     width: 150px;
     font-weight: bold;
     margin: auto auto 50px 520px;
-}
-
-/* Fond d'écran */
-body {
-    background: #F4DD06 url("Images/background.png") no-repeat center fixed;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
 }

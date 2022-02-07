@@ -21,19 +21,19 @@ public class MedecinController {
     @Autowired
     EntityManager em;
 
-    //Voir tous les médecins de la BDD 
+    //Voir tous les mÃ©decins de la BDD 
     @GetMapping("/medecin")
     public String medecin(Model model) {
 
-        //Créer une liste de tous les médecins de la BDD triés par ordre alphabétique
+        //CrÃ©er une liste de tous les mÃ©decins de la BDD triÃ©s par ordre alphabÃ©tique
         Iterable<Medecin> lesMedecins = medecinRepository.findAllByOrderByNomAsc();
-        //Envoyer la liste à la vue
+        //Envoyer la liste Ã  la vue
         model.addAttribute("lesMedecins", lesMedecins);
 
         return "medecin";
     }
 
-    //Modifier un médecin
+    //Modifier un mÃ©decin
     @Transactional
     @RequestMapping(value = "/modifierMedecin", method = RequestMethod.POST)
     public void modifierMedecin(
@@ -41,33 +41,33 @@ public class MedecinController {
             @RequestParam("nom") String nomParam
     ) {
 
-        //Enlever tous les espaces avant et après le nom
+        //Enlever tous les espaces avant et aprÃ¨s le nom
         String nom = nomParam.trim();
-        //Trouver le médecin correspondant à l'id renseigné (Clé primaire)
+        //Trouver le mÃ©decin correspondant Ã  l'id renseignÃ© (ClÃ© primaire)
         Medecin medecin = em.find(Medecin.class, idMedecin);
         if (!nom.isEmpty()) {
-            //Modifier le nom du médecin
+            //Modifier le nom du mÃ©decin
             medecin.setNom(nom);
         }
     }
 
-    //Ajouter un médecin à la BDD
+    //Ajouter un mÃ©decin Ã  la BDD
     @GetMapping("/ajouterMedecin")
     public String ajouterMedecin() {
 
-        ///Créer un nouveau médecin
+        ///CrÃ©er un nouveau mÃ©decin
         Medecin medecin = new Medecin("nom");
-        //Enregistrer le médecin dans la bdd
+        //Enregistrer le mÃ©decin dans la BDD
         medecinRepository.save(medecin);
 
         return "redirect:/medecin";
     }
 
-    //Retirer un médecin de la BDD
+    //Retirer un mÃ©decin de la BDD
     @GetMapping("/retirerMedecin")
     public String retirerMedecin(
             @RequestParam("idMedecin") int idMedecin) {
-        //Retirer le médecin correspondant à l'id renseigné
+        //Retirer le mÃ©decin correspondant Ã  l'id renseignÃ©
         medecinRepository.deleteById(idMedecin);
 
         return "redirect:/medecin";

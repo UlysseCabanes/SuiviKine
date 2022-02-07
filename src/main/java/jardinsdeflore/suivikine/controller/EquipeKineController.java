@@ -33,19 +33,19 @@ public class EquipeKineController {
     @Autowired
     EntityManager em;
         
-    //Voir toutes les équipes de la bdd    
+    //Voir toutes les Ã©quipes de la BDD    
     @GetMapping("/equipeKine")
     public String equipeKine(Model model) {
 
-        //Récupérer toutes les équipes
+        //RÃ©cupÃ©rer toutes les Ã©quipes
         Iterable<EquipeKine> lesEquipesKine = equipeKineRepository.findAll();
-        //Envoyer la liste à la vue
+        //Envoyer la liste Ã  la vue
         model.addAttribute("lesEquipesKine", lesEquipesKine);
         //Afficher la vue
         return "equipeKine";
     }
 
-    //Modifier une équipe
+    //Modifier une Ã©quipe
     @Transactional
     @RequestMapping(value = "/modifierEquipeKine", method = RequestMethod.POST)
     public void modifierEquipeKine(
@@ -55,14 +55,14 @@ public class EquipeKineController {
         @RequestParam("mdp") String mdpParam
     ) {
         
-        //Enlever tous les espaces avant et après le nom, l'identifiant et le mot de passe
+        //Enlever tous les espaces avant et aprÃ¨s le nom, l'identifiant et le mot de passe
         String nom = nomParam.trim();
         String login = loginParam.trim();
         String mdp = mdpParam.trim();
         
-        //Trouver l'équipe kiné correspondant à l'id renseigné (Clé primaire)
+        //Trouver l'Ã©quipe kinÃ© correspondant Ã  l'id renseignÃ© (ClÃ© primaire)
         EquipeKine equipe = em.find(EquipeKine.class, idEquipeKine);
-        //Modifier le nom, le login et le mot de passe de l'équipe
+        //Modifier le nom, le login et le mot de passe de l'Ã©quipe
         if (!nom.isEmpty()) {
             equipe.setNom(nom);
         }
@@ -75,33 +75,33 @@ public class EquipeKineController {
         
     }
 
-    //Ajouter une équipe à la BDD
+    //Ajouter une Ã©quipe Ã  la BDD
     @GetMapping("/ajouterEquipeKine")
     public String ajouterEquipeKine() {
         
-        ///Créer une nouvelle équipe
+        ///CrÃ©er une nouvelle Ã©quipe
         EquipeKine equipe = new EquipeKine("nom", "login", "mdp");
-        //Enregistrer l'équipe dans la bdd
+        //Enregistrer l'Ã©quipe dans la BDD
         equipeKineRepository.save(equipe);
         //Afficher la vue
         return "redirect:/equipeKine";
     }
 
-    //Retirer une équipe de la BDD
+    //Retirer une Ã©quipe de la BDD
     @GetMapping("/retirerEquipeKine")
     public String retirerEquipeKine(
         @RequestParam("idEquipeKine") int idEquipe) 
     {
-        //Créer une liste de tous les résidents
+        //CrÃ©er une liste de tous les rÃ©sidents
         Iterable<Resident> lesResidents = residentRepository.findAll();
-        //Vérifier i l'équipe n'est pas renseignée dans une fiche de suivi
+        //VÃ©rifier si l'Ã©quipe n'est pas renseignÃ©e dans une fiche de suivi
         for (Resident r : lesResidents) {
             if (r.getEquipeKine() == idEquipe) {
-                //Si c'est le cas, renvoyer vers la page sans supprimer l'équipe
+                //Si c'est le cas, renvoyer vers la page sans supprimer l'Ã©quipe
                 return "redirect:/equipeKine";
             }
         }
-        //Sinon, retirer l'équipe correspondant à l'id renseigné
+        //Sinon, retirer l'Ã©quipe correspondant Ã  l'id renseignÃ©
         equipeKineRepository.deleteById(idEquipe);
         
         return "redirect:/equipeKine";

@@ -1,3 +1,4 @@
+/* Fond d'écran' */
 body {
     background: url("Images/background.png") no-repeat center/cover fixed, #F4DD06;
     margin: 0px;
@@ -38,7 +39,7 @@ input[type=password] {
     margin-left: 1px;
 }
 
-/* Premi�re partie du titre */
+/* Première partie du titre */
 #titre1 {
     margin: 0px auto auto 100px;
 }
@@ -53,7 +54,7 @@ input[type=password] {
     margin-bottom: 10px;
 }
 
-/* Divs id et mdp*/
+/* Divs id et mdp */
 #divId, #divMdp {
     margin-left: 25px;
 }

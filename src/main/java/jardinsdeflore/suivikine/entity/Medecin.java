@@ -28,7 +28,7 @@ public class Medecin implements Serializable{
         this.nom = nom;
     }
 
-    //Getter
+    //Getters
     public int getIdMedecin() {
         return idMedecin;
     }
@@ -37,7 +37,7 @@ public class Medecin implements Serializable{
         return nom;
     }
 
-    //Setter
+    //Setters
     public void setIdMedecin(int idMedecin) {
         this.idMedecin = idMedecin;
     }
@@ -45,6 +45,4 @@ public class Medecin implements Serializable{
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
-    
 }
