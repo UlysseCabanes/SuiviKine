@@ -21,9 +21,9 @@
         <input type="hidden" th:value="${dateNaissance}" name="dateNaissance">
         <input type="button" value="Supprimer la fiche" class="bouton" id="boutonSuppression" onclick="confirmerSuppression()">
     </form>
-    <form>
-        <input type="submit" value="Imprimer la fiche" class="bouton" id="boutonImpression">
-    </form>
+    <div>
+        <button class="bouton" id="boutonImpression">Imprimer la fiche</button>
+    </div>
     <form action="login">
         <input type="submit" value="Déconnexion" class="bouton" id="boutonDeconnexion">
     </form>
