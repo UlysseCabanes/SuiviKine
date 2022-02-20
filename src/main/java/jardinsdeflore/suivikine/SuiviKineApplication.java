@@ -1,6 +1,5 @@
 package jardinsdeflore.suivikine;
 
-import java.nio.charset.Charset;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,11 +1,14 @@
 package jardinsdeflore.suivikine.controller;
 
+import jardinsdeflore.suivikine.composite.domains.ResidentId;
 import jardinsdeflore.suivikine.entity.EquipeKine;
+import jardinsdeflore.suivikine.entity.Resident;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jardinsdeflore.suivikine.repository.EquipeKineRepository;
+import jardinsdeflore.suivikine.repository.ResidentRepository;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("login")
 public class LoginController {
 
+    @Autowired
+    ResidentRepository residentRepository;
+    
     @Autowired
     EquipeKineRepository equipeKineRepository;
 
@@ -30,6 +36,15 @@ public class LoginController {
             @RequestParam("mdp") String mdpParam,
             HttpSession session) {
 
+        /*
+        Ajout d'une fiche de suivi pour les tests
+        */
+        Resident res = new Resident("MOREL", "Laura", "24/03/1923", "F", "223033450012765", "DURANT Paul", 1);
+        if(!residentRepository.existsById(new ResidentId(res.getNom(), res.getPrenom(), res.getDateNaissance()))) {
+            residentRepository.save(res);
+        }
+        
+        
         //Enlever tous les espaces avant et après l'identifiant et le mot de passe
         String login = loginParam.trim();
         String mdp = mdpParam.trim();

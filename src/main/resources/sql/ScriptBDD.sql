@@ -19,6 +19,11 @@ CREATE SCHEMA `suivikine` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
 USE `suivikine` ;
 
 -- -----------------------------------------------------
+-- Création des tables
+-- -----------------------------------------------------
+
+
+-- -----------------------------------------------------
 -- Table `suivikine`.`resident`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `suivikine`.`resident`;
@@ -113,13 +118,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Valeurs
 -- -----------------------------------------------------
+
+
 -- -----------------------------------------------------
--- -----------------------------------------------------
--- Equipes kiné
+-- Table `suivikine`.`equipekine`
 -- -----------------------------------------------------
 INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("admin", "admin", "mdpAdmin");
 INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("Santenac", "equipe1", "mdp1");
 INSERT INTO `suivikine`.`equipe_kine` (nom, login, mdp) VALUES ("Martin", "equipe2", "mdp2");
+
+-- -----------------------------------------------------
+-- Table `suivikine`.`medecin`
+-- -----------------------------------------------------
+INSERT INTO `suivikine`.`medecin` (nom) VALUES ("DURANT Paul");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
